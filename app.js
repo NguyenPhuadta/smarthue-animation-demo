@@ -28,10 +28,10 @@ for(const clip of [...bridges,...errors]){const tab=document.createElement('butt
 function dataFor(clip){
  if(cache.has(clip.id))return Promise.resolve(cache.get(clip.id));
  if(location.protocol!=='file:'&&typeof DecompressionStream!=='undefined'){
-  const request=fetch('animations/'+clip.file+'.json.gz?rev=smooth-60fps-v14').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
+  const request=fetch('animations/'+clip.file+'.json.gz?rev=timeout-entry-v15').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
  }
  const task=loading.then(()=>new Promise((resolve,reject)=>{
-  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=smooth-60fps-v14';
+  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=timeout-entry-v15';
   script.onload=()=>{const data=window.animationData;cache.set(clip.id,data);script.remove();resolve(data)};
   script.onerror=()=>{script.remove();reject(Error('Không tải được '+clip.file))};document.body.appendChild(script);
  }));loading=task.catch(()=>{});return task;
