@@ -6,7 +6,8 @@ const states=[
  {id:4,node:'24841:7732',slot:'24841:7733',label:'Thành công',heading:'Connected to',file:'04-thanh-cong',frames:450}
 ];
 const bridges=[{id:5,label:'Nối Tìm thấy → Đang kết nối',file:'05-tim-thay-den-ket-noi',frames:168,from:2,to:3}];
-const clips=[...states,...bridges],flow=[1,2,5,3,4],cache=new Map(),players=new Map();
+const errors=[{id:7,label:'Không tìm thấy đèn',file:'07-no-light-found',frames:210,screen:1},{id:8,label:'Kết nối quá thời gian',file:'08-connection-timeout',frames:240,screen:3}];
+const clips=[...states,...bridges,...errors],flow=[1,2,5,3,4],cache=new Map(),players=new Map(),prepared=new Map();let preparation=null,activeId=null;
 const $=id=>document.getElementById(id);let loading=Promise.resolve(),mode='overview',selected=1,paused=false,epoch=0;
 window.previewEvents=[];window.previewReady=false;window.previewSpeed=1;
 function log(type,clip){window.previewEvents.push({type,clip,time:performance.now()})}
@@ -23,10 +24,11 @@ for(const state of states){
  $('screens').appendChild(card);
  const tab=document.createElement('button');tab.textContent=state.id+'. '+state.label;tab.dataset.state=state.id;tab.onclick=()=>start('single',state.id);$('state-tabs').appendChild(tab);
 }
+for(const clip of [...bridges,...errors]){const tab=document.createElement('button');tab.textContent=clip.label;tab.dataset.state=clip.id;tab.onclick=()=>start('single',clip.id);$('state-tabs').appendChild(tab);}
 function dataFor(clip){
  if(cache.has(clip.id))return Promise.resolve(cache.get(clip.id));
  const task=loading.then(()=>new Promise((resolve,reject)=>{
-  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=direct-success-v9';
+  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=preloaded-v10';
   script.onload=()=>{const data=window.animationData;cache.set(clip.id,data);script.remove();resolve(data)};
   script.onerror=()=>{script.remove();reject(Error('Không tải được '+clip.file))};document.body.appendChild(script);
  }));loading=task.catch(()=>{});return task;
@@ -54,33 +56,48 @@ function updateStatus(clip){
  $('pause').textContent=paused?'Phát tiếp':'Tạm dừng';
  $('status').textContent=mode==='overview'?'4 màn hình · Mỗi state lặp toàn bộ':`${mode==='sequence'?'Cả luồng · ':''}${clip.label} · ${clip.frames/60}s${paused?' · Đang dừng':''}`;
 }
-async function playClip(id,stateId,token){
- const clip=clips.find(c=>c.id===id),data=align(structuredClone(await dataFor(clip)));
- if(token!==epoch)return;
+function screenFor(clip){return clip.screen||clip.from||clip.id}
+async function prepareClip(clip){
+ const data=align(structuredClone(await dataFor(clip))),stateId=screenFor(clip);
  const slot=document.querySelector(`.phone[data-state="${stateId}"] .animation-slot`),holder=document.createElement('div');holder.className='animation-frame';holder.style.visibility='hidden';slot.appendChild(holder);
  const animation=lottie.loadAnimation({container:holder,renderer:'svg',autoplay:false,loop:false,animationData:data,rendererSettings:{preserveAspectRatio:'xMidYMid meet'}});
  await new Promise((resolve,reject)=>{animation.addEventListener('DOMLoaded',resolve);animation.addEventListener('data_failed',()=>reject(Error('Animation không tải được')))});
- if(token!==epoch){animation.destroy();holder.remove();return}
- const old=players.get(stateId);old?.animation.destroy();old?.holder.remove();players.set(stateId,{animation,holder,clip});
- holder.style.visibility='visible';animation.setSpeed(window.previewSpeed);animation.goToAndStop(0,true);display(stateId);updateStatus(clip);log('load',id);
+ if(!animation.imagePreloader.loadedImages())await new Promise(resolve=>animation.addEventListener('loaded_images',resolve));
+ animation.goToAndStop(0,true);
+ const player={animation,holder,clip,stateId};prepared.set(clip.id,player);
  animation.addEventListener('complete',()=>{
-  if(token!==epoch)return;log('complete',id);
+  if(activeId!==clip.id||!player.token||player.token!==epoch)return;
+  log('complete',clip.id);
   if(mode==='sequence'){
-   const index=flow.indexOf(id),next=flow[index+1];
-   if(next){const nextState=next===5?2:next===6?3:next;playClip(next,nextState,token).catch(fail);return}
+   const next=flow[flow.indexOf(clip.id)+1];
+   if(next){activateClip(next,epoch);return}
   }
-  animation.goToAndStop(0,true);if(!paused)animation.play();log('loop',id);
+  animation.goToAndStop(0,true);if(!paused)animation.play();log('loop',clip.id);
  });
- if(!paused)animation.play();return animation;
+ return player;
+}
+function prepareAll(){
+ if(!preparation)preparation=(async()=>{for(const clip of clips)await prepareClip(clip)})();
+ return preparation;
+}
+function activateClip(id,token){
+ if(token!==epoch)return;
+ const player=prepared.get(id);if(!player)throw Error('Animation chưa sẵn sàng');
+ for(const p of prepared.values()){p.animation.pause();p.holder.style.visibility='hidden';p.token=null;}
+ players.clear();players.set(player.stateId,player);activeId=id;player.token=token;
+ const animation=player.animation;animation.setSpeed(window.previewSpeed);animation.goToAndStop(0,true);
+ player.holder.style.visibility='visible';display(player.stateId);updateStatus(player.clip);
+ for(const b of $('state-tabs').children)b.setAttribute('aria-pressed',mode==='single'&&Number(b.dataset.state)===id);
+ log('load',id);if(!paused)animation.play();return animation;
 }
 function fail(error){$('status').textContent=error.message;console.error(error)}
 async function start(nextMode,stateId=1){
  const token=++epoch;mode=nextMode;selected=stateId;window.previewReady=false;
- for(const player of players.values())player.animation.pause();display(stateId);
+ for(const p of prepared.values())p.animation.pause();
+ if(!preparation)$('status').textContent='Đang chuẩn bị animation · chỉ tải một lần…';
  try{
-  if(mode==='overview')await Promise.all(states.map(s=>playClip(s.id,s.id,token)));
-  else await playClip(mode==='sequence'?1:stateId,mode==='sequence'?1:stateId,token);
-  if(token===epoch)window.previewReady=true;
+  await prepareAll();if(token!==epoch)return;
+  activateClip(mode==='sequence'?1:stateId,token);window.previewReady=true;
  }catch(error){fail(error)}
 }
 $('overview').onclick=()=>start('overview');$('sequence').onclick=()=>start('sequence');$('restart').onclick=()=>start(mode,selected);
