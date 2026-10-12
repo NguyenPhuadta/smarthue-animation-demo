@@ -28,7 +28,7 @@ for(const clip of [...bridges,...errors]){const tab=document.createElement('butt
 function dataFor(clip){
  if(cache.has(clip.id))return Promise.resolve(cache.get(clip.id));
  const task=loading.then(()=>new Promise((resolve,reject)=>{
-  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=preloaded-v10';
+  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=whole-flow-v11';
   script.onload=()=>{const data=window.animationData;cache.set(clip.id,data);script.remove();resolve(data)};
   script.onerror=()=>{script.remove();reject(Error('Không tải được '+clip.file))};document.body.appendChild(script);
  }));loading=task.catch(()=>{});return task;
@@ -69,7 +69,7 @@ async function prepareClip(clip){
   if(activeId!==clip.id||!player.token||player.token!==epoch)return;
   log('complete',clip.id);
   if(mode==='sequence'){
-   const next=flow[flow.indexOf(clip.id)+1];
+   const next=flow[(flow.indexOf(clip.id)+1)%flow.length];
    if(next){activateClip(next,epoch);return}
   }
   animation.goToAndStop(0,true);if(!paused)animation.play();log('loop',clip.id);
