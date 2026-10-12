@@ -8,7 +8,7 @@ const states=[
 const bridges=[{id:5,label:'Nối Tìm thấy → Đang kết nối',file:'05-tim-thay-den-ket-noi',frames:168,from:2,to:3}];
 const errors=[{id:7,label:'Không tìm thấy đèn',file:'07-no-light-found',frames:210,screen:1},{id:8,label:'Kết nối quá thời gian',file:'08-connection-timeout',frames:240,screen:3}];
 const clips=[...states,...bridges,...errors],flow=[1,2,5,3,4],cache=new Map(),players=new Map(),prepared=new Map();let preparation=null,activeId=null;
-const $=id=>document.getElementById(id);let loading=Promise.resolve(),mode='overview',selected=1,paused=false,epoch=0;
+const $=id=>document.getElementById(id);let loading=Promise.resolve(),mode='sequence',selected=1,paused=false,epoch=0;
 window.previewEvents=[];window.previewReady=false;window.previewSpeed=1;
 function log(type,clip){window.previewEvents.push({type,clip,time:performance.now()})}
 for(const state of states){
@@ -28,7 +28,7 @@ for(const clip of [...bridges,...errors]){const tab=document.createElement('butt
 function dataFor(clip){
  if(cache.has(clip.id))return Promise.resolve(cache.get(clip.id));
  const task=loading.then(()=>new Promise((resolve,reject)=>{
-  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=whole-flow-v11';
+  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=entry-flow-v12';
   script.onload=()=>{const data=window.animationData;cache.set(clip.id,data);script.remove();resolve(data)};
   script.onerror=()=>{script.remove();reject(Error('Không tải được '+clip.file))};document.body.appendChild(script);
  }));loading=task.catch(()=>{});return task;
@@ -93,6 +93,8 @@ function activateClip(id,token){
 function fail(error){$('status').textContent=error.message;console.error(error)}
 async function start(nextMode,stateId=1){
  const token=++epoch;mode=nextMode;selected=stateId;window.previewReady=false;
+ display(mode==='sequence'?1:screenFor(clips.find(c=>c.id===stateId)));
+ window.scrollTo(0,0);
  for(const p of prepared.values())p.animation.pause();
  if(!preparation)$('status').textContent='Đang chuẩn bị animation · chỉ tải một lần…';
  try{
