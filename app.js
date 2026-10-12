@@ -5,8 +5,8 @@ const states=[
  {id:3,node:'24841:7721',slot:'24841:7722',label:'Đang kết nối',heading:'Connecting to',file:'03-dang-ket-noi',frames:120},
  {id:4,node:'24841:7732',slot:'24841:7733',label:'Thành công',heading:'Connected to',file:'04-thanh-cong',frames:450}
 ];
-const bridges=[{id:5,label:'Nối Tìm thấy → Đang kết nối',file:'05-tim-thay-den-ket-noi',frames:168,from:2,to:3},{id:6,label:'Nối Đang kết nối → Thành công',file:'06-ket-noi-den-thanh-cong',frames:66,from:3,to:4}];
-const clips=[...states,...bridges],flow=[1,2,5,3,6,4],cache=new Map(),players=new Map();
+const bridges=[{id:5,label:'Nối Tìm thấy → Đang kết nối',file:'05-tim-thay-den-ket-noi',frames:168,from:2,to:3}];
+const clips=[...states,...bridges],flow=[1,2,5,3,4],cache=new Map(),players=new Map();
 const $=id=>document.getElementById(id);let loading=Promise.resolve(),mode='overview',selected=1,paused=false,epoch=0;
 window.previewEvents=[];window.previewReady=false;window.previewSpeed=1;
 function log(type,clip){window.previewEvents.push({type,clip,time:performance.now()})}
