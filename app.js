@@ -7,7 +7,7 @@ const states=[
 ];
 const bridges=[{id:5,label:'Nối Tìm thấy → Đang kết nối',file:'05-tim-thay-den-ket-noi',frames:168,from:2,to:3}];
 const errors=[{id:7,label:'Không tìm thấy đèn',file:'07-no-light-found',frames:210,screen:1},{id:8,label:'Kết nối quá thời gian',file:'08-connection-timeout',frames:240,screen:3}];
-const clips=[...states,...bridges,...errors],flow=[1,2,5,3,4],cache=new Map(),players=new Map(),prepared=new Map();let preparation=null,activeId=null;
+const clips=[...states,...bridges,...errors],flow=[1,2,5,3,4],cache=new Map(),players=new Map(),prepared=new Map();const preparing=new Map();let preparation=null,activeId=null;
 const $=id=>document.getElementById(id);let loading=Promise.resolve(),mode='sequence',selected=1,paused=false,epoch=0;
 window.previewEvents=[];window.previewReady=false;window.previewSpeed=1;
 function log(type,clip){window.previewEvents.push({type,clip,time:performance.now()})}
@@ -27,8 +27,11 @@ for(const state of states){
 for(const clip of [...bridges,...errors]){const tab=document.createElement('button');tab.textContent=clip.label;tab.dataset.state=clip.id;tab.onclick=()=>start('single',clip.id);$('state-tabs').appendChild(tab);}
 function dataFor(clip){
  if(cache.has(clip.id))return Promise.resolve(cache.get(clip.id));
+ if(location.protocol!=='file:'&&typeof DecompressionStream!=='undefined'){
+  const request=fetch('animations/'+clip.file+'.json.gz?rev=fast-load-v13').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
+ }
  const task=loading.then(()=>new Promise((resolve,reject)=>{
-  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=entry-flow-v12';
+  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=fast-load-v13';
   script.onload=()=>{const data=window.animationData;cache.set(clip.id,data);script.remove();resolve(data)};
   script.onerror=()=>{script.remove();reject(Error('Không tải được '+clip.file))};document.body.appendChild(script);
  }));loading=task.catch(()=>{});return task;
@@ -70,14 +73,19 @@ async function prepareClip(clip){
   log('complete',clip.id);
   if(mode==='sequence'){
    const next=flow[(flow.indexOf(clip.id)+1)%flow.length];
-   if(next){activateClip(next,epoch);return}
+   if(next){const token=epoch;if(prepared.has(next))activateClip(next,token);else ensureClip(next).then(()=>activateClip(next,token)).catch(fail);return}
   }
   animation.goToAndStop(0,true);if(!paused)animation.play();log('loop',clip.id);
  });
  return player;
 }
+function ensureClip(id){
+ if(prepared.has(id))return Promise.resolve(prepared.get(id));
+ if(!preparing.has(id))preparing.set(id,prepareClip(clips.find(c=>c.id===id)));
+ return preparing.get(id);
+}
 function prepareAll(){
- if(!preparation)preparation=(async()=>{for(const clip of clips)await prepareClip(clip)})();
+ if(!preparation)preparation=Promise.all(flow.map(ensureClip));
  return preparation;
 }
 function activateClip(id,token){
@@ -98,7 +106,10 @@ async function start(nextMode,stateId=1){
  for(const p of prepared.values())p.animation.pause();
  if(!preparation)$('status').textContent='Đang chuẩn bị animation · chỉ tải một lần…';
  try{
-  await prepareAll();if(token!==epoch)return;
+  const target=mode==='sequence'?1:stateId;
+  const entry=ensureClip(target);
+  if(mode==='sequence')prepareAll().catch(fail);
+  await entry;if(token!==epoch)return;
   activateClip(mode==='sequence'?1:stateId,token);window.previewReady=true;
  }catch(error){fail(error)}
 }
