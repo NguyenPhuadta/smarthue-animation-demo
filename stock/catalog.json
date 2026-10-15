@@ -76,6 +76,36 @@
       "description": "Vòng sáng đơn, bridge float và glow lan liên tục; loop 4 giây."
     }
   ]
+},
+{
+  "id": "liquid-halo",
+  "title": "Liquid Halo · Blue Bulb",
+  "description": "Vầng sáng #33A0FF xoay quanh khối cầu có phản xạ, thu nhỏ rồi tái hiện và merge thành bóng đèn trắng.",
+  "sequenceDescription": "Một clip 12,93 giây gồm bốn chu kỳ liên tiếp; lặp toàn bộ, phát từ đầu khi mở preview.",
+  "updated": "2026-10-15",
+  "poster": "stock/liquid-halo-poster.png",
+  "fps": 60,
+  "tags": [
+    "Light",
+    "Liquid",
+    "Loop"
+  ],
+  "variants": [
+    {
+      "id": "720x540",
+      "label": "720 × 540 px",
+      "preview": "collections/liquid-halo/",
+      "download": "handoff/liquid-halo-v1.0.0-720x540-2026-10-15.zip"
+    }
+  ],
+  "clips": [
+    {
+      "id": 0,
+      "title": "Liquid Halo · Blue Bulb",
+      "seconds": 12.933333333333334,
+      "description": "Vầng sáng → xoay và thu nhỏ → tái hiện → merge bóng đèn. Lặp toàn bộ clip ở speed 1.0."
+    }
+  ]
 }
 ]
 }
