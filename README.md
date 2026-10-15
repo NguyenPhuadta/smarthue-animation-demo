@@ -11,3 +11,5 @@ Full-flow entry begins on Before You Start (animation 0). Scan Now starts the pr
 
 ## Current playback contract — v12 (overrides earlier intro rules)
 Animation 0 lasts 6 seconds. After fade-in (frame 20), hold until frame 75 before switching the lamp off. Scan Now is an explicit exception to the finish-current-animation rule: fade the currently playing illustration over 280ms, stop it, and start 01-tim-den-entry at frame 0. Do not fade app UI. Preload search entry. All other clips must finish before transitioning. The baked ending fade is retained for natural playback/looping.
+
+Visual v13: animation 0 now uses the approved soft floor from animation 1 with matching transparent top and bottom edges, baked into the file.

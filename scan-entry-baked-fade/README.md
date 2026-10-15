@@ -6,3 +6,5 @@ IMPORTANT EXCEPTION — animation 0 only: Scan Now interrupts the instructional 
 Animation 0 ends fully transparent at frame 359. Search entry begins fully transparent at frame 0, then fades in over 24 frames (0.4s). Both files are 393×326 at 60fps. Natural end-of-cycle opacity is authored inside the files, including the illustration floor. For a Scan Now interrupt at an arbitrary playback time, app-controlled opacity over 280ms is required as described above. Keep app UI outside the animation.
 
 Use the existing 01-tim-den.lottie for subsequent search loops, so it does not fade in on every loop. The entry variant otherwise preserves its original motion and duration (4s). No keyframes have been reduced.
+
+Visual v13: animation 0 reuses the exact approved soft floor asset from animation 1, including transparent top/bottom edges. This treatment is inside the Lottie, not a web-only overlay. Six-second timing and Scan Now interrupt remain unchanged.
