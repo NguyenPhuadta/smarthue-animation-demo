@@ -15,3 +15,5 @@ Animation 0 lasts 8 seconds. After fade-in (frame 20), hold until frame 75 befor
 Visual v13: animation 0 now uses the approved soft floor from animation 1 with matching transparent top and bottom edges, baked into the file.
 
 Intro v18: 8 seconds; softer cue opacity changes with 3px motion, no spring. Water fill remains 1.5s. Turn It On returns softly to Turn It Off at the end for a matching loop. Shared shadow placement is unchanged. No baked scene exit fade; Scan Now uses app-controlled 280ms fade.
+
+Near-distance v19: 15cm minimum (2m maximum). Inherited readouts in states 02/05/07 also updated. Complete native handoff: handoff/smarthue-dev-final-2026-10-15.zip; read its README and view its full-app-preview/index.html before integration.
