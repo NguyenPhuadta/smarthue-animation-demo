@@ -24,7 +24,7 @@ c=next(c for c in catalog['collections'] if c['id']=='bridge-connect')
 for clip,name in zip(c['clips'],['discover','press-loop','connected','water-reveal','connected-loop']):
  assert clip['seconds']==expected[name]/60
 for v in c['variants']:
- assert (root/v['preview']/'index.html').is_file()
+ assert (root/v['preview'].split('?')[0]/'index.html').is_file()
  with zipfile.ZipFile(root/v['download']) as z:
   assert z.testzip() is None
   assert 'README.md' in z.namelist() and 'full-app-preview/index.html' in z.namelist()
