@@ -9,4 +9,4 @@ Thư viện các bộ animation đã làm: xem full luồng, xem từng clip, ch
 
 Website tĩnh trên GitHub Pages, không cần build. Dùng static server ở thư mục repo để xem local. Các link preview cũ vẫn hoạt động; root với mode/state/clip cũ chuyển sang original-demo.html. Bản 362×300 và bản 393×326 giữ nguyên nội dung/chuyển động, 60 FPS, speed=1. Bản thử tối ưu không được đưa vào catalog được đề xuất.
 
-Xem full app trước khi tích hợp. Ngoại lệ animation 0: Scan Now fade riêng vùng animation trong 280ms bằng code rồi phát 01 từ đầu. Những clip còn lại phải chạy hết trước khi đổi state; BLE giữa chừng lưu pending và xử lý ở completion callback. Đọc toàn bộ hướng dẫn và README trong ZIP, không tự thêm clip entry hoặc bridge 06.
+Quy tắc phát, lặp, chuyển cảnh, thời lượng và nền được mô tả riêng cho từng bộ. Với SmartHue, đọc [docs/collections/smarthue.md](docs/collections/smarthue.md) cùng README trong ZIP. Không áp dụng quy tắc của bộ này cho bộ khác.
