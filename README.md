@@ -8,3 +8,5 @@ Full-flow entry begins on Before You Start (animation 0). Scan Now starts the pr
 
 
 Scan entry v10: opacity is baked inside animation 0 and 01-tim-den-entry. On Scan Now, finish the current animation 0 playback, then play search entry from frame 0, then state 2. Both boundary frames are transparent. Only illustration fades; app UI does not fade. Subsequent full-flow cycles use the original search animation. Developer files and precise playback instructions: scan-entry-baked-fade/.
+
+Intro v11: 6 seconds, synchronized power-off starts with Turn It Off; water fill lasts 1.5 seconds; baked exit fade remains.

@@ -7,7 +7,7 @@ const states=[
 ];
 const bridges=[{id:5,label:'Nối Tìm thấy → Đang kết nối',file:'05-tim-thay-den-ket-noi',frames:168,from:2,to:3}];
 const errors=[{id:7,label:'Không tìm thấy đèn',file:'07-no-light-found',frames:252,screen:1},{id:8,label:'Kết nối quá thời gian',file:'08-connection-timeout',frames:240,screen:3}];
-const intro={id:0,label:'Trước khi Scan',file:'before-scan',frames:540};
+const intro={id:0,label:'Trước khi Scan',file:'before-scan',frames:360};
 const searchEntry={...states[0],id:9,screen:1,file:"01-tim-den-entry"};
 const clips=[intro,searchEntry,...states,...bridges,...errors],flow=[1,2,5,3,4],cache=new Map(),players=new Map(),prepared=new Map();const preparing=new Map();let preparation=null,activeId=null;
 const $=id=>document.getElementById(id);let loading=Promise.resolve(),mode='sequence',selected=1,paused=false,epoch=0,scanQueued=false;
@@ -39,13 +39,13 @@ for(const clip of [...bridges,...errors]){const tab=document.createElement('butt
 function dataFor(clip){
  if(cache.has(clip.id))return Promise.resolve(cache.get(clip.id));
  if(clip.id===0){
-  const task=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='before-scan/animation-0/animation-data.js?rev=baked-fade-v10';script.onload=()=>resolve(window.animationZero);script.onerror=()=>reject(Error('Không tải được hướng dẫn trước Scan'));document.body.appendChild(script)});cache.set(0,task);return task;
+  const task=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='before-scan/animation-0/animation-data.js?rev=intro-6s-v11';script.onload=()=>resolve(window.animationZero);script.onerror=()=>reject(Error('Không tải được hướng dẫn trước Scan'));document.body.appendChild(script)});cache.set(0,task);return task;
  }
  if(location.protocol!=='file:'&&typeof DecompressionStream!=='undefined'){
-  const request=fetch('animations/'+clip.file+'.json.gz?rev=baked-fade-v10').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
+  const request=fetch('animations/'+clip.file+'.json.gz?rev=intro-6s-v11').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
  }
  const task=loading.then(()=>new Promise((resolve,reject)=>{
-  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=baked-fade-v10';
+  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=intro-6s-v11';
   script.onload=()=>{const data=window.animationData;cache.set(clip.id,data);script.remove();resolve(data)};
   script.onerror=()=>{script.remove();reject(Error('Không tải được '+clip.file))};document.body.appendChild(script);
  }));loading=task.catch(()=>{});return task;
