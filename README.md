@@ -1,19 +1,12 @@
-# SmartHue full-flow preview
+# Kho animation stock của Phú
 
-Public team demo. Plays 1 → 2 → 5 → 3 → 4, advancing only after each clip completes. Uses latest supplied animations with floor, designer-aligned proximity check, and transparent success lamp.
+Thư viện các bộ animation đã làm: xem full luồng, xem từng clip, chọn kích thước và tải gói bàn giao.
 
-All seven clips can be previewed individually. The first player starts as soon as it is ready. Remaining full-flow players preload in the background. Error clips load when selected. Web data uses gzip with 0.001-unit numeric precision; file:// playback retains original embedded scripts. Prepared players are reused on transitions. Full flow still advances only on complete.
+- Kho: https://nguyenphuadta.github.io/smarthue-animation-demo/
+- SmartHue 362×300: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=smarthue&variant=362x300&clip=flow
+- Hướng dẫn bắt buộc cho agent thêm/sửa bộ: [docs/ANIMATION-PUBLISHING.md](docs/ANIMATION-PUBLISHING.md).
+- Danh sách bộ và metadata: stock/catalog.json. Đây là nguồn dữ liệu của trang kho; không hardcode card.
 
-Full-flow entry begins on Before You Start (animation 0). Scan Now starts the preloaded search sequence in the same page. The instruction loops until Scan Now is pressed; scanning never starts automatically.
+Website tĩnh trên GitHub Pages, không cần build. Dùng static server ở thư mục repo để xem local. Các link preview cũ vẫn hoạt động; root với mode/state/clip cũ chuyển sang original-demo.html. Bản 362×300 và bản 393×326 giữ nguyên nội dung/chuyển động, 60 FPS, speed=1. Bản thử tối ưu không được đưa vào catalog được đề xuất.
 
-
-
-
-## Current playback contract — v12 (overrides earlier intro rules)
-Animation 0 lasts 8 seconds. After fade-in (frame 20), hold until frame 75 before switching the lamp off. Scan Now is an explicit exception to the finish-current-animation rule: fade the currently playing illustration over 280ms, stop it, and start 01-tim-den-entry at frame 0. Do not fade app UI. Preload search entry. All other clips must finish before transitioning. Animation 0 has NO baked exit fade. Its final frame stays fully visible. Loop frames 20–479 after the first playback to skip the initial fade-in; Scan Now alone triggers the 280ms app-controlled exit.
-
-Visual v13: animation 0 now uses the approved soft floor from animation 1 with matching transparent top and bottom edges, baked into the file.
-
-Intro v18: 8 seconds; softer cue opacity changes with 3px motion, no spring. Water fill remains 1.5s. Turn It On returns softly to Turn It Off at the end for a matching loop. Shared shadow placement is unchanged. No baked scene exit fade; Scan Now uses app-controlled 280ms fade.
-
-Near-distance v19: 15cm minimum (2m maximum). Inherited readouts in states 02/05/07 also updated. Complete native handoff: handoff/smarthue-dev-final-2026-10-15.zip; read its README and view its full-app-preview/index.html before integration.
+Xem full app trước khi tích hợp. Ngoại lệ animation 0: Scan Now fade riêng vùng animation trong 280ms bằng code rồi phát 01 từ đầu. Những clip còn lại phải chạy hết trước khi đổi state; BLE giữa chừng lưu pending và xử lý ở completion callback. Đọc toàn bộ hướng dẫn và README trong ZIP, không tự thêm clip entry hoặc bridge 06.

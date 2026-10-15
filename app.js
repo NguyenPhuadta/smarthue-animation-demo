@@ -161,4 +161,6 @@ $('pause').onclick=()=>{
  const active=[...players.values()].find(p=>!p.holder.closest('.screen-card').hidden);updateStatus(active?.clip||states[0]);
 };
 window.teamPreview={start,players,states,bridges};
-start('sequence',1);
+const entryParams=new URLSearchParams(location.search);
+const requestedState=Number(entryParams.get('state'));
+start(entryParams.get('mode')==='single'&&clips.some(c=>c.id===requestedState)?'single':'sequence',requestedState);

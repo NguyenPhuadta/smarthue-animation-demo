@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "collections": [{
+    "id": "smarthue",
+    "title": "SmartHue · Kết nối đèn",
+    "description": "Từ hướng dẫn bật tắt đèn đến tìm kiếm, ghép nối và kết nối thành công. Có đầy đủ hai nhánh lỗi để bàn giao cho dev.",
+    "updated": "2026-10-15",
+    "poster": "stock/smarthue-poster.png",
+    "fps": 60,
+    "tags": ["Onboarding", "Bluetooth", "8 animation"],
+    "variants": [
+      {"id":"362x300","label":"362 × 300 px","preview":"resize-362x300/","download":"handoff/smarthue-dev-362x300-2026-10-15.zip"},
+      {"id":"393x326","label":"393 × 326 px · gốc","preview":"original-demo.html","download":"handoff/smarthue-dev-final-2026-10-15.zip"}
+    ],
+    "clips": [
+      {"id":0,"title":"Trước khi Scan","seconds":8,"description":"Tắt đèn → chờ → bật lại. Bấm Scan Now để bắt đầu tìm đèn."},
+      {"id":1,"title":"Tìm đèn","seconds":4,"description":"Khoảng cách từ 15 cm đến 2 m, dấu check ở vị trí gần."},
+      {"id":2,"title":"Tìm thấy","seconds":4.6,"description":"Người đến gần đèn, pill và icon pairing xuất hiện."},
+      {"id":5,"title":"Tìm thấy → Kết nối","seconds":2.8,"description":"Đoạn chuyển từ tìm thấy sang trạng thái đang kết nối."},
+      {"id":3,"title":"Đang kết nối","seconds":2,"description":"Pairing trắng và các vòng sáng lặp lại khi chờ kết quả."},
+      {"id":4,"title":"Thành công","seconds":7.5,"description":"Check xanh, vòng sáng và đèn bật màu gradient."},
+      {"id":7,"title":"Không tìm thấy đèn","seconds":4.2,"description":"Đèn mờ đi, pill hiện icon tìm kiếm gạch chéo màu cam."},
+      {"id":8,"title":"Kết nối quá thời gian","seconds":4,"description":"Nhánh timeout nối tiếp từ trạng thái đang kết nối."}
+    ]
+  }]
+}
