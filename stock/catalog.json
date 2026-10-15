@@ -22,5 +22,60 @@
       {"id":7,"title":"Không tìm thấy đèn","seconds":4.2,"description":"Đèn mờ đi, pill hiện icon tìm kiếm gạch chéo màu cam."},
       {"id":8,"title":"Kết nối quá thời gian","seconds":4,"description":"Nhánh timeout nối tiếp từ trạng thái đang kết nối."}
     ]
-  }]
+  },
+{
+  "id": "bridge-connect",
+  "title": "Bridge · Kết nối thiết bị",
+  "description": "Bridge chạm mặt nước, tìm kiếm và kết nối ngay trên cú bấm. Nền trong suốt, vòng LED đơn và glow xanh lan dưới đáy.",
+  "sequenceDescription": "Full luồng 9,47 giây: tìm bridge → hiện lại → bấm → nảy và kết nối ngay. Phát một lần, giữ trạng thái thành công.",
+  "updated": "2026-10-15",
+  "poster": "stock/bridge-connect-poster.png",
+  "fps": 60,
+  "tags": [
+    "Onboarding",
+    "Bridge",
+    "362 × 362"
+  ],
+  "variants": [
+    {
+      "id": "362x362",
+      "label": "362 × 362 px",
+      "preview": "collections/bridge-connect/",
+      "download": "handoff/bridge-connect-v1.0.0-362x362-2026-10-15.zip"
+    }
+  ],
+  "clips": [
+    {
+      "id": 0,
+      "title": "Tìm bridge",
+      "seconds": 5.0,
+      "description": "Fade in từ trên, chạm nước rồi nổi lên; lặp tìm kiếm."
+    },
+    {
+      "id": 1,
+      "title": "Bấm nút",
+      "seconds": 1.2666666666666666,
+      "description": "Phát một lần; chạm nút là nối thẳng sang thành công."
+    },
+    {
+      "id": 2,
+      "title": "Kết nối thành công",
+      "seconds": 4.4,
+      "description": "Nảy và sáng ngay trên cú bấm; lặp riêng phần duy trì sau frame 24."
+    },
+    {
+      "id": 3,
+      "title": "Hiện lại để bấm nút",
+      "seconds": 0.8,
+      "description": "Đoạn nối một lần từ cuối tìm kiếm đến tư thế bấm."
+    },
+    {
+      "id": 4,
+      "title": "Duy trì kết nối",
+      "seconds": 4.0,
+      "description": "Vòng sáng đơn, bridge float và glow lan liên tục; loop 4 giây."
+    }
+  ]
+}
+]
 }
