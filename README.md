@@ -7,3 +7,5 @@ All seven clips can be previewed individually. The first player starts as soon a
 Full-flow entry begins on Before You Start (animation 0). Scan Now starts the preloaded search sequence in the same page. The instruction loops until Scan Now is pressed; scanning never starts automatically.
 
 Scan Now handoff (v8): the Before You Start screen crossfades into Finding Your Lights over 0.56 seconds. Search begins at frame zero during the transition; the full sequence then continues 1 → 2 → bridge → 3 → 4.
+
+Sequential screen transition (v9): tapping Scan Now fades the before-scan screen out, then starts Finding Your Lights at frame zero and fades it in.

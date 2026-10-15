@@ -144,13 +144,15 @@ async function beginIntroHandoff(){
   display(1); // keep both cards visible during the handoff
   for(const card of document.querySelectorAll('.screen-card'))card.hidden=card!==oldCard&&card!==nextCard;
   $('screens').classList.add('handoff');players.clear();players.set(next.stateId,next);
-  animation.play();
   requestAnimationFrame(()=>{
-   oldCard.classList.add('handoff-out');nextCard.classList.add('handoff-in');
+   oldCard.classList.add('handoff-out');
   });
   log('handoff-start',1);
-  await new Promise(resolve=>setTimeout(resolve,560));if(token!==epoch)return;
+  await new Promise(resolve=>setTimeout(resolve,320));if(token!==epoch)return;
   oldCard.hidden=true;oldCard.classList.remove('handoff-old','handoff-out');
+  nextCard.classList.add('handoff-in');
+  animation.play();
+  await new Promise(resolve=>setTimeout(resolve,320));if(token!==epoch)return;
   nextCard.classList.remove('handoff-new','handoff-in');$('screens').classList.remove('handoff');
   display(1);activeId=1;updateStatus(next.clip);window.previewReady=true;log('handoff-complete',1);
  }catch(error){if(token===epoch)fail(error)}
