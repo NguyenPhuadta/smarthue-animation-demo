@@ -7,4 +7,4 @@ Animation 0 ends fully transparent at frame 359. Search entry begins fully trans
 
 Use the existing 01-tim-den.lottie for subsequent search loops, so it does not fade in on every loop. The entry variant otherwise preserves its original motion and duration (4s). No keyframes have been reduced. Animation 0 uses the exact approved soft floor asset from animation 1, including transparent top/bottom edges; this is inside the Lottie file.
 
-Please Wait shares the same projected text baseline as Turn It Off / Turn It On (+7.25px vertically); 10s artwork, fill, timing and the shadow placement are unchanged. Shadow editor: before-scan/shadow/.
+Approved designer shadow placement (v16): X=-149px, Y=150.2px, scale=116%, opacity=100%. Baked into animation 0 and shared by Turn It Off, Please Wait and Turn It On. Browser editor defaults match these values.

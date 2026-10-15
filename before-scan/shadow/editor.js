@@ -1,5 +1,5 @@
 'use strict';
-const $=id=>document.getElementById(id),KEY='intro-text-shadow-alignment-v1',defaults={x:0,y:213,scale:70,opacity:100};
+const $=id=>document.getElementById(id),KEY='intro-text-shadow-alignment-v2',defaults={x:-149,y:150.2,scale:116,opacity:100};
 let settings={...defaults},elements=[],drag=null,playing=false;
 try{const saved=JSON.parse(localStorage.getItem(KEY));if(saved&&Object.keys(defaults).every(k=>Number.isFinite(saved[k])))settings={...saved}}catch{}
 const anim=lottie.loadAnimation({container:$('animation'),renderer:'svg',loop:true,autoplay:false,animationData:structuredClone(window.animationZero)});

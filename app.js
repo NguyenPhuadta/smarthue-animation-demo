@@ -40,19 +40,19 @@ for(const clip of [...bridges,...errors]){const tab=document.createElement('butt
 function dataFor(clip){
  if(cache.has(clip.id))return Promise.resolve(cache.get(clip.id));
  if(clip.id===0){
-  const task=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='before-scan/animation-0/animation-data.js?rev=wait-text-aligned-v15';script.onload=()=>resolve(window.animationZero);script.onerror=()=>reject(Error('Không tải được hướng dẫn trước Scan'));document.body.appendChild(script)});cache.set(0,task);return task;
+  const task=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='before-scan/animation-0/animation-data.js?rev=designer-shadow-v16';script.onload=()=>resolve(window.animationZero);script.onerror=()=>reject(Error('Không tải được hướng dẫn trước Scan'));document.body.appendChild(script)});cache.set(0,task);return task;
  }
  if(location.protocol!=='file:'&&typeof DecompressionStream!=='undefined'){
-  const request=fetch('animations/'+clip.file+'.json.gz?rev=wait-text-aligned-v15').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
+  const request=fetch('animations/'+clip.file+'.json.gz?rev=designer-shadow-v16').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
  }
  const task=loading.then(()=>new Promise((resolve,reject)=>{
-  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=wait-text-aligned-v15';
+  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=designer-shadow-v16';
   script.onload=()=>{const data=window.animationData;cache.set(clip.id,data);script.remove();resolve(data)};
   script.onerror=()=>{script.remove();reject(Error('Không tải được '+clip.file))};document.body.appendChild(script);
  }));loading=task.catch(()=>{});return task;
 }
 function align(data){
- let introShadow;try{introShadow=JSON.parse(localStorage.getItem('intro-text-shadow-alignment-v1'))}catch{}
+ let introShadow;try{introShadow=JSON.parse(localStorage.getItem('intro-text-shadow-alignment-v2'))}catch{}
  if(introShadow&&['x','y','scale','opacity'].every(k=>Number.isFinite(introShadow[k]))){
   for(const group of [data.layers,...data.assets.filter(a=>a.layers).map(a=>a.layers)]){
    const shadow=group.find(l=>l.refId==='intro-text-shadow');if(!shadow)continue;
