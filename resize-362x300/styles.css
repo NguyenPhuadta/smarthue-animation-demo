@@ -1,0 +1,24 @@
+@font-face{font-family:PreviewSF;src:local("SFProDisplay-Regular");font-weight:400}
+@font-face{font-family:PreviewSF;src:local("SFProDisplay-Bold");font-weight:700}
+@font-face{font-family:PreviewSF;src:local("SFProDisplay-Semibold");font-weight:600}
+@font-face{font-family:PreviewSFText;src:local("SFProText-Regular");font-weight:400}
+@font-face{font-family:PreviewSFText;src:local("SFProText-Bold");font-weight:700}
+:root{color-scheme:dark;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;background:#18191c;color:white}
+*{box-sizing:border-box}body{margin:0}button{font:inherit;cursor:pointer;border:1px solid #414247;background:#26272b;color:#ddd;border-radius:9px;padding:10px 14px}button:hover{background:#33353a}button[aria-pressed=true]{background:#e5e7eb;color:#17181b;border-color:#e5e7eb}button:focus-visible{outline:2px solid #71afff;outline-offset:3px}
+.review-toolbar{padding:24px 32px;display:flex;gap:24px;align-items:center;justify-content:space-between;border-bottom:1px solid #2b2d32}.review-toolbar h1{font-size:20px;letter-spacing:-.5px;margin:0 0 5px}.review-toolbar p{font-size:13px;color:#9c9fa8;margin:0}.review-toolbar nav,.review-footer nav{display:flex;gap:8px;flex-wrap:wrap}
+.screens{display:grid;grid-template-columns:repeat(4,393px);gap:28px;justify-content:center;padding:30px 24px;overflow:auto}.screen-card{width:393px}.screen-label{font-size:13px;color:#afb2ba;margin:0 0 12px;display:flex;justify-content:space-between}.screen-label span{color:#7b7e87}.phone-wrapper{width:393px;height:852px}.phone{position:relative;width:393px;height:852px;overflow:hidden;background:#0c0c0c;color:white;font-family:PreviewSF,-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;font-variation-settings:"wdth" 100;isolation:isolate;box-shadow:0 0 0 1px #292b30}
+.top-glow{position:absolute;left:-268px;top:-285px;pointer-events:none;z-index:1}.statusbar{position:absolute;left:0;top:0;width:393px;height:62px;display:flex;gap:154px;padding:21px 16px 19px;align-items:center;justify-content:center;z-index:2}.time,.levels{flex:1 0 0;min-width:1px;height:22px;display:flex;align-items:center;justify-content:center}.time{padding-top:2px;font-size:17px;font-weight:600;line-height:22px}.levels{gap:7px;padding-top:1px}.levels img{display:block;flex-shrink:0}
+.headline{position:absolute;left:16px;top:166px;width:361px;display:flex;align-items:center;flex-direction:column;gap:12px;z-index:2}.headline p{font-size:24px;font-weight:400;line-height:1.3;letter-spacing:-.24px;text-transform:capitalize;text-align:center;color:#aeaeb2;margin:0;width:100%}.headline .lamp-name{background:rgba(255,255,255,.1);border-radius:55px;padding:12px 20px;font-size:24px;font-weight:700;line-height:1.3;letter-spacing:-.24px;text-transform:capitalize;white-space:nowrap}.headline.search{top:170px;height:94px;display:block}.headline.search p{position:absolute;top:29px;color:white;font-size:28px;font-weight:700;letter-spacing:-.28px}
+.animation-slot{position:absolute;left:0;top:276px;width:393px;height:326px;overflow:hidden;background:#0c0c0c;z-index:0}.animation-frame{position:absolute;inset:0}.animation-frame>svg{display:block}
+.instruction{font-family:PreviewSFText,-apple-system,BlinkMacSystemFont,sans-serif;position:absolute;left:44px;top:627px;width:305px;font-size:17px;font-weight:400;line-height:1.3;letter-spacing:-.23px;text-align:center;margin:0;z-index:2}.phone[data-state="1"] .instruction{top:626px}.instruction b{font-weight:700}.home-indicator{position:absolute;left:130px;bottom:8px;width:134px;height:5px;border-radius:100px;background:white;z-index:2}
+.review-footer{padding:20px 32px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#a4a8b1;font-size:13px}.screens.single{grid-template-columns:393px}.screen-card[hidden]{display:none}
+@media(max-width:1740px) and (min-width:940px){.screens:not(.single){grid-template-columns:repeat(2,393px)}}
+@media(max-width:939px){.screens:not(.single){grid-template-columns:393px}.review-toolbar,.review-footer{align-items:flex-start;flex-direction:column;padding:20px}.screens{padding:24px 0;gap:24px}}
+@media(max-width:420px){.screens,.screens.single{grid-template-columns:min(393px,100vw);overflow:hidden}.screen-card,.phone-wrapper{width:100vw}.phone-wrapper{height:calc(100vw * 852 / 393)}.phone{transform:scale(calc(100vw / 393px));transform-origin:top left}.screen-label{padding:0 12px}}
+
+.phone[data-state="0"] .scan-now{position:absolute;left:20px;right:20px;top:732px;height:56px;border-radius:40px;border:1px solid #60758a;border-bottom-color:#314f6a;background:radial-gradient(ellipse at 50% 110%,#144c7c,#0c2d4a 65%,#091a27);color:white;font:600 20px -apple-system,BlinkMacSystemFont,sans-serif;z-index:2}
+
+.phone[data-state="0"] .instruction{left:34px;width:325px}
+
+/* Native animation canvas 362 × 300, centered in reference phone. */
+.animation-slot{left:15.5px;top:289px;width:362px;height:300px}
