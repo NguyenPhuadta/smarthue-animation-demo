@@ -22,6 +22,7 @@ introCard.innerHTML=`<div class="phone-wrapper"><div class="phone" data-state="0
 $('screens').appendChild(introCard);
 introCard.querySelector('.scan-now').onclick=beginIntroHandoff;
 const introTab=document.createElement('button');introTab.textContent='0. Trước khi Scan';introTab.dataset.state=0;introTab.onclick=()=>start('single',0);$('state-tabs').appendChild(introTab);
+const shadowLink=document.createElement('a');shadowLink.href='before-scan/shadow/';shadowLink.textContent='Căn bóng animation 0';shadowLink.style.cssText='color:#bdd9ef;padding:8px';$('state-tabs').appendChild(shadowLink);
 for(const state of states){
  const card=document.createElement('section');card.className='screen-card';card.dataset.state=state.id;
  card.innerHTML=`<h2 class="screen-label">${state.id}. ${state.label}<span>393 × 852</span></h2>
@@ -39,18 +40,26 @@ for(const clip of [...bridges,...errors]){const tab=document.createElement('butt
 function dataFor(clip){
  if(cache.has(clip.id))return Promise.resolve(cache.get(clip.id));
  if(clip.id===0){
-  const task=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='before-scan/animation-0/animation-data.js?rev=intro-soft-edges-v13';script.onload=()=>resolve(window.animationZero);script.onerror=()=>reject(Error('Không tải được hướng dẫn trước Scan'));document.body.appendChild(script)});cache.set(0,task);return task;
+  const task=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='before-scan/animation-0/animation-data.js?rev=intro-shadow-editor-v14';script.onload=()=>resolve(window.animationZero);script.onerror=()=>reject(Error('Không tải được hướng dẫn trước Scan'));document.body.appendChild(script)});cache.set(0,task);return task;
  }
  if(location.protocol!=='file:'&&typeof DecompressionStream!=='undefined'){
-  const request=fetch('animations/'+clip.file+'.json.gz?rev=intro-soft-edges-v13').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
+  const request=fetch('animations/'+clip.file+'.json.gz?rev=intro-shadow-editor-v14').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
  }
  const task=loading.then(()=>new Promise((resolve,reject)=>{
-  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=intro-soft-edges-v13';
+  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=intro-shadow-editor-v14';
   script.onload=()=>{const data=window.animationData;cache.set(clip.id,data);script.remove();resolve(data)};
   script.onerror=()=>{script.remove();reject(Error('Không tải được '+clip.file))};document.body.appendChild(script);
  }));loading=task.catch(()=>{});return task;
 }
 function align(data){
+ let introShadow;try{introShadow=JSON.parse(localStorage.getItem('intro-text-shadow-alignment-v1'))}catch{}
+ if(introShadow&&['x','y','scale','opacity'].every(k=>Number.isFinite(introShadow[k]))){
+  for(const group of [data.layers,...data.assets.filter(a=>a.layers).map(a=>a.layers)]){
+   const shadow=group.find(l=>l.refId==='intro-text-shadow');if(!shadow)continue;
+   shadow.ks.p={a:0,k:[introShadow.x,introShadow.y,0]};shadow.ks.s={a:0,k:[introShadow.scale,introShadow.scale,100]};shadow.ks.o={a:0,k:introShadow.opacity};
+  }
+ }
+
  let setting;try{setting=JSON.parse(localStorage.getItem('lamp-distance-shadow-alignment-v1'))}catch{}
  if(setting&&['x','y','scale'].every(k=>Number.isFinite(setting[k]))){
   for(const layers of [data.layers,...data.assets.filter(a=>a.layers).map(a=>a.layers)]){
