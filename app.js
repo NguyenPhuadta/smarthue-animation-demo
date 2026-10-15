@@ -19,7 +19,7 @@ introCard.innerHTML=`<div class="phone-wrapper"><div class="phone" data-state="0
 <div class="headline search"><p>Before You Start</p></div><div class="animation-slot" aria-label="Turn off, wait 10 seconds, turn on"></div>
 <p class="instruction">Turn your Hue light off for <b>10 seconds,</b><br>then turn it back on.</p><button class="scan-now">Scan Now</button><div class="home-indicator" aria-hidden="true"></div></div></div>`;
 $('screens').appendChild(introCard);
-introCard.querySelector('.scan-now').onclick=()=>{paused=false;start('sequence',1,true)};
+introCard.querySelector('.scan-now').onclick=beginIntroHandoff;
 const introTab=document.createElement('button');introTab.textContent='0. Trước khi Scan';introTab.dataset.state=0;introTab.onclick=()=>start('single',0);$('state-tabs').appendChild(introTab);
 for(const state of states){
  const card=document.createElement('section');card.className='screen-card';card.dataset.state=state.id;
@@ -114,8 +114,8 @@ function activateClip(id,token){
 }
 function fail(error){$('status').textContent=error.message;console.error(error)}
 async function start(nextMode,stateId=1,skipIntro=false){
- const token=++epoch;mode=nextMode;selected=stateId;window.previewReady=false;
- const target=mode==='sequence'?(skipIntro?1:0):stateId;
+ const token=++epoch;mode=nextMode;window.previewReady=false;
+ const target=mode==='sequence'?(skipIntro?1:0):stateId;selected=target;
  display(screenFor(clips.find(c=>c.id===target)));
  window.scrollTo(0,0);
  for(const p of prepared.values())p.animation.pause();
@@ -126,6 +126,34 @@ async function start(nextMode,stateId=1,skipIntro=false){
   await entry;if(token!==epoch)return;
   activateClip(target,token);window.previewReady=true;
  }catch(error){fail(error)}
+}
+async function beginIntroHandoff(){
+ const token=++epoch;mode='sequence';selected=1;paused=false;window.previewReady=false;
+ const introPlayer=prepared.get(0);
+ try{
+  $('status').textContent='Đang nối sang tìm đèn…';
+  const next=await ensureClip(1);if(token!==epoch)return;
+  const oldCard=document.querySelector('.screen-card[data-state="0"]');
+  const nextCard=document.querySelector('.screen-card[data-state="1"]');
+  for(const card of document.querySelectorAll('.screen-card'))card.hidden=card!==oldCard&&card!==nextCard;
+  $('screens').classList.add('single','handoff');
+  oldCard.classList.add('handoff-old');nextCard.classList.add('handoff-new');
+  introPlayer.animation.pause();introPlayer.token=null;introPlayer.holder.style.visibility='visible';
+  next.holder.style.visibility='visible';next.token=token;activeId=1;
+  const animation=next.animation;animation.setSpeed(window.previewSpeed);animation.goToAndStop(0,true);
+  display(1); // keep both cards visible during the handoff
+  for(const card of document.querySelectorAll('.screen-card'))card.hidden=card!==oldCard&&card!==nextCard;
+  $('screens').classList.add('handoff');players.clear();players.set(next.stateId,next);
+  animation.play();
+  requestAnimationFrame(()=>{
+   oldCard.classList.add('handoff-out');nextCard.classList.add('handoff-in');
+  });
+  log('handoff-start',1);
+  await new Promise(resolve=>setTimeout(resolve,560));if(token!==epoch)return;
+  oldCard.hidden=true;oldCard.classList.remove('handoff-old','handoff-out');
+  nextCard.classList.remove('handoff-new','handoff-in');$('screens').classList.remove('handoff');
+  display(1);activeId=1;updateStatus(next.clip);window.previewReady=true;log('handoff-complete',1);
+ }catch(error){if(token===epoch)fail(error)}
 }
 $('overview').onclick=()=>start('overview');$('sequence').onclick=()=>start('sequence');$('restart').onclick=()=>start(mode,selected);
 $('pause').onclick=()=>{

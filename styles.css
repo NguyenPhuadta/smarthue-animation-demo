@@ -19,3 +19,9 @@
 .phone[data-state="0"] .scan-now{position:absolute;left:20px;right:20px;top:732px;height:56px;border-radius:40px;border:1px solid #60758a;border-bottom-color:#314f6a;background:radial-gradient(ellipse at 50% 110%,#144c7c,#0c2d4a 65%,#091a27);color:white;font:600 20px -apple-system,BlinkMacSystemFont,sans-serif;z-index:2}
 
 .phone[data-state="0"] .instruction{left:34px;width:325px}
+.screens.handoff{display:grid;grid-template-columns:393px;position:relative;overflow:hidden}
+.screens.handoff .handoff-old,.screens.handoff .handoff-new{grid-column:1;grid-row:1;transition:opacity .52s cubic-bezier(.22,.68,0,1),transform .52s cubic-bezier(.22,.68,0,1)}
+.screens.handoff .handoff-old{opacity:1;transform:translateY(0)}
+.screens.handoff .handoff-new{opacity:0;transform:translateY(-18px)}
+.screens.handoff .handoff-old.handoff-out{opacity:0;transform:translateY(12px)}
+.screens.handoff .handoff-new.handoff-in{opacity:1;transform:translateY(0)}
