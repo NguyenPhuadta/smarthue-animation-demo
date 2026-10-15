@@ -8,8 +8,9 @@ const states=[
 const bridges=[{id:5,label:'Nối Tìm thấy → Đang kết nối',file:'05-tim-thay-den-ket-noi',frames:168,from:2,to:3}];
 const errors=[{id:7,label:'Không tìm thấy đèn',file:'07-no-light-found',frames:252,screen:1},{id:8,label:'Kết nối quá thời gian',file:'08-connection-timeout',frames:240,screen:3}];
 const intro={id:0,label:'Trước khi Scan',file:'before-scan',frames:540};
-const clips=[intro,...states,...bridges,...errors],flow=[1,2,5,3,4],cache=new Map(),players=new Map(),prepared=new Map();const preparing=new Map();let preparation=null,activeId=null;
-const $=id=>document.getElementById(id);let loading=Promise.resolve(),mode='sequence',selected=1,paused=false,epoch=0;
+const searchEntry={...states[0],id:9,screen:1,file:"01-tim-den-entry"};
+const clips=[intro,searchEntry,...states,...bridges,...errors],flow=[1,2,5,3,4],cache=new Map(),players=new Map(),prepared=new Map();const preparing=new Map();let preparation=null,activeId=null;
+const $=id=>document.getElementById(id);let loading=Promise.resolve(),mode='sequence',selected=1,paused=false,epoch=0,scanQueued=false;
 window.previewEvents=[];window.previewReady=false;window.previewSpeed=1;
 function log(type,clip){window.previewEvents.push({type,clip,time:performance.now()})}
 const introCard=document.createElement('section');introCard.className='screen-card';introCard.dataset.state=0;
@@ -38,13 +39,13 @@ for(const clip of [...bridges,...errors]){const tab=document.createElement('butt
 function dataFor(clip){
  if(cache.has(clip.id))return Promise.resolve(cache.get(clip.id));
  if(clip.id===0){
-  const task=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='before-scan/animation-0/animation-data.js?rev=design-aligned-v6';script.onload=()=>resolve(window.animationZero);script.onerror=()=>reject(Error('Không tải được hướng dẫn trước Scan'));document.body.appendChild(script)});cache.set(0,task);return task;
+  const task=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='before-scan/animation-0/animation-data.js?rev=baked-fade-v10';script.onload=()=>resolve(window.animationZero);script.onerror=()=>reject(Error('Không tải được hướng dẫn trước Scan'));document.body.appendChild(script)});cache.set(0,task);return task;
  }
  if(location.protocol!=='file:'&&typeof DecompressionStream!=='undefined'){
-  const request=fetch('animations/'+clip.file+'.json.gz?rev=timeout-entry-v15').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
+  const request=fetch('animations/'+clip.file+'.json.gz?rev=baked-fade-v10').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
  }
  const task=loading.then(()=>new Promise((resolve,reject)=>{
-  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=timeout-entry-v15';
+  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=baked-fade-v10';
   script.onload=()=>{const data=window.animationData;cache.set(clip.id,data);script.remove();resolve(data)};
   script.onerror=()=>{script.remove();reject(Error('Không tải được '+clip.file))};document.body.appendChild(script);
  }));loading=task.catch(()=>{});return task;
@@ -85,6 +86,8 @@ async function prepareClip(clip){
  animation.addEventListener('complete',()=>{
   if(activeId!==clip.id||!player.token||player.token!==epoch)return;
   log('complete',clip.id);
+  if(clip.id===0&&scanQueued){scanQueued=false;activateClip(9,epoch);window.previewReady=true;log('handoff-complete',9);return}
+  if(clip.id===9){activateClip(2,epoch);return}
   if(mode==='sequence'&&clip.id!==0){
    const next=flow[(flow.indexOf(clip.id)+1)%flow.length];
    if(next){const token=epoch;if(prepared.has(next))activateClip(next,token);else ensureClip(next).then(()=>activateClip(next,token)).catch(fail);return}
@@ -99,7 +102,7 @@ function ensureClip(id){
  return preparing.get(id);
 }
 function prepareAll(){
- if(!preparation)preparation=Promise.all(flow.map(ensureClip));
+ if(!preparation)preparation=Promise.all([...flow,9].map(ensureClip));
  return preparation;
 }
 function activateClip(id,token){
@@ -114,7 +117,7 @@ function activateClip(id,token){
 }
 function fail(error){$('status').textContent=error.message;console.error(error)}
 async function start(nextMode,stateId=1,skipIntro=false){
- const token=++epoch;mode=nextMode;window.previewReady=false;
+ const token=++epoch;mode=nextMode;scanQueued=false;introCard.querySelector(".scan-now").disabled=false;window.previewReady=false;
  const target=mode==='sequence'?(skipIntro?1:0):stateId;selected=target;
  display(screenFor(clips.find(c=>c.id===target)));
  window.scrollTo(0,0);
@@ -128,34 +131,15 @@ async function start(nextMode,stateId=1,skipIntro=false){
  }catch(error){fail(error)}
 }
 async function beginIntroHandoff(){
- const token=++epoch;mode='sequence';selected=1;paused=false;window.previewReady=false;
- const introPlayer=prepared.get(0);
+ if(scanQueued||activeId!==0)return;
+ const token=epoch;
  try{
-  $('status').textContent='Đang nối sang tìm đèn…';
-  const next=await ensureClip(1);if(token!==epoch)return;
-  const oldCard=document.querySelector('.screen-card[data-state="0"]');
-  const nextCard=document.querySelector('.screen-card[data-state="1"]');
-  for(const card of document.querySelectorAll('.screen-card'))card.hidden=card!==oldCard&&card!==nextCard;
-  $('screens').classList.add('single','handoff');
-  oldCard.classList.add('handoff-old');nextCard.classList.add('handoff-new');
-  introPlayer.animation.pause();introPlayer.token=null;introPlayer.holder.style.visibility='visible';
-  next.holder.style.visibility='visible';next.token=token;activeId=1;
-  const animation=next.animation;animation.setSpeed(window.previewSpeed);animation.goToAndStop(0,true);
-  display(1); // keep both cards visible during the handoff
-  for(const card of document.querySelectorAll('.screen-card'))card.hidden=card!==oldCard&&card!==nextCard;
-  $('screens').classList.add('handoff');players.clear();players.set(next.stateId,next);
-  requestAnimationFrame(()=>{
-   oldCard.classList.add('handoff-out');
-  });
-  log('handoff-start',1);
-  await new Promise(resolve=>setTimeout(resolve,320));if(token!==epoch)return;
-  oldCard.hidden=true;oldCard.classList.remove('handoff-old','handoff-out');
-  nextCard.classList.add('handoff-in');
-  animation.play();
-  await new Promise(resolve=>setTimeout(resolve,320));if(token!==epoch)return;
-  nextCard.classList.remove('handoff-new','handoff-in');$('screens').classList.remove('handoff');
-  display(1);activeId=1;updateStatus(next.clip);window.previewReady=true;log('handoff-complete',1);
- }catch(error){if(token===epoch)fail(error)}
+  await ensureClip(9);if(token!==epoch||activeId!==0)return;
+  mode='sequence';prepareAll().catch(fail);scanQueued=true;paused=false;
+  introCard.querySelector('.scan-now').disabled=true;
+  $('status').textContent='Đã nhận Scan · chờ animation hiện tại kết thúc…';
+  prepared.get(0).animation.play();log('handoff-queued',0);
+ }catch(error){fail(error)}
 }
 $('overview').onclick=()=>start('overview');$('sequence').onclick=()=>start('sequence');$('restart').onclick=()=>start(mode,selected);
 $('pause').onclick=()=>{
