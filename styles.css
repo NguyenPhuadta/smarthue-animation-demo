@@ -15,3 +15,5 @@
 @media(max-width:1740px) and (min-width:940px){.screens:not(.single){grid-template-columns:repeat(2,393px)}}
 @media(max-width:939px){.screens:not(.single){grid-template-columns:393px}.review-toolbar,.review-footer{align-items:flex-start;flex-direction:column;padding:20px}.screens{padding:24px 0;gap:24px}}
 @media(max-width:420px){.screens,.screens.single{grid-template-columns:min(393px,100vw);overflow:hidden}.screen-card,.phone-wrapper{width:100vw}.phone-wrapper{height:calc(100vw * 852 / 393)}.phone{transform:scale(calc(100vw / 393px));transform-origin:top left}.screen-label{padding:0 12px}}
+
+.phone[data-state="0"] .scan-now{position:absolute;left:20px;right:20px;top:732px;height:56px;border-radius:40px;border:1px solid #60758a;border-bottom-color:#314f6a;background:radial-gradient(ellipse at 50% 110%,#144c7c,#0c2d4a 65%,#091a27);color:white;font:600 20px -apple-system,BlinkMacSystemFont,sans-serif;z-index:2}

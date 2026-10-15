@@ -7,10 +7,20 @@ const states=[
 ];
 const bridges=[{id:5,label:'Nối Tìm thấy → Đang kết nối',file:'05-tim-thay-den-ket-noi',frames:168,from:2,to:3}];
 const errors=[{id:7,label:'Không tìm thấy đèn',file:'07-no-light-found',frames:252,screen:1},{id:8,label:'Kết nối quá thời gian',file:'08-connection-timeout',frames:240,screen:3}];
-const clips=[...states,...bridges,...errors],flow=[1,2,5,3,4],cache=new Map(),players=new Map(),prepared=new Map();const preparing=new Map();let preparation=null,activeId=null;
+const intro={id:0,label:'Trước khi Scan',file:'before-scan',frames:540};
+const clips=[intro,...states,...bridges,...errors],flow=[1,2,5,3,4],cache=new Map(),players=new Map(),prepared=new Map();const preparing=new Map();let preparation=null,activeId=null;
 const $=id=>document.getElementById(id);let loading=Promise.resolve(),mode='sequence',selected=1,paused=false,epoch=0;
 window.previewEvents=[];window.previewReady=false;window.previewSpeed=1;
 function log(type,clip){window.previewEvents.push({type,clip,time:performance.now()})}
+const introCard=document.createElement('section');introCard.className='screen-card';introCard.dataset.state=0;
+introCard.innerHTML=`<div class="phone-wrapper"><div class="phone" data-state="0">
+<img class="top-glow" src="assets/s1-imgEllipse24.svg" alt="">
+<div class="statusbar" aria-hidden="true"><div class="time">9:41</div><div class="levels"><img src="assets/s1-imgCellularConnection.svg" alt=""><img src="assets/s1-imgWifi.svg" alt=""><img src="assets/s1-imgBattery.svg" alt=""></div></div>
+<div class="headline search"><p>Before You Start</p></div><div class="animation-slot" aria-label="Turn off, wait 10 seconds, turn on"></div>
+<p class="instruction">Turn your Hue light off for <b>10 seconds,</b><br>then turn it back on.</p><button class="scan-now">Scan Now</button><div class="home-indicator" aria-hidden="true"></div></div></div>`;
+$('screens').appendChild(introCard);
+introCard.querySelector('.scan-now').onclick=()=>{paused=false;start('sequence',1,true)};
+const introTab=document.createElement('button');introTab.textContent='0. Trước khi Scan';introTab.dataset.state=0;introTab.onclick=()=>start('single',0);$('state-tabs').appendChild(introTab);
 for(const state of states){
  const card=document.createElement('section');card.className='screen-card';card.dataset.state=state.id;
  card.innerHTML=`<h2 class="screen-label">${state.id}. ${state.label}<span>393 × 852</span></h2>
@@ -27,6 +37,9 @@ for(const state of states){
 for(const clip of [...bridges,...errors]){const tab=document.createElement('button');tab.textContent=clip.label;tab.dataset.state=clip.id;tab.onclick=()=>start('single',clip.id);$('state-tabs').appendChild(tab);}
 function dataFor(clip){
  if(cache.has(clip.id))return Promise.resolve(cache.get(clip.id));
+ if(clip.id===0){
+  const task=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='before-scan/animation-0/animation-data.js?rev=design-aligned-v6';script.onload=()=>resolve(window.animationZero);script.onerror=()=>reject(Error('Không tải được hướng dẫn trước Scan'));document.body.appendChild(script)});cache.set(0,task);return task;
+ }
  if(location.protocol!=='file:'&&typeof DecompressionStream!=='undefined'){
   const request=fetch('animations/'+clip.file+'.json.gz?rev=timeout-entry-v15').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
  }
@@ -72,7 +85,7 @@ async function prepareClip(clip){
  animation.addEventListener('complete',()=>{
   if(activeId!==clip.id||!player.token||player.token!==epoch)return;
   log('complete',clip.id);
-  if(mode==='sequence'){
+  if(mode==='sequence'&&clip.id!==0){
    const next=flow[(flow.indexOf(clip.id)+1)%flow.length];
    if(next){const token=epoch;if(prepared.has(next))activateClip(next,token);else ensureClip(next).then(()=>activateClip(next,token)).catch(fail);return}
   }
@@ -100,18 +113,18 @@ function activateClip(id,token){
  log('load',id);if(!paused)animation.play();return animation;
 }
 function fail(error){$('status').textContent=error.message;console.error(error)}
-async function start(nextMode,stateId=1){
+async function start(nextMode,stateId=1,skipIntro=false){
  const token=++epoch;mode=nextMode;selected=stateId;window.previewReady=false;
- display(mode==='sequence'?1:screenFor(clips.find(c=>c.id===stateId)));
+ const target=mode==='sequence'?(skipIntro?1:0):stateId;
+ display(screenFor(clips.find(c=>c.id===target)));
  window.scrollTo(0,0);
  for(const p of prepared.values())p.animation.pause();
  if(!preparation)$('status').textContent='Đang chuẩn bị animation · chỉ tải một lần…';
  try{
-  const target=mode==='sequence'?1:stateId;
   const entry=ensureClip(target);
   if(mode==='sequence')prepareAll().catch(fail);
   await entry;if(token!==epoch)return;
-  activateClip(mode==='sequence'?1:stateId,token);window.previewReady=true;
+  activateClip(target,token);window.previewReady=true;
  }catch(error){fail(error)}
 }
 $('overview').onclick=()=>start('overview');$('sequence').onclick=()=>start('sequence');$('restart').onclick=()=>start(mode,selected);
