@@ -3,7 +3,7 @@ import base64, io, json, zipfile
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]
 collection=root/'collections/bridge-connect'
-expected={'full':568,'discover':300,'press':76,'connected':264,'water-reveal':48,'connected-loop':240}
+expected={'full':568,'discover':300,'press':76,'press-loop':144,'connected':264,'water-reveal':48,'connected-loop':240}
 for name,frames in expected.items():
  with zipfile.ZipFile(collection/f'{name}.lottie') as z:
   assert z.testzip() is None
@@ -21,14 +21,14 @@ for name,frames in expected.items():
     if 'refId' in layer:assert layer['refId'] in ids
 catalog=json.loads((root/'stock/catalog.json').read_text())
 c=next(c for c in catalog['collections'] if c['id']=='bridge-connect')
-for clip,name in zip(c['clips'],['discover','press','connected','water-reveal','connected-loop']):
+for clip,name in zip(c['clips'],['discover','press-loop','connected','water-reveal','connected-loop']):
  assert clip['seconds']==expected[name]/60
 for v in c['variants']:
  assert (root/v['preview']/'index.html').is_file()
  with zipfile.ZipFile(root/v['download']) as z:
   assert z.testzip() is None
   assert 'README.md' in z.namelist() and 'full-app-preview/index.html' in z.namelist()
-  assert len([n for n in z.namelist() if n.endswith('.lottie')])==6
+  assert len([n for n in z.namelist() if n.endswith('.lottie')])==7
   assert not any('/' not in n and n.endswith('.json') for n in z.namelist())
 assert (root/c['poster']).is_file()
-print('PASS: six dotLottie manifests, dimensions/FPS/duration, embedded PNGs, composition references, catalog and ZIP.')
+print('PASS: seven dotLottie manifests, dimensions/FPS/duration, embedded PNGs, composition references, catalog and ZIP.')

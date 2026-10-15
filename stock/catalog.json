@@ -41,7 +41,7 @@
       "id": "362x362",
       "label": "362 × 362 px",
       "preview": "collections/bridge-connect/",
-      "download": "handoff/bridge-connect-v1.0.0-362x362-2026-10-15.zip"
+      "download": "handoff/bridge-connect-v1.0.1-362x362-2026-10-15.zip"
     }
   ],
   "clips": [
@@ -54,8 +54,8 @@
     {
       "id": 1,
       "title": "Bấm nút",
-      "seconds": 1.2666666666666666,
-      "description": "Phát một lần; chạm nút là nối thẳng sang thành công."
+      "seconds": 2.4,
+      "description": "Lặp tiếp cận, bấm, nảy và nhả về tư thế đầu; full luồng nối thành công ngay khi chạm."
     },
     {
       "id": 2,
