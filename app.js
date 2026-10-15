@@ -39,13 +39,13 @@ for(const clip of [...bridges,...errors]){const tab=document.createElement('butt
 function dataFor(clip){
  if(cache.has(clip.id))return Promise.resolve(cache.get(clip.id));
  if(clip.id===0){
-  const task=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='before-scan/animation-0/animation-data.js?rev=intro-6s-v11';script.onload=()=>resolve(window.animationZero);script.onerror=()=>reject(Error('Không tải được hướng dẫn trước Scan'));document.body.appendChild(script)});cache.set(0,task);return task;
+  const task=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='before-scan/animation-0/animation-data.js?rev=intro-scan-exit-v12';script.onload=()=>resolve(window.animationZero);script.onerror=()=>reject(Error('Không tải được hướng dẫn trước Scan'));document.body.appendChild(script)});cache.set(0,task);return task;
  }
  if(location.protocol!=='file:'&&typeof DecompressionStream!=='undefined'){
-  const request=fetch('animations/'+clip.file+'.json.gz?rev=intro-6s-v11').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
+  const request=fetch('animations/'+clip.file+'.json.gz?rev=intro-scan-exit-v12').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
  }
  const task=loading.then(()=>new Promise((resolve,reject)=>{
-  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=intro-6s-v11';
+  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=intro-scan-exit-v12';
   script.onload=()=>{const data=window.animationData;cache.set(clip.id,data);script.remove();resolve(data)};
   script.onerror=()=>{script.remove();reject(Error('Không tải được '+clip.file))};document.body.appendChild(script);
  }));loading=task.catch(()=>{});return task;
@@ -86,7 +86,6 @@ async function prepareClip(clip){
  animation.addEventListener('complete',()=>{
   if(activeId!==clip.id||!player.token||player.token!==epoch)return;
   log('complete',clip.id);
-  if(clip.id===0&&scanQueued){scanQueued=false;activateClip(9,epoch);window.previewReady=true;log('handoff-complete',9);return}
   if(clip.id===9){activateClip(2,epoch);return}
   if(mode==='sequence'&&clip.id!==0){
    const next=flow[(flow.indexOf(clip.id)+1)%flow.length];
@@ -108,7 +107,7 @@ function prepareAll(){
 function activateClip(id,token){
  if(token!==epoch)return;
  const player=prepared.get(id);if(!player)throw Error('Animation chưa sẵn sàng');
- for(const p of prepared.values()){p.animation.pause();p.holder.style.visibility='hidden';p.token=null;}
+ for(const p of prepared.values()){p.animation.pause();p.holder.style.visibility='hidden';p.holder.style.transition='';p.holder.style.opacity='';p.token=null;}
  players.clear();players.set(player.stateId,player);activeId=id;player.token=token;
  const animation=player.animation;animation.setSpeed(window.previewSpeed);animation.goToAndStop(0,true);
  player.holder.style.visibility='visible';display(player.stateId);updateStatus(player.clip);
@@ -132,14 +131,20 @@ async function start(nextMode,stateId=1,skipIntro=false){
 }
 async function beginIntroHandoff(){
  if(scanQueued||activeId!==0)return;
- const token=epoch;
+ scanQueued=true;
+ const token=epoch,button=introCard.querySelector('.scan-now');button.disabled=true;
  try{
   await ensureClip(9);if(token!==epoch||activeId!==0)return;
-  mode='sequence';prepareAll().catch(fail);scanQueued=true;paused=false;
-  introCard.querySelector('.scan-now').disabled=true;
-  $('status').textContent='Đã nhận Scan · chờ animation hiện tại kết thúc…';
-  prepared.get(0).animation.play();log('handoff-queued',0);
- }catch(error){fail(error)}
+  mode='sequence';prepareAll().catch(fail);paused=false;
+  const current=prepared.get(0);current.token=null;
+  current.animation.play();
+  current.holder.style.transition='opacity 280ms ease-out';
+  current.holder.style.opacity='0';
+  $('status').textContent='Bắt đầu tìm đèn…';log('handoff-fade-start',0);
+  await new Promise(resolve=>setTimeout(resolve,280));
+  if(token!==epoch)return;
+  scanQueued=false;activateClip(9,token);window.previewReady=true;log('handoff-complete',9);
+ }catch(error){scanQueued=false;button.disabled=false;fail(error)}
 }
 $('overview').onclick=()=>start('overview');$('sequence').onclick=()=>start('sequence');$('restart').onclick=()=>start(mode,selected);
 $('pause').onclick=()=>{
