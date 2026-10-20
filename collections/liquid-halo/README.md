@@ -1,4 +1,4 @@
-# Liquid Halo · Blue Bulb — v1.0.0-720x540-2026-10-15
+# Liquid Halo · Blue Bulb — v1.1.0-720x540-2026-10-20
 
 Canvas **720 × 540 px**, **60 FPS**, speed **1.0**. Primary tone **#33A0FF**, white lightbulb supplied by the owner. Opaque black background and authored floor reflection; not transparent.
 
@@ -8,7 +8,7 @@ Canvas **720 × 540 px**, **60 FPS**, speed **1.0**. Primary tone **#33A0FF**, w
 
 ## Playback and integration
 
-State **0** is the only clip. Orbit → fold/collapse → reform → liquid merge into the white bulb. The source contains four identical 194-frame cycles (3.233333 s each). Play the **complete 776-frame file in a loop** at speed 1.0; pause/stop when the host leaves this state. There is no success/error handoff or external interaction. Full sequence and single-state preview intentionally play the same file from frame 0. No keyframe reduction, retiming, resize, opacity/easing changes or visual optimization was applied for publishing.
+State **0** is the only clip. Orbit at a fixed radius → tilt/fade → reform → liquid merge into the larger white bulb. The source contains four identical 194-frame cycles (3.233333 s each). Play the **complete 776-frame file in a loop** at speed 1.0; pause/stop when the host leaves this state. There is no success/error handoff or external interaction. Full sequence and single-state preview intentionally play the same file from frame 0. No keyframe reduction, retiming, resize, opacity/easing changes or visual optimization was applied for publishing.
 
 ## Offline and public preview
 
@@ -20,9 +20,9 @@ Single: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=liqu
 
 ## Fidelity and assets
 
-First stock release of the approved blue sphere/reflection, white SVG bulb and smooth liquid merge. Relative to the previous purple/round-pearl artwork, this release uses #33A0FF, the owner's exact lightbulb SVG geometry and a curved merging neck. Native paths, gradients, masks and authored floor stay in the file. No external bitmap/font assets, expressions or remote data dependencies. The .lottie embeds the **exact approved JSON bytes** with its slot definitions and default black background preserved.
+Revision v1.1.0 removes the sphere/orbit shrink animation: the sphere radius remains 75.6 px while the orbital plane rotates and the authored fade/reveal continues. The supplied white SVG bulb is 65% larger when formed; its liquid neck remains connected. Tone #33A0FF, FPS, timing and canvas remain unchanged. The previous v1.0.0 ZIP is retained. Native paths, gradients, masks and authored floor stay in the file. No external bitmap/font assets, expressions or remote data dependencies. The .lottie embeds the **exact approved JSON bytes** with its slot definitions and default black background preserved.
 
-Source SHA-256: `faa03106d00a5edeadfe181691ebb3a690226c1c61f8762417585f76d7c5a8f5`.
+Source SHA-256: `d4b06c9603d85664c078726210506e91b0062f796dd4248e0748b3eba591d7f3`.
 
 ## Validation limits
 

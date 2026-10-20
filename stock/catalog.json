@@ -81,9 +81,9 @@
 {
   "id": "liquid-halo",
   "title": "Liquid Halo · Blue Bulb",
-  "description": "Vầng sáng #33A0FF xoay quanh khối cầu có phản xạ, thu nhỏ rồi tái hiện và merge thành bóng đèn trắng.",
+  "description": "Vầng sáng #33A0FF xoay quanh khối cầu giữ nguyên kích thước, phản xạ trên bề mặt và merge thành bóng đèn trắng lớn hơn.",
   "sequenceDescription": "Một clip 12,93 giây gồm bốn chu kỳ liên tiếp; lặp toàn bộ, phát từ đầu khi mở preview.",
-  "updated": "2026-10-15",
+  "updated": "2026-10-20",
   "poster": "stock/liquid-halo-poster.png",
   "fps": 60,
   "tags": [
@@ -95,8 +95,8 @@
     {
       "id": "720x540",
       "label": "720 × 540 px",
-      "preview": "collections/liquid-halo/",
-      "download": "handoff/liquid-halo-v1.0.0-720x540-2026-10-15.zip"
+      "preview": "collections/liquid-halo/?v=1.1.0",
+      "download": "handoff/liquid-halo-v1.1.0-720x540-2026-10-20.zip"
     }
   ],
   "clips": [
@@ -104,7 +104,7 @@
       "id": 0,
       "title": "Liquid Halo · Blue Bulb",
       "seconds": 12.933333333333334,
-      "description": "Vầng sáng → xoay và thu nhỏ → tái hiện → merge bóng đèn. Lặp toàn bộ clip ở speed 1.0."
+      "description": "Khối tròn giữ nguyên kích thước khi xoay; tái hiện và merge bóng đèn trắng lớn hơn. Lặp toàn bộ clip ở speed 1.0."
     }
   ]
 }
