@@ -19,5 +19,5 @@ document.querySelector('#replay').onclick=()=>{paused=false;anim.goToAndPlay(0,t
 seek.oninput=()=>{paused=true;anim.goToAndStop(Number(seek.value)/1000*(data.op-data.ip-1),true);label()};
 anim.addEventListener('enterFrame',()=>{seek.value=String(Math.round(anim.currentFrame/(data.op-data.ip-1)*1000));time.textContent=(anim.currentFrame/data.fr).toFixed(2)+'s / '+((data.op-data.ip)/data.fr).toFixed(2)+'s'});
 anim.addEventListener('data_failed',()=>{status.textContent='Không tải được animation.'});
-anim.addEventListener('DOMLoaded',()=>{if(q.has('frame')){anim.goToAndStop(Math.max(0,Math.min(data.op-data.ip-1,Number(q.get('frame'))||0)),true);paused=true;label()}else anim.goToAndPlay(0,true);status.textContent='Vòng sáng → xoay và thu nhỏ → tái hiện → form bóng đèn. Lặp toàn bộ 12,93 giây.'});
+anim.addEventListener('DOMLoaded',()=>{if(q.has('frame')){anim.goToAndStop(Math.max(0,Math.min(data.op-data.ip-1,Number(q.get('frame'))||0)),true);paused=true;label()}else anim.goToAndPlay(0,true);status.textContent='Vòng sáng giữ nguyên kích thước → xoay → tái hiện → form bóng đèn. Lặp toàn bộ 12,93 giây.'});
 })();
