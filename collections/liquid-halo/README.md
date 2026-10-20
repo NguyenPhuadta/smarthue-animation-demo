@@ -1,4 +1,4 @@
-# Liquid Halo · iPhone Duo — v1.2.2 (2026-10-20)
+# Liquid Halo · iPhone Duo — v1.2.3 (2026-10-20)
 
 ## Bắt buộc cho agent / dev: chọn đúng kích thước
 
@@ -11,7 +11,7 @@
 
 ## Nhịp và tích hợp
 
-Cả hai file: **60 FPS, speed 1.0, ip=0, op=320 exclusive, 5.33333333 giây**. Mỗi file chỉ chứa **một chu kỳ 320 frame = 5.33333333 giây**. Bật loop/repeat trong code của host; không nhân bản chu kỳ bên trong file. Loop toàn bộ file liên tục, không chèn pause, không gọi replay hoặc reload file mỗi chu kỳ. State duy nhất là **0**. Full sequence và single đều mở từ frame 0 và loop cùng animation; không có nhánh success/error.
+Cả hai file: **60 FPS, playback speed 1.5×, ip=0, op=320 exclusive, thời lượng phát 3.55555556 giây**. Mỗi file chỉ chứa **một chu kỳ 320 frame = 5.33333333 giây**. Đặt playback speed 1.5× và bật loop/repeat trong code host; không nhân bản chu kỳ. Timeline Lottie giữ 320 frame ở 60 FPS (5,33 giây); thời gian phát mỗi vòng ở 1.5× là 3,56 giây. Loop toàn bộ file liên tục, không chèn pause, không gọi replay hoặc reload file mỗi chu kỳ. State duy nhất là **0**. Full sequence và single đều mở từ frame 0 và loop cùng animation; không có nhánh success/error.
 
 Khi iPhone Duo đổi trạng thái, chuyển sang file có kích thước tương ứng tại **cùng normalized progress hoặc cùng frame modulo 320**. Tránh bắt đầu lại từ frame 0 khi đổi size nếu animation vẫn đang hiển thị. Khi app rời màn hình, host có thể pause/stop; resume giữ phase nếu sản phẩm cần liên tục.
 
@@ -27,7 +27,9 @@ Stock 200: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=l
 
 ## Thay đổi và kiểm tra
 
-v1.2.2: rút từ bốn chu kỳ (21,33 giây) xuống một chu kỳ (5,33 giây). Host chịu trách nhiệm loop. Giữ nguyên toàn bộ keyframe, easing, tốc độ, shading và fade của chu kỳ v1.2.1. ZIP cũ vẫn được giữ.
+v1.2.3: playback speed tăng lên 1.5×, tương đương 3,56 giây mỗi chu kỳ. Giữ nguyên keyframe và timeline 60 FPS.
+
+v1.2.2: rút từ bốn chu kỳ (21,33 giây) xuống một chu kỳ (5,33 giây). Host chịu trách nhiệm loop. Giữ nguyên keyframe, easing, shading và fade của chu kỳ v1.2.1. ZIP cũ vẫn được giữ.
 
 v1.2.1: vệt sáng cuối vòng quay, bloom và phản chiếu sàn mờ dần trong 42 frame (0,7 giây), mất hoàn toàn trước khi chuyển pha. Giữ nguyên shading khối cầu, hình học, kích thước, FPS và nhịp loop. Bản ZIP v1.2.0 được giữ nguyên.
 
