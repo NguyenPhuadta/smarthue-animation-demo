@@ -1,4 +1,4 @@
-# Liquid Halo · iPhone Duo — v1.2.1 (2026-10-20)
+# Liquid Halo · iPhone Duo — v1.2.2 (2026-10-20)
 
 ## Bắt buộc cho agent / dev: chọn đúng kích thước
 
@@ -11,7 +11,7 @@
 
 ## Nhịp và tích hợp
 
-Cả hai file: **60 FPS, speed 1.0, ip=0, op=1280 exclusive, 21.33333333 giây**. Mỗi file chứa bốn chu kỳ giống nhau, **320 frame = 5.33333333 giây/chu kỳ**. Loop toàn bộ file liên tục, không chèn pause, không gọi replay hoặc reload file mỗi chu kỳ. State duy nhất là **0**. Full sequence và single đều mở từ frame 0 và loop cùng animation; không có nhánh success/error.
+Cả hai file: **60 FPS, speed 1.0, ip=0, op=320 exclusive, 5.33333333 giây**. Mỗi file chỉ chứa **một chu kỳ 320 frame = 5.33333333 giây**. Bật loop/repeat trong code của host; không nhân bản chu kỳ bên trong file. Loop toàn bộ file liên tục, không chèn pause, không gọi replay hoặc reload file mỗi chu kỳ. State duy nhất là **0**. Full sequence và single đều mở từ frame 0 và loop cùng animation; không có nhánh success/error.
 
 Khi iPhone Duo đổi trạng thái, chuyển sang file có kích thước tương ứng tại **cùng normalized progress hoặc cùng frame modulo 320**. Tránh bắt đầu lại từ frame 0 khi đổi size nếu animation vẫn đang hiển thị. Khi app rời màn hình, host có thể pause/stop; resume giữ phase nếu sản phẩm cần liên tục.
 
@@ -27,6 +27,8 @@ Stock 200: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=l
 
 ## Thay đổi và kiểm tra
 
+v1.2.2: rút từ bốn chu kỳ (21,33 giây) xuống một chu kỳ (5,33 giây). Host chịu trách nhiệm loop. Giữ nguyên toàn bộ keyframe, easing, tốc độ, shading và fade của chu kỳ v1.2.1. ZIP cũ vẫn được giữ.
+
 v1.2.1: vệt sáng cuối vòng quay, bloom và phản chiếu sàn mờ dần trong 42 frame (0,7 giây), mất hoàn toàn trước khi chuyển pha. Giữ nguyên shading khối cầu, hình học, kích thước, FPS và nhịp loop. Bản ZIP v1.2.0 được giữ nguyên.
 
 v1.2.0 thay thế bố cục 720 × 540 bằng hai kích thước iPhone Duo; chu kỳ từ 194 lên 320 frame để chuyển động dịu hơn; giữ sphere fixed-radius và bóng đèn trắng to. Các ZIP v1.0.0/v1.1.0 và preview gốc vẫn được giữ nguyên để các link bàn giao cũ hoạt động.
@@ -35,5 +37,5 @@ v1.2.0 thay thế bố cục 720 × 540 bằng hai kích thước iPhone Duo; ch
 
 ## Source SHA-256
 
-- 136: `74151104edf8a97fff574c2bae3c64631eae329117edbb03be629da4e6455859`
-- 200: `0b60ab9a009226d9ec2f43fd042d437cf1260f2f7d4e6546ee5eaf01b0f15578`
+- 136: `2db47a7e3e5b43a88540f722cf174ac7733c06063bafa24a97bd630010cab95f`
+- 200: `838d80d2ecd2d3fe187376bf2900496c46abbe9c1e3a0714fe440cf1d1e01c0b`
