@@ -1,4 +1,4 @@
-# Liquid Halo · iPhone Duo — v1.2.0 (2026-10-20)
+# Liquid Halo · iPhone Duo — v1.2.1 (2026-10-20)
 
 ## Bắt buộc cho agent / dev: chọn đúng kích thước
 
@@ -27,11 +27,13 @@ Stock 200: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=l
 
 ## Thay đổi và kiểm tra
 
+v1.2.1: vệt sáng cuối vòng quay, bloom và phản chiếu sàn mờ dần trong 42 frame (0,7 giây), mất hoàn toàn trước khi chuyển pha. Giữ nguyên shading khối cầu, hình học, kích thước, FPS và nhịp loop. Bản ZIP v1.2.0 được giữ nguyên.
+
 v1.2.0 thay thế bố cục 720 × 540 bằng hai kích thước iPhone Duo; chu kỳ từ 194 lên 320 frame để chuyển động dịu hơn; giữ sphere fixed-radius và bóng đèn trắng to. Các ZIP v1.0.0/v1.1.0 và preview gốc vẫn được giữ nguyên để các link bàn giao cũ hoạt động.
 
 Đã render toàn bộ chu kỳ bằng CanvasKit Skottie; kiểm tra kích thước, JSON, manifest .lottie, ZIP và source hash; kiểm tra browser stock/native-size và điểm nối. Preview stock dùng runtime lottie-web hiện có (MIT), có adapter `hasMask` chỉ khi nạp preview để xử lý mask tangents; file .lottie giữ đúng byte nguồn của bản này. Chưa kiểm tra dotlottie-ios trên iPhone thật, chưa chứng nhận FPS thiết bị. Preview offline được đóng gói đủ phụ thuộc; browser automation chỉ cho HTTP(S) nên chưa mở trực tiếp file://.
 
 ## Source SHA-256
 
-- 136: `287b1a4145b247a0fe4475b51160cfeb87338fb0c75fc206e626f4b09ce74ccf`
-- 200: `ef8d79c30ed0c8761f3233de43201891c388b780e184a5a6e64d7903cebbe523`
+- 136: `74151104edf8a97fff574c2bae3c64631eae329117edbb03be629da4e6455859`
+- 200: `0b60ab9a009226d9ec2f43fd042d437cf1260f2f7d4e6546ee5eaf01b0f15578`
