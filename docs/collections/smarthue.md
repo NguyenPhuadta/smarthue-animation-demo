@@ -15,3 +15,7 @@ Chỉ áp dụng khi chỉnh sửa, đóng gói hoặc tích hợp bộ `smarthu
 - 60 FPS, speed=1. Bộ gốc 393×326, bản resize 362×300 giữ nguyên tỉ lệ nội dung. Background ngoài sàn trong suốt; sàn, mép mềm và bóng nằm trong animation. Nền app #0C0C0C. Không stretch/crop ảnh để vừa khung.
 - Preview full luồng đợi Scan Now ở animation 0 rồi mới tiếp tục; production dùng BLE thật và không sao chép việc tự tiến/lặp toàn bộ demo.
 
+
+## v20 — 20/10/2026
+
+Preview chỉ hiển thị hiệu ứng 362×300 hoặc 393×326, đã bỏ toàn bộ khung và UI điện thoại. Nút Scan Now thuộc thanh điều khiển preview và vẫn giữ contract chuyển cảnh ở trên. Hai mép mờ trên/dưới sàn dùng #0C0C0C qua gradient màu, giữ alpha PNG gốc làm matte; sàn đổi thành precomposition, mọi chuyển động/keyframe/easing/opacity/kích thước/thời lượng cũ không đổi. ZIP v20 có 8 .lottie và preview cục bộ; các ZIP cũ vẫn được giữ. Chưa kiểm tra iOS thật.

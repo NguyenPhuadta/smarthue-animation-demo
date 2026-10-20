@@ -2,15 +2,16 @@
   "version": 1,
   "collections": [{
     "id": "smarthue",
+    "previewHeight": 480,
     "title": "SmartHue · Kết nối đèn",
     "description": "Từ hướng dẫn bật tắt đèn đến tìm kiếm, ghép nối và kết nối thành công. Có đầy đủ hai nhánh lỗi để bàn giao cho dev.",
-    "updated": "2026-10-15",
+    "updated": "2026-10-20",
     "poster": "stock/smarthue-poster.png",
     "fps": 60,
     "tags": ["Onboarding", "Bluetooth", "8 animation"],
     "variants": [
-      {"id":"362x300","label":"362 × 300 px","preview":"resize-362x300/","download":"handoff/smarthue-dev-362x300-2026-10-15.zip"},
-      {"id":"393x326","label":"393 × 326 px · gốc","preview":"original-demo.html","download":"handoff/smarthue-dev-final-2026-10-15.zip"}
+      {"id":"362x300","label":"362 × 300 px","preview":"resize-362x300/?v=effects-20261020","download":"handoff/smarthue-effects-v20-362x300-2026-10-20.zip"},
+      {"id":"393x326","label":"393 × 326 px · gốc","preview":"original-demo.html?v=effects-20261020","download":"handoff/smarthue-effects-v20-393x326-2026-10-20.zip"}
     ],
     "clips": [
       {"id":0,"title":"Trước khi Scan","seconds":8,"description":"Tắt đèn → chờ → bật lại. Bấm Scan Now để bắt đầu tìm đèn."},
