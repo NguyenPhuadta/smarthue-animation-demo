@@ -1,29 +1,37 @@
-# Liquid Halo · Blue Bulb — v1.1.0-720x540-2026-10-20
+# Liquid Halo · iPhone Duo — v1.2.0 (2026-10-20)
 
-Canvas **720 × 540 px**, **60 FPS**, speed **1.0**. Primary tone **#33A0FF**, white lightbulb supplied by the owner. Opaque black background and authored floor reflection; not transparent.
+## Bắt buộc cho agent / dev: chọn đúng kích thước
 
-| File | Duration | Frames |
+| File | Canvas | Trường hợp sử dụng |
 | --- | --- | --- |
-| liquid-halo.lottie | 12.93333333 s | 776 (ip=0, op=776 exclusive) |
+| liquid-halo-136.lottie | **136 × 136 px** | **iPhone Duo lúc gập** (folded / closed) |
+| liquid-halo-200.lottie | **200 × 200 px** | **iPhone Duo lúc mở ngang** (unfolded, landscape) |
 
-## Playback and integration
+Đây là mapping sản phẩm do chủ dự án chỉ định. Agent phải chọn theo trạng thái gập/mở của thiết bị, **không suy đoán chỉ từ chiều rộng màn hình**, không tráo hai file và không dùng bản 720 × 540 cũ thay cho hai bản này. Cả hai là canvas vuông thật; giữ aspect ratio 1:1 và không stretch/crop trong app. Các kích thước px là kích thước canvas/tài nguyên; host quyết định layout và mật độ điểm ảnh phù hợp.
 
-State **0** is the only clip. Orbit at a fixed radius → tilt/fade → reform → liquid merge into the larger white bulb. The source contains four identical 194-frame cycles (3.233333 s each). Play the **complete 776-frame file in a loop** at speed 1.0; pause/stop when the host leaves this state. There is no success/error handoff or external interaction. Full sequence and single-state preview intentionally play the same file from frame 0. No keyframe reduction, retiming, resize, opacity/easing changes or visual optimization was applied for publishing.
+## Nhịp và tích hợp
 
-## Offline and public preview
+Cả hai file: **60 FPS, speed 1.0, ip=0, op=1280 exclusive, 21.33333333 giây**. Mỗi file chứa bốn chu kỳ giống nhau, **320 frame = 5.33333333 giây/chu kỳ**. Loop toàn bộ file liên tục, không chèn pause, không gọi replay hoặc reload file mỗi chu kỳ. State duy nhất là **0**. Full sequence và single đều mở từ frame 0 và loop cùng animation; không có nhánh success/error.
 
-Open **full-app-preview/index.html** directly from disk. All animation data, runtime and dependencies are local; no server/network is required. Replay, pause and scrub are available. `mode=sequence` starts at the beginning, `mode=single&state=0` selects the clip, `embed=1` hides duplicate navigation and retains playback controls. No localStorage overrides.
+Khi iPhone Duo đổi trạng thái, chuyển sang file có kích thước tương ứng tại **cùng normalized progress hoặc cùng frame modulo 320**. Tránh bắt đầu lại từ frame 0 khi đổi size nếu animation vẫn đang hiển thị. Khi app rời màn hình, host có thể pause/stop; resume giữ phase nếu sản phẩm cần liên tục.
 
-Stock: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=liquid-halo&variant=720x540&clip=flow
+Vầng sáng #33A0FF, bóng đèn SVG trắng lớn hơn từ bản v1.1.0. Khối cầu giữ bán kính cố định, hiện xuyên suốt lúc ánh sáng chuyển pha. Chuyển động được giãn nhịp, nội suy với tangent dùng chung và làm mềm chuyển vận tốc, giảm lóe sáng khi edge-on, nối vòng tuần hoàn không có frame giữ giả. Hai kích thước dùng cùng timing và cùng hình học; chỉ khác transform bố cục đồng nhất. Phản chiếu sàn được đặt lại để nằm trong canvas vuông. **Nền đen opaque**, không transparent; không bỏ layer nền/sàn hay masks.
 
-Single: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=liquid-halo&variant=720x540&clip=0
+## Preview và assets
 
-## Fidelity and assets
+Mở `full-app-preview/index.html`, chọn 136 hoặc 200; tất cả runtime và animation data đều nằm trong gói. Từng preview hỗ trợ `mode=sequence`, `mode=single&state=0`, `embed=1`, có phát lại/tạm dừng/scrub và hiển thị ở kích thước thật. Không tải font/ảnh từ mạng. Tất cả artwork là native vector/gradient, không external image/font assets.
 
-Revision v1.1.0 removes the sphere/orbit shrink animation: the sphere radius remains 75.6 px while the orbital plane rotates and the authored fade/reveal continues. The supplied white SVG bulb is 65% larger when formed; its liquid neck remains connected. Tone #33A0FF, FPS, timing and canvas remain unchanged. The previous v1.0.0 ZIP is retained. Native paths, gradients, masks and authored floor stay in the file. No external bitmap/font assets, expressions or remote data dependencies. The .lottie embeds the **exact approved JSON bytes** with its slot definitions and default black background preserved.
+Stock 136: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=liquid-halo&variant=136x136&clip=flow
 
-Source SHA-256: `d4b06c9603d85664c078726210506e91b0062f796dd4248e0748b3eba591d7f3`.
+Stock 200: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=liquid-halo&variant=200x200&clip=flow
 
-## Validation limits
+## Thay đổi và kiểm tra
 
-Authoring was reviewed in the official Skia Skottie player. The stock preview uses the repository's existing lottie-web runtime (MIT). A preview-only adapter sets `hasMask=true` on layers already containing `masksProperties`, so lottie-web normalizes their relative mask tangents correctly. The downloaded .lottie remains byte-for-byte unchanged. JSON/.lottie/ZIP fidelity, browser playback and responsive layout are checked during publication. Offline package dependencies were checked locally; opening file:// directly could not be browser-tested because the automation browser allows only HTTP(S). Web playback does not establish native iOS rendering or device FPS; dotlottie-ios and physical-device tests have not been performed. Verify the production player before integration.
+v1.2.0 thay thế bố cục 720 × 540 bằng hai kích thước iPhone Duo; chu kỳ từ 194 lên 320 frame để chuyển động dịu hơn; giữ sphere fixed-radius và bóng đèn trắng to. Các ZIP v1.0.0/v1.1.0 và preview gốc vẫn được giữ nguyên để các link bàn giao cũ hoạt động.
+
+Đã render toàn bộ chu kỳ bằng CanvasKit Skottie; kiểm tra kích thước, JSON, manifest .lottie, ZIP và source hash; kiểm tra browser stock/native-size và điểm nối. Preview stock dùng runtime lottie-web hiện có (MIT), có adapter `hasMask` chỉ khi nạp preview để xử lý mask tangents; file .lottie giữ đúng byte nguồn của bản này. Chưa kiểm tra dotlottie-ios trên iPhone thật, chưa chứng nhận FPS thiết bị. Preview offline được đóng gói đủ phụ thuộc; browser automation chỉ cho HTTP(S) nên chưa mở trực tiếp file://.
+
+## Source SHA-256
+
+- 136: `287b1a4145b247a0fe4475b51160cfeb87338fb0c75fc206e626f4b09ce74ccf`
+- 200: `ef8d79c30ed0c8761f3233de43201891c388b780e184a5a6e64d7903cebbe523`

@@ -1,7 +1,7 @@
-# Liquid Halo publishing rules
+# Liquid Halo / iPhone Duo — agent rules
 
-Approved source: 720 × 540, 60 fps, ip=0, op=776, speed 1.0. One clip, ID 0. Preserve the complete authored file. Loop the whole file in full/single modes; no app flow beyond this clip. Opaque black background with blue #33A0FF reflections and white SVG bulb. Do not apply SmartHue or Bridge state rules to this collection.
+**136 × 136 px = iPhone Duo lúc gập. 200 × 200 px = iPhone Duo lúc mở ngang.** Select by actual device posture, not viewport width alone. Both canvases are square; do not stretch. Keep matching progress when switching variants.
 
-Current release: `liquid-halo-v1.1.0-720x540-2026-10-20.zip`. See `collections/liquid-halo/README.md` for integration, source hash and compatibility limits.
+v1.2.0: 60 FPS, speed 1.0, ip=0, op=1280 exclusive, 21.33333333 s total; 4 × 320-frame cycles. Loop the full animation without inserted pauses/reloads. Fixed sphere radius throughout the orbital motion, larger supplied white bulb, #33A0FF, opaque black background with floor reflection. Both variants share timing, geometry and phase.
 
-Revision v1.1.0: fixed sphere/orbit radius during rotation; formed bulb enlarged 65%. Keep this size behavior when repackaging.
+Current bundle: handoff/liquid-halo-duo-v1.2.0-2026-10-20.zip. See collections/liquid-halo/README.md for full mapping, handoff/state rules, assets and validation limits. Preserve older ZIP/preview links; do not apply SmartHue or Bridge behavior to this collection.
