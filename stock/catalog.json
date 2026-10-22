@@ -181,6 +181,38 @@
           "description": "Một chu kỳ 3,56 giây ở playback speed 1.5×; host bật loop. 136 px cho iPhone Duo gập; 200 px cho mở ngang."
         }
       ]
+    },
+    {
+      "id": "siri-voice",
+      "title": "Siri · Sóng sáng",
+      "description": "Khối cầu Siri 88 × 88 px, dải sáng chuyển động và viền hai bên. Đổi màu độc lập cho dải sáng, viền trái và viền phải.",
+      "sequenceDescription": "Một clip 15,8 giây, 60 FPS, speed 1×. Lặp toàn bộ; preview mặc định đúng 88 × 88 px và có chế độ phóng 4×.",
+      "updated": "2026-10-22",
+      "poster": "stock/siri-voice-poster.png",
+      "fps": 60,
+      "tags": [
+        "Voice",
+        "Siri",
+        "88 × 88",
+        "Đổi màu"
+      ],
+      "previewHeight": 650,
+      "variants": [
+        {
+          "id": "88x88",
+          "label": "88 × 88 px",
+          "preview": "collections/siri-voice/?v=1.0.0",
+          "download": "handoff/siri-voice-v1.0.0-88x88-2026-10-22.zip"
+        }
+      ],
+      "clips": [
+        {
+          "id": 0,
+          "title": "Siri · Sóng sáng",
+          "seconds": 15.8,
+          "description": "Khối cầu và sóng sáng chuyển động, lặp toàn bộ 948 frame. Chỉnh riêng màu dải sáng và viền trái/phải."
+        }
+      ]
     }
   ]
 }
