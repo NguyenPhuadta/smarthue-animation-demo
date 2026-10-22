@@ -6,6 +6,9 @@ def parse(b):
  s=b.decode();return json.loads(s[s.index('=')+1:].strip().rstrip(';'))
 def normalize(d):
  d=copy.deepcopy(d)
+ if 'slots' in d:
+  d['slots']={k:v for k,v in d['slots'].items() if not k.startswith('floorGradient')}
+  if not d['slots']:d.pop('slots')
  d['assets']=[a for a in d['assets'] if not(a['id'] in ['floor-surface','reference-floor'] and 'layers'in a)]
  for a in d['assets']:
   if a['id'] in ['floor-surface-alpha','reference-floor-alpha']:a['id']=a['id'].removesuffix('-alpha')
@@ -21,11 +24,11 @@ for p in paths:
  else:a=parse(old);b=parse(p.read_bytes())
  assert normalize(b)==a,rel
  floor=next(x for x in b['assets'] if x['id'] in ['floor-surface','reference-floor'])
- shapes=floor['layers'][1]['shapes'];assert len(shapes)==3
+ shapes=floor['layers'][1]['shapes'];assert len(shapes)==5
  for g in shapes[1:]:
   stops=g['it'][1]['g']['k']['k'];assert stops[:8]==[0,12/255,12/255,12/255,1,12/255,12/255,12/255]
 for size in ['362x300','393x326']:
- with zipfile.ZipFile(R/f'handoff/smarthue-effects-v20-{size}-2026-10-20.zip') as z:
+ with zipfile.ZipFile(R/f'handoff/smarthue-gradient-v21-{size}-2026-10-22.zip') as z:
   assert z.testzip() is None
   dots=[n for n in z.namelist() if n.endswith('.lottie')];assert len(dots)==8
   assert not any(n.endswith('.json') and '/'not in n for n in z.namelist())

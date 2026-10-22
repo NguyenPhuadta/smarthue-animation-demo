@@ -29,18 +29,18 @@ for(const clip of [...bridges,...errors]){const tab=document.createElement('butt
 function dataFor(clip){
  if(cache.has(clip.id))return Promise.resolve(cache.get(clip.id));
  if(clip.id===0){
-  const task=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='before-scan/animation-0/animation-data.js?rev=effects-20261020';script.onload=()=>resolve(window.animationZero);script.onerror=()=>reject(Error('Không tải được hướng dẫn trước Scan'));document.body.appendChild(script)});cache.set(0,task);return task;
+  const task=new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='before-scan/animation-0/animation-data.js?rev=gradient-v21-20261022';script.onload=()=>resolve(window.animationZero);script.onerror=()=>reject(Error('Không tải được hướng dẫn trước Scan'));document.body.appendChild(script)});cache.set(0,task);return task;
  }
  if(location.protocol!=='file:'&&typeof DecompressionStream!=='undefined'){
-  const request=fetch('animations/'+clip.file+'.json.gz?rev=effects-20261020').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
+  const request=fetch('animations/'+clip.file+'.json.gz?rev=gradient-v21-20261022').then(async response=>{if(!response.ok)throw Error('Không tải được '+clip.file);const stream=response.body.pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(stream).text())}).then(data=>{cache.set(clip.id,data);return data});cache.set(clip.id,request);return request;
  }
  const task=loading.then(()=>new Promise((resolve,reject)=>{
-  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=effects-20261020';
+  const script=document.createElement('script');script.src='animations/'+clip.file+'-data.js?rev=gradient-v21-20261022';
   script.onload=()=>{const data=window.animationData;cache.set(clip.id,data);script.remove();resolve(data)};
   script.onerror=()=>{script.remove();reject(Error('Không tải được '+clip.file))};document.body.appendChild(script);
  }));loading=task.catch(()=>{});return task;
 }
-function align(data){return data}
+function align(data){return window.floorGradient.apply(data)}
 function display(stateId){
  for(const card of document.querySelectorAll('.screen-card'))card.hidden=mode!=='overview'&&Number(card.dataset.state)!==stateId;
  $('screens').classList.toggle('single',mode!=='overview');
@@ -61,7 +61,7 @@ async function prepareClip(clip){
  if(!animation.imagePreloader.loadedImages())await new Promise(resolve=>animation.addEventListener('loaded_images',resolve));
  animation.setSubframe(true);
  animation.goToAndStop(0,true);
- const player={animation,holder,clip,stateId};prepared.set(clip.id,player);
+ const player={animation,holder,clip,stateId};window.floorGradient.bind(player);prepared.set(clip.id,player);
  animation.addEventListener('complete',()=>{
   if(activeId!==clip.id||!player.token||player.token!==epoch)return;
   log('complete',clip.id);
@@ -131,6 +131,7 @@ $('pause').onclick=()=>{
  const active=[...players.values()].find(p=>!p.holder.closest('.screen-card').hidden);updateStatus(active?.clip||states[0]);
 };
 window.teamPreview={start,players,states,bridges};
+window.floorGradient.currentData=async()=>{const clip=clips.find(c=>c.id===activeId);if(!clip||!window.previewReady)throw Error("Đợi animation tải xong rồi thử lại.");return {data:window.floorGradient.apply(structuredClone(await dataFor(clip))),name:clip.id===0?"00-before-scan":clip.file}};
 const entryParams=new URLSearchParams(location.search);
 const requestedState=Number(entryParams.get('state'));
 start(entryParams.get('mode')==='single'&&clips.some(c=>c.id===requestedState)?'single':'sequence',requestedState);

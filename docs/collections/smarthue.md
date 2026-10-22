@@ -19,3 +19,16 @@ Chỉ áp dụng khi chỉnh sửa, đóng gói hoặc tích hợp bộ `smarthu
 ## v20 — 20/10/2026
 
 Preview chỉ hiển thị hiệu ứng 362×300 hoặc 393×326, đã bỏ toàn bộ khung và UI điện thoại. Nút Scan Now thuộc thanh điều khiển preview và vẫn giữ contract chuyển cảnh ở trên. Hai mép mờ trên/dưới sàn dùng #0C0C0C qua gradient màu, giữ alpha PNG gốc làm matte; sàn đổi thành precomposition, mọi chuyển động/keyframe/easing/opacity/kích thước/thời lượng cũ không đổi. ZIP v20 có 8 .lottie và preview cục bộ; các ZIP cũ vẫn được giữ. Chưa kiểm tra iOS thật.
+
+
+## v21 — bốn mép mờ và controller gradient · 22/10/2026
+
+Thêm gradient trái/phải cùng màu #0C0C0C và độ lan 180 px trong hệ tọa độ sàn 786×652, tương tự hai mép trên/dưới. Vẫn dùng nguyên alpha PNG làm matte; chỉ thay hình dạng tô màu trong precomposition sàn. Chuyển động, easing, opacity layer gốc, timing, FPS, tỉ lệ, font và dữ liệu ảnh gốc được giữ nguyên.
+
+Panel **Gradient sàn** nằm ngay dưới animation, cả trong stock embed và full-app-preview. Chỉnh màu, độ đậm chung 0–100%, độ lan riêng mỗi mép 0–50% chiều rộng/chiều cao sàn. Giá trị % tính trong sàn gốc, không phải canvas. Các slider đổi trực tiếp trên frame hiện tại, không reset clip. Cấu hình được nhớ trên trình duyệt và dùng khi chuyển clip; nút **Mặc định** xoá các chỉnh sửa đang dùng và trở về màu #0C0C0C/độ đậm 100%/độ lan 180 px.
+
+**Tải cấu hình** xuất JSON thông số. **Tải Lottie đang chỉnh** xuất một .lottie của clip đang xem, đã bake màu/độ lan/độ đậm hiện tại vào JSON cùng các ảnh nhúng. Gói ZIP stock luôn chứa bản mặc định, không tự cập nhật theo slider. Các export animation 00 vẫn cần font Inter trên runtime native như bản gốc; font cho HTML preview nằm ở before-scan/animation-0/Inter.ttf. Chưa xác minh renderer native/font resolution trên iOS thật.
+
+Có các slot Lottie: `floorGradientOpacity` (number 0–100), `floorGradientTopEnd`, `floorGradientBottomEnd`, `floorGradientLeftEnd`, `floorGradientRightEnd` (vector [x,y] theo sàn 786×652). Web controller cập nhật cả fallback và slot khi export. Runtime không hỗ trợ slots vẫn dùng fallback đã bake. Màu gradient được bake trong `g.k`; không phải color slot đơn. Panel dành cho preview/thiết kế, không phải UI người dùng production. Hai runtime JS mới (floor-gradient.js, fflate.min.js) và license đi kèm để export offline; không gọi CDN.
+
+Không thay contract Scan Now 280ms hoặc thứ tự/chế độ lặp từng clip. Kiểm tra Skottie và web không thay thế kiểm tra player trên iOS thật.
