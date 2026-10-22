@@ -1,4 +1,4 @@
-# Bridge Connect — v1.2.2-362x362-2026-10-22
+# Bridge Connect — v1.3.0-362x362-2026-10-22
 
 Canvas **362 × 362 px**, **60 FPS**, speed **1.0**. Transparent background; no opaque floor, text or success icons. Water lines and blue underglow are authored effects. Original PNG bytes are embedded losslessly in every .lottie. No external fonts.
 
@@ -78,3 +78,7 @@ Khi user bấm **Try again**, code của ứng dụng phải thực hiện theo 
 Luồng: **Not found hoặc Timeout → Try again → code fade out animation lỗi → fade hoàn tất → Find bridge từ frame 0**.
 
 Fade out này được triển khai trong **code host**, không nằm trong file `.lottie`. Đây là hướng dẫn tích hợp cho dev; nút Phát lại của HTML preview vẫn chỉ phát lại clip đang chọn, không mô phỏng nút Try again. Các file animation, thời lượng, FPS và nhịp chuyển động không thay đổi.
+
+## v1.3.0 — bridge enlarged another 40%
+
+The bridge, its surface ring, touch target and press feedback are scaled to 140% of v1.2.2 (roughly 85% of canvas width in the resting pose). Canvas stays 362 × 362, 60 FPS and transparent. The product is moved upward 23 native units; the initial descent is constrained to a safe top position so the fade-in does not reveal cropped pixels. The ground effects move down 35 native units and have 80% of their previous vertical spread, retaining outward motion with space below the larger product. All clip durations, keyframe times and original PNG image bytes remain unchanged. Try again host fade-out instructions still apply.
