@@ -185,24 +185,30 @@
     {
       "id": "siri-voice",
       "title": "Siri · Sóng sáng",
-      "description": "Khối cầu Siri 88 × 88 px, dải sáng chuyển động và viền hai bên. Đổi màu độc lập cho dải sáng, viền trái và viền phải.",
-      "sequenceDescription": "Một clip 15,8 giây, 60 FPS, speed 1×. Lặp toàn bộ; preview mặc định đúng 88 × 88 px và có chế độ phóng 4×.",
+      "description": "Khối cầu Siri nền trong suốt, hai size 88 × 88 và 200 × 200 cho iPhone Duo mở ngang. Đổi màu riêng dải sáng và hai viền.",
+      "sequenceDescription": "Một clip 15,8 giây, 60 FPS, speed 1×; lặp toàn bộ. Nền trong suốt, hai kích thước 88 × 88 và 200 × 200 cùng nhịp.",
       "updated": "2026-10-22",
       "poster": "stock/siri-voice-poster.png",
       "fps": 60,
       "tags": [
         "Voice",
         "Siri",
-        "88 × 88",
-        "Đổi màu"
+        "Trong suốt",
+        "iPhone Duo"
       ],
       "previewHeight": 650,
       "variants": [
         {
           "id": "88x88",
           "label": "88 × 88 px",
-          "preview": "collections/siri-voice/?v=1.0.0",
-          "download": "handoff/siri-voice-v1.0.0-88x88-2026-10-22.zip"
+          "preview": "collections/siri-voice/?v=1.1.0&size=88x88",
+          "download": "handoff/siri-voice-v1.1.0-transparent-2026-10-22.zip"
+        },
+        {
+          "id": "200x200",
+          "label": "200 × 200 px · iPhone Duo mở ngang",
+          "preview": "collections/siri-voice/?v=1.1.0&size=200x200",
+          "download": "handoff/siri-voice-v1.1.0-transparent-2026-10-22.zip"
         }
       ],
       "clips": [

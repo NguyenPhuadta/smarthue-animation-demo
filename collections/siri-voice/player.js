@@ -2,7 +2,8 @@
 'use strict';
 const $=id=>document.getElementById(id),q=new URLSearchParams(location.search),clone=x=>JSON.parse(JSON.stringify(x));
 document.body.classList.toggle('embed',q.get('embed')==='1');
-const original=window.SIRI_ANIMATION;
+const sizeKey=q.get('size')==='200x200'?'200x200':'88x88',original=window.SIRI_ANIMATIONS[sizeKey],nativeSize=original.w;
+$('variant').value=sizeKey;document.title='Siri · Sóng sáng '+sizeKey;$('metadata').textContent=nativeSize+' × '+nativeSize+' px · 60 FPS · 15,8 giây · Nền trong suốt · Lặp liên tục';$('stock-link').href='../../?collection=siri-voice&variant='+sizeKey+'&clip=flow';$('approved').href='siri-voice-'+sizeKey+'-v1.1.0.lottie';$('animation').style.width=nativeSize+'px';document.querySelector('.stage').style.minHeight=(nativeSize+64)+'px';$('scale').options[0].textContent=nativeSize+' × '+nativeSize+' px · 1×';$('scale').options[1].textContent=(nativeSize*4)+' × '+(nativeSize*4)+' px · 4×';$('variant').onchange=()=>{const u=new URL(location.href);u.searchParams.set('size',$('variant').value);u.searchParams.delete('frame');location.href=u.href};
 let source=clone(original),anim,surface,dirty=true,last=0,frame=q.has('frame')?Math.max(0,Math.min(947,Number(q.get('frame'))||0)):0,paused=q.has('frame');
 const colorIds=['waveTintColor','rimLeftColor','rimRightColor'],toggleIds=['waveTintAmount','rimTintAmount'];
 const hex=rgb=>'#'+rgb.slice(0,3).map(v=>Math.round(Math.max(0,Math.min(1,v))*255).toString(16).padStart(2,'0')).join('');
@@ -14,20 +15,21 @@ updateControls();label();$('status').textContent='Đang tải Skottie…';
 try {
  const ck=await CanvasKitInit({locateFile:()=>"data:application/wasm;base64,"+window.SIRI_CANVASKIT_WASM});
  delete window.SIRI_CANVASKIT_WASM;
- const canvas=document.createElement('canvas');canvas.style.cssText='width:100%;height:100%;display:block';canvas.setAttribute('aria-label','Siri · Sóng sáng 88 × 88');$('animation').appendChild(canvas);
+ const canvas=document.createElement('canvas');canvas.style.cssText='width:100%;height:100%;display:block';canvas.setAttribute('aria-label','Siri · Sóng sáng '+nativeSize+' × '+nativeSize);$('animation').appendChild(canvas);
  function resize(){surface?.delete();const dpr=window.devicePixelRatio||1,size=Math.max(1,Math.round($('animation').getBoundingClientRect().width*dpr));canvas.width=size;canvas.height=size;surface=ck.MakeCanvasSurface(canvas);if(!surface)throw Error('Không tạo được canvas Skottie.');dirty=true}
  function createAnimation(){anim?.delete();anim=ck.MakeManagedAnimation(JSON.stringify(source));if(!anim)throw Error('Không đọc được animation.');dirty=true}
  function apply(id){const value=source.slots[id].p.k;if(colorIds.includes(id))anim.setColorSlot(id,ck.Color4f(...value));else anim.setScalarSlot(id,value);dirty=true}
  createAnimation();resize();new ResizeObserver(resize).observe($('animation'));
  for(const id of colorIds)$(id).addEventListener('input',()=>{source.slots[id].p.k=rgb($(id).value);apply(id)});
  for(const id of toggleIds)$(id).addEventListener('change',()=>{source.slots[id].p.k=$(id).checked?100:0;apply(id)});
+ $('backdrop').onchange=()=>{document.querySelector('.stage').dataset.backdrop=$('backdrop').value};
  $('pause').onclick=()=>{paused=!paused;last=0;label()};
  $('replay').onclick=()=>{paused=false;frame=0;last=0;dirty=true;label()};
  $('seek').oninput=()=>{paused=true;frame=Number($('seek').value);dirty=true;label()};
- $('scale').onchange=()=>{const size=88*Number($('scale').value);$('animation').style.width='min(100%,'+size+'px)';document.querySelector('.stage').style.minHeight=(size+48)+'px';resize()};
+ $('scale').onchange=()=>{const size=nativeSize*Number($('scale').value);$('animation').style.width='min(100%,'+size+'px)';document.querySelector('.stage').style.minHeight=(size+48)+'px';resize()};
  $('reset').onclick=()=>{source=clone(original);updateControls();createAnimation()};
- function tick(ts){if(!paused){if(last)frame=(frame+(ts-last)/1000*60)%948;dirty=true}last=ts;if(dirty&&surface){const ctx=surface.getCanvas();ctx.clear(ck.BLACK);anim.seekFrame(frame);anim.render(ctx,[0,0,canvas.width,canvas.height]);surface.flush();$('seek').value=String(Math.min(947,frame));$('time').textContent=(frame/60).toFixed(2)+' / 15.80 s';dirty=false}requestAnimationFrame(tick)}
- requestAnimationFrame(tick);$('status').textContent='88 × 88 px · 60 FPS · Skottie · Lặp 15,8 giây.';
- $('export').onclick=()=>{const doc=materialize(clone(source)),id='siri-voice-88x88';const bytes=fflate.zipSync({'manifest.json':fflate.strToU8(JSON.stringify({version:'1.0',generator:'Phu Animation Stock',animations:[{id,loop:true,speed:1}]})),['animations/'+id+'.json']:fflate.strToU8(JSON.stringify(doc))},{level:6});const url=URL.createObjectURL(new Blob([bytes],{type:'application/zip'})),a=document.createElement('a');a.href=url;a.download='siri-voice-88x88-custom.lottie';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent='Đã tải Lottie 88 × 88 với màu dải sáng và hai viền hiện tại.'};
+ function tick(ts){if(!paused){if(last)frame=(frame+(ts-last)/1000*60)%948;dirty=true}last=ts;if(dirty&&surface){const ctx=surface.getCanvas();ctx.clear(ck.TRANSPARENT);anim.seekFrame(frame);anim.render(ctx,[0,0,canvas.width,canvas.height]);surface.flush();$('seek').value=String(Math.min(947,frame));$('time').textContent=(frame/60).toFixed(2)+' / 15.80 s';dirty=false}requestAnimationFrame(tick)}
+ requestAnimationFrame(tick);$('status').textContent=nativeSize+' × '+nativeSize+' px · Trong suốt · Skottie · Lặp 15,8 giây.';
+ $('export').onclick=()=>{const doc=materialize(clone(source)),id='siri-voice-'+sizeKey;const bytes=fflate.zipSync({'manifest.json':fflate.strToU8(JSON.stringify({version:'1.0',generator:'Phu Animation Stock',animations:[{id,loop:true,speed:1}]})),['animations/'+id+'.json']:fflate.strToU8(JSON.stringify(doc))},{level:6});const url=URL.createObjectURL(new Blob([bytes],{type:'application/zip'})),a=document.createElement('a');a.href=url;a.download='siri-voice-'+sizeKey+'-transparent-custom.lottie';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('status').textContent='Đã tải Lottie '+sizeKey+' nền trong suốt với màu hiện tại.'};
 } catch(e){$('status').textContent='Không tải được Skottie: '+e.message;console.error(e)}
 })();

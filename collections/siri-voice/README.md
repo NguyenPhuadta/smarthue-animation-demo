@@ -1,25 +1,28 @@
-# Siri · Sóng sáng 88 × 88 — v1.0.0
+# Siri · Sóng sáng trong suốt — v1.1.0
 
-Bản đã duyệt ngày 22/10/2026. Canvas 88 × 88 px, 60 FPS, speed 1×, 948 frame (ip 0, op 948 exclusive), thời lượng 15,8 giây.
+Ngày 22/10/2026. Hai kích thước cùng chuyển động và cùng phase: 88 × 88 px và 200 × 200 px cho iPhone Duo mở ngang. 60 FPS, speed 1×, 948 frame (ip 0, op 948 exclusive), 15,8 giây mỗi chu kỳ. Host bật loop toàn clip.
 
-| File | Hành vi |
-| --- | --- |
-| siri-voice-88x88-v1.0.0.lottie | Một clip, lặp toàn bộ khi host bật loop |
+| File | Canvas | Dùng cho |
+| --- | --- | --- |
+| siri-voice-88x88-v1.1.0.lottie | 88 × 88 | Bản nhỏ |
+| siri-voice-200x200-v1.1.0.lottie | 200 × 200 | iPhone Duo mở ngang |
 
-Animation có nền đen, khối cầu, dải sóng sáng ở giữa và viền sáng hai bên. Nội dung lớn hơn khoảng 22,7% so với tỷ lệ trong frame 1080 gốc, khối cầu khoảng 75–84 px khi chuyển động. Keyframe, easing, FPS và thời lượng gốc được giữ lại; kích thước đổi bằng parent transform. Không có image/font phụ thuộc bên ngoài.
+Nền ngoài khối cầu trong suốt: đã bỏ duy nhất layer Black Solid 1. Mặt cầu tối, dải sóng và viền sáng vẫn là nội dung của animation. Không có image/font bên ngoài. Bản 200 dùng parent transform của bản 88 nhân 200/88; toàn bộ keyframe, easing, opacity, thời lượng, FPS và palette đã chọn được giữ nguyên. Khối cầu chiếm khoảng 90–96% frame khi chuyển động.
 
-Preview: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=siri-voice&variant=88x88&clip=flow
+88 px: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=siri-voice&variant=88x88&clip=flow
 
-## Chạy và chỉnh màu
+200 px: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=siri-voice&variant=200x200&clip=flow
 
-Mở full-app-preview/index.html offline hoặc preview trên kho. Mặc định hiển thị đúng 88 px; có chế độ 4× để xem chi tiết. Phát lại bắt đầu frame 0; nút tạm dừng và thanh tiến trình điều khiển clip. mode=sequence và mode=single&state=0 đều mở clip duy nhất từ đầu. embed=1 ẩn header, giữ playback và chỉnh màu. Không dùng lựa chọn clip từ localStorage.
+## Preview và chỉnh màu
 
-Bật Đổi màu dải sáng để dùng Màu dải sáng. Bật Đổi màu viền để chỉnh độc lập Viền trái / Viền phải. Tắt toggle tương ứng để dùng màu gốc của phần đó. Khôi phục bản đã duyệt trả về palette đã duyệt trong player trước khi xuất bản. Nút Tải Lottie đang chỉnh xuất đúng màu hiện tại vào fallback của effect và native slots. Gói ZIP luôn chứa bản đã duyệt, không tự đổi theo preview.
+Mở full-app-preview/index.html để chạy offline. Chọn kích thước animation ở đầu trang; mặc định 88 px, dùng ?size=200x200 để mở bản 200. Mặc định xem đúng pixel, có phóng 4× để soi chi tiết. Nền ô trong suốt / sáng / tối chỉ để xem thử, không nằm trong Lottie hay export.
 
-Native slot: waveTintAmount, waveTintColor, rimTintAmount, rimLeftColor, rimRightColor. Amount 0/100; RGBA 0..1. Hiệu ứng dùng native Tint (ty 20), Gaussian Blur (ty 29), masks và track mattes. Khi nhúng native, bật loop và speed=1. Player phải hỗ trợ các effect này để giữ đúng hình ảnh.
+mode=sequence và mode=single&state=0 đều mở clip duy nhất từ frame 0; embed=1 ẩn header, giữ playback và chỉnh màu. Không dùng trạng thái clip từ localStorage. Phát lại bắt đầu frame 0; tạm dừng và thanh tiến trình điều khiển clip. Cả hai size lặp toàn bộ 15,8 giây; không cắt lại hay tối ưu điểm nối của animation gốc.
 
-Source .lottie có giá trị slot hiện tại được đồng bộ vào fallback, giúp player không hỗ trợ slots vẫn hiển thị palette đã duyệt. Web preview của riêng bộ Siri dùng CanvasKit Skottie 0.41.1, cùng runtime với player authoring, để giữ đúng Gaussian Blur và track mattes. lottie-web SVG đã cho thấy các khối blur bị cắt ở hai viền nên không dùng cho bộ này. Runtime được đóng gói cùng preview; WASM nhúng trong JavaScript để mở offline không cần fetch file://. Render web không xác nhận chất lượng hay FPS trên iOS thật; chưa kiểm tra trên thiết bị iOS.
+Bật Đổi màu dải sáng để chỉnh Màu dải sáng. Bật Đổi màu viền để chỉnh Viền trái / Viền phải riêng. Tắt toggle tương ứng để dùng màu gốc phần đó. Khôi phục bản đã duyệt trả về palette đã chọn khi xuất bản. Tải Lottie đang chỉnh xuất đúng kích thước, nền trong suốt và màu hiện tại. ZIP chứa palette mặc định của bản bàn giao.
 
-CanvasKit dùng BSD-3-Clause, kèm canvaskit-LICENSE.txt; fflate dùng MIT, kèm vendor-notices.txt. Animation nguồn do chủ kho cung cấp và duyệt trong phiên làm việc.
+Native slots: waveTintAmount, waveTintColor, rimTintAmount, rimLeftColor, rimRightColor. Amount 0/100; RGBA 0..1. Slots được đồng bộ vào fallback để player không hỗ trợ slots vẫn đọc màu đã chọn. Các effect cần hỗ trợ: native Tint (ty 20), Gaussian Blur (ty 29), masks, track mattes.
 
-Thay đổi: resize frame về 88 × 88, phóng nội dung, thêm chỉnh màu dải sáng và hai viền, đóng gói stock v1.0.0.
+Preview dùng CanvasKit Skottie 0.41.1, cùng runtime với player authoring. Runtime/WASM được đóng gói đủ; WASM nhúng JavaScript để mở offline. Native Skottie đã kiểm tra frame đầu, giữa, cuối ở cả hai kích thước, nền phẳng đã trong suốt, glow giữ alpha mềm và tâm có nội dung. Preview web không xác nhận FPS hay chất lượng trên iOS thật; chưa kiểm tra trên thiết bị iPhone Duo.
+
+Thay đổi từ v1.0.0: bỏ background đen, thêm 200 × 200, nền xem thử trong preview và export hai kích thước. Gói v1.0.0 và đường dẫn file cũ vẫn được giữ lại. CanvasKit: BSD-3-Clause (canvaskit-LICENSE.txt); fflate: MIT (vendor-notices.txt).
