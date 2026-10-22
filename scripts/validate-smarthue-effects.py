@@ -25,10 +25,11 @@ for p in paths:
  assert normalize(b)==a,rel
  floor=next(x for x in b['assets'] if x['id'] in ['floor-surface','reference-floor'])
  shapes=floor['layers'][1]['shapes'];assert len(shapes)==5
- for g in shapes[1:]:
+ assert any(x['ty']=='fl' for x in shapes[-1]['it']), 'White base must be behind the gradients'
+ for g in [g for g in shapes if g.get('nm','').startswith('floor-gradient-')]:
   stops=g['it'][1]['g']['k']['k'];assert stops[:8]==[0,12/255,12/255,12/255,1,12/255,12/255,12/255]
 for size in ['362x300','393x326']:
- with zipfile.ZipFile(R/f'handoff/smarthue-gradient-v21-{size}-2026-10-22.zip') as z:
+ with zipfile.ZipFile(R/f'handoff/smarthue-gradient-v21.1-{size}-2026-10-22.zip') as z:
   assert z.testzip() is None
   dots=[n for n in z.namelist() if n.endswith('.lottie')];assert len(dots)==8
   assert not any(n.endswith('.json') and '/'not in n for n in z.namelist())

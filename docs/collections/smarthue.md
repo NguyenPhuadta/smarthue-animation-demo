@@ -32,3 +32,7 @@ Panel **Gradient sàn** nằm ngay dưới animation, cả trong stock embed và
 Có các slot Lottie: `floorGradientOpacity` (number 0–100), `floorGradientTopEnd`, `floorGradientBottomEnd`, `floorGradientLeftEnd`, `floorGradientRightEnd` (vector [x,y] theo sàn 786×652). Web controller cập nhật cả fallback và slot khi export. Runtime không hỗ trợ slots vẫn dùng fallback đã bake. Màu gradient được bake trong `g.k`; không phải color slot đơn. Panel dành cho preview/thiết kế, không phải UI người dùng production. Hai runtime JS mới (floor-gradient.js, fflate.min.js) và license đi kèm để export offline; không gọi CDN.
 
 Không thay contract Scan Now 280ms hoặc thứ tự/chế độ lặp từng clip. Kiểm tra Skottie và web không thay thế kiểm tra player trên iOS thật.
+
+## v21.1 — sửa controller không hiện thay đổi
+
+Đưa lớp màu nền trắng xuống sau bốn nhóm gradient theo thứ tự vẽ Lottie. Trước đây lớp này che gradient: thông số và file export thay đổi nhưng preview không thể hiện đúng. Controller và file export nay cùng dùng đúng thứ tự lớp; mọi màu/opacity/độ lan được render ngay, kể cả khi pause. Không đổi motion, timing hoặc PNG alpha gốc. Cache của dữ liệu và script được đổi để nhận bản sửa.

@@ -10,7 +10,7 @@ const end=e=>{const n=Math.max(.001,settings[e]);return {top:[393,n],bottom:[393
 function apply(data){
  const floor=data.assets?.find(a=>['floor-surface','reference-floor'].includes(a.id)&&a.layers);if(!floor)return data;
  const rgb=settings.color.match(/\w\w/g).map(x=>parseInt(x,16)/255);data.slots??={};data.slots.floorGradientOpacity={p:{a:0,k:settings.opacity}};
- for(const group of floor.layers[1].shapes.slice(1)){
+ for(const group of floor.layers[1].shapes){
   const e=group.nm?.replace('floor-gradient-','');if(!edges.includes(e))continue;
   const g=group.it.find(s=>s.ty==='gf'),v=end(e),sid='floorGradient'+e[0].toUpperCase()+e.slice(1)+'End';
   g.e={a:0,k:v,sid};data.slots[sid]={p:{a:0,k:v}};

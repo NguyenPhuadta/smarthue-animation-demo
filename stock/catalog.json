@@ -18,14 +18,14 @@
         {
           "id": "362x300",
           "label": "362 × 300 px",
-          "preview": "resize-362x300/?v=gradient-v21-20261022",
-          "download": "handoff/smarthue-gradient-v21-362x300-2026-10-22.zip"
+          "preview": "resize-362x300/?v=gradient-v21-1-20261022",
+          "download": "handoff/smarthue-gradient-v21.1-362x300-2026-10-22.zip"
         },
         {
           "id": "393x326",
           "label": "393 × 326 px · gốc",
-          "preview": "original-demo.html?v=gradient-v21-20261022",
-          "download": "handoff/smarthue-gradient-v21-393x326-2026-10-22.zip"
+          "preview": "original-demo.html?v=gradient-v21-1-20261022",
+          "download": "handoff/smarthue-gradient-v21.1-393x326-2026-10-22.zip"
         }
       ],
       "clips": [
