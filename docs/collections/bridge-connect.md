@@ -1,4 +1,4 @@
-# Bridge Connect — v1.2.1-362x362-2026-10-22
+# Bridge Connect — v1.2.2-362x362-2026-10-22
 
 Canvas **362 × 362 px**, **60 FPS**, speed **1.0**. Transparent background; no opaque floor, text or success icons. Water lines and blue underglow are authored effects. Original PNG bytes are embedded losslessly in every .lottie. No external fonts.
 
@@ -54,10 +54,27 @@ Not found: use from a visible search pose (discover around frame 140); unanswere
 
 Timeout: the opening compressed pose matches press contact / connected frame 0. It rebounds, then the complete signal ring warms to amber and settles. Switch to this branch from press contact when the connection result is timeout; there is no separate indefinite pairing loop in this collection. If the app waits on a static pose, use the unlit resting pose and begin this feedback on the result.
 
-Retry explicitly restarts discovery (not a loop from the error tail). Both results hold visibly rather than automatically restarting. These clips do not communicate an error using color alone: not-found dims the product with vanishing scan waves; timeout preserves the product and holds a full amber ring with a small physical hesitation.
+Retry uses a host-code fade out before restarting discovery from frame 0; see the Try again section below. Both results hold visibly rather than automatically restarting. These clips do not communicate an error using color alone: not-found dims the product with vanishing scan waves; timeout preserves the product and holds a full amber ring with a small physical hesitation.
 
 All nine .lottie files contain their images. full-app-preview includes all scripts/runtime for offline playback. Reviewed using official Skia Skottie and stock web preview; no physical iOS/device verification.
 
 ## v1.2.1 — full amber timeout ring
 
 Timeout now lights the entire existing circular rim on the bridge, including its final held pose. Only trim-path coverage changes to 100%; color timing, opacity, stroke width, product motion, duration and all other clips remain unchanged.
+
+
+## Try again: chuyển từ màn lỗi về Find bridge (host code)
+
+Áp dụng cho cả **Không tìm thấy bridge** (`not-found.lottie`, clip 5) và **Kết nối quá thời gian / Timeout** (`timeout.lottie`, clip 6).
+
+Khi user bấm **Try again**, code của ứng dụng phải thực hiện theo thứ tự:
+
+1. Khoá xử lý Try again trong lúc chuyển cảnh để tránh chạy nhiều lần. Dừng phát và giữ nguyên frame đang hiển thị của animation lỗi.
+2. Fade out toàn bộ animation lỗi bằng opacity/alpha của view chứa player, từ giá trị hiện tại về **0**. Thời gian đề xuất **200 ms**, easing ease-out. Giữ frame lỗi trong suốt quá trình fade; không thay asset hoặc reset frame khi animation còn nhìn thấy.
+3. Khi fade out hoàn tất (callback completion), dừng/huỷ player lỗi, chuyển state về **Find bridge / Tìm bridge** và nạp `discover.lottie` tại **frame 0**.
+4. Khôi phục opacity/alpha của view về **1**, phát `discover.lottie` từ đầu ở speed **1.0**, tiếp tục lặp `[0,300)` theo quy tắc tìm kiếm. Entrance fade in đã có trong `discover.lottie`; không bỏ qua entrance bằng cách seek đến frame đang hiện bridge.
+5. Mở lại tương tác sau khi chuyển state xong. Khi rời màn, huỷ callback chuyển cảnh còn chờ để không khởi động lại tìm kiếm ngoài ý muốn.
+
+Luồng: **Not found hoặc Timeout → Try again → code fade out animation lỗi → fade hoàn tất → Find bridge từ frame 0**.
+
+Fade out này được triển khai trong **code host**, không nằm trong file `.lottie`. Đây là hướng dẫn tích hợp cho dev; nút Phát lại của HTML preview vẫn chỉ phát lại clip đang chọn, không mô phỏng nút Try again. Các file animation, thời lượng, FPS và nhịp chuyển động không thay đổi.
