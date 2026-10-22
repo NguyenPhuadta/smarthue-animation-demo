@@ -1,4 +1,4 @@
-# Bridge Connect — v1.2.0-362x362-2026-10-22
+# Bridge Connect — v1.2.1-362x362-2026-10-22
 
 Canvas **362 × 362 px**, **60 FPS**, speed **1.0**. Transparent background; no opaque floor, text or success icons. Water lines and blue underglow are authored effects. Original PNG bytes are embedded losslessly in every .lottie. No external fonts.
 
@@ -52,8 +52,12 @@ Stock clip IDs 5 and 6 open the two error states. They are alternative result br
 
 Not found: use from a visible search pose (discover around frame 140); unanswered scan waves dissipate, the device loses opacity and settles. If search has already faded out, play water-reveal first or choose a visible search frame before this branch. Do not cut from a fully transparent discover frame directly into the visible error pose.
 
-Timeout: the opening compressed pose matches press contact / connected frame 0. It rebounds, then the partial signal arc warms to amber, stalls and decays. Switch to this branch from press contact when the connection result is timeout; there is no separate indefinite pairing loop in this collection. If the app waits on a static pose, use the unlit resting pose and begin this feedback on the result.
+Timeout: the opening compressed pose matches press contact / connected frame 0. It rebounds, then the complete signal ring warms to amber and settles. Switch to this branch from press contact when the connection result is timeout; there is no separate indefinite pairing loop in this collection. If the app waits on a static pose, use the unlit resting pose and begin this feedback on the result.
 
-Retry explicitly restarts discovery (not a loop from the error tail). Both results hold visibly rather than automatically restarting. These clips do not communicate an error using color alone: not-found dims the product with vanishing scan waves; timeout preserves the product and arrests a partial ring with a small physical hesitation.
+Retry explicitly restarts discovery (not a loop from the error tail). Both results hold visibly rather than automatically restarting. These clips do not communicate an error using color alone: not-found dims the product with vanishing scan waves; timeout preserves the product and holds a full amber ring with a small physical hesitation.
 
 All nine .lottie files contain their images. full-app-preview includes all scripts/runtime for offline playback. Reviewed using official Skia Skottie and stock web preview; no physical iOS/device verification.
+
+## v1.2.1 — full amber timeout ring
+
+Timeout now lights the entire existing circular rim on the bridge, including its final held pose. Only trim-path coverage changes to 100%; color timing, opacity, stroke width, product motion, duration and all other clips remain unchanged.
