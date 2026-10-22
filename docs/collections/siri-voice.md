@@ -1,13 +1,13 @@
-# Siri · Sóng sáng trong suốt — v1.1.0
+# Siri · Sóng sáng trong suốt — v1.1.1
 
 Ngày 22/10/2026. Hai kích thước cùng chuyển động và cùng phase: 88 × 88 px và 200 × 200 px cho iPhone Duo mở ngang. 60 FPS, speed 1×, 948 frame (ip 0, op 948 exclusive), 15,8 giây mỗi chu kỳ. Host bật loop toàn clip.
 
 | File | Canvas | Dùng cho |
 | --- | --- | --- |
-| siri-voice-88x88-v1.1.0.lottie | 88 × 88 | Bản nhỏ |
-| siri-voice-200x200-v1.1.0.lottie | 200 × 200 | iPhone Duo mở ngang |
+| siri-voice-88x88-v1.1.1.lottie | 88 × 88 | Bản nhỏ |
+| siri-voice-200x200-v1.1.1.lottie | 200 × 200 | iPhone Duo mở ngang |
 
-Nền ngoài khối cầu trong suốt: đã bỏ duy nhất layer Black Solid 1. Mặt cầu tối, dải sóng và viền sáng vẫn là nội dung của animation. Không có image/font bên ngoài. Bản 200 dùng parent transform của bản 88 nhân 200/88; toàn bộ keyframe, easing, opacity, thời lượng, FPS và palette đã chọn được giữ nguyên. Khối cầu chiếm khoảng 90–96% frame khi chuyển động.
+Nền ngoài khối cầu trong suốt: đã bỏ layer Black Solid 1 và hai ellipse Gaussian Blur phía sau khối cầu (Ellipse 71607, Ellipse 71606). Mặt cầu tối, dải sóng và viền sáng vẫn là nội dung của animation. Không có image/font bên ngoài. Bản 200 dùng parent transform của bản 88 nhân 200/88; toàn bộ keyframe, easing, opacity, thời lượng, FPS và palette đã chọn được giữ nguyên. Khối cầu chiếm khoảng 90–96% frame khi chuyển động.
 
 88 px: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=siri-voice&variant=88x88&clip=flow
 
@@ -25,4 +25,4 @@ Native slots: waveTintAmount, waveTintColor, rimTintAmount, rimLeftColor, rimRig
 
 Preview dùng CanvasKit Skottie 0.41.1, cùng runtime với player authoring. Runtime/WASM được đóng gói đủ; WASM nhúng JavaScript để mở offline. Native Skottie đã kiểm tra frame đầu, giữa, cuối ở cả hai kích thước, nền phẳng đã trong suốt, glow giữ alpha mềm và tâm có nội dung. Preview web không xác nhận FPS hay chất lượng trên iOS thật; chưa kiểm tra trên thiết bị iPhone Duo.
 
-Thay đổi từ v1.0.0: bỏ background đen, thêm 200 × 200, nền xem thử trong preview và export hai kích thước. Gói v1.0.0 và đường dẫn file cũ vẫn được giữ lại. CanvasKit: BSD-3-Clause (canvaskit-LICENSE.txt); fflate: MIT (vendor-notices.txt).
+Thay đổi từ v1.1.0: bỏ hai lớp blur nền phía sau khối cầu ở cả hai size. Giữ chuyển động, dải sóng sáng, viền và bộ chọn màu. Gói v1.0.0 và đường dẫn file cũ vẫn được giữ lại. CanvasKit: BSD-3-Clause (canvaskit-LICENSE.txt); fflate: MIT (vendor-notices.txt).
