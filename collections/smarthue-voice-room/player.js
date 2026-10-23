@@ -16,7 +16,7 @@ function stockSurface(ck,canvas){if(new URLSearchParams(location.search).get('re
   $('pause').onclick=()=>{paused=!paused;last=performance.now();render()};
   $('seek').oninput=()=>{frame=+$('seek').value;paused=true;render()};
   function tick(now){if(!paused){frame=(frame+Math.max(0,now-last)*.06)%540;render()}last=now;requestAnimationFrame(tick)}
-  render();requestAnimationFrame(tick);$('status').textContent='466 × 444 px · 60 FPS · 9 giây · Lặp liên tục';
+  render();requestAnimationFrame(tick);$('status').textContent=doc.w+' × '+doc.h+' px · 60 FPS · 9 giây · Lặp liên tục';
   const report=()=>{if(parent!==window)parent.postMessage({type:'smarthue-preview-size',height:document.documentElement.scrollHeight},location.origin==='null'?'*':location.origin)};new ResizeObserver(report).observe(document.body);report();
  }catch(e){$('status').textContent='Lỗi: '+e.message;console.error(e)}
 })();
