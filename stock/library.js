@@ -13,6 +13,6 @@ function renderDetail(c,q){const variant=c.variants.find(v=>v.id===q.get('varian
 function navigate(href){history.pushState({},'',href);render();window.scrollTo(0,0)}
 document.addEventListener('click',e=>{const a=e.target.closest('a');if(!a||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey||a.target||a.hasAttribute('download'))return;const u=new URL(a.href);if(u.origin===location.origin&&u.pathname===location.pathname){e.preventDefault();navigate(u.href)}});
 window.addEventListener('popstate',render);
-fetch('stock/catalog.json?v=20261023-sizes1', {cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Không tải được danh sách animation.');return r.json()}).then(d=>{catalog=d;render()}).catch(e=>{app.textContent=e.message});
+fetch('stock/catalog.json?v=20261023-voice1', {cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Không tải được danh sách animation.');return r.json()}).then(d=>{catalog=d;render()}).catch(e=>{app.textContent=e.message});
 
 window.addEventListener("message",event=>{const frame=document.querySelector("iframe.preview-frame");if(event.origin===location.origin&&event.source===frame?.contentWindow&&event.data?.type==="smarthue-preview-size"&&Number.isFinite(event.data.height))frame.style.height=Math.max(480,Math.min(2000,event.data.height))+"px"});

@@ -319,6 +319,42 @@
           "description": "Chữ bay vào → vòm sáng quét → glow thở 6s. Phát một lần và giữ frame cuối."
         }
       ]
+    },
+    {
+      "id": "smarthue-voice-room",
+      "title": "SmartHue · Điều khiển Siri",
+      "description": "Bản cho iPhone Duo gập dọc. Siri chuyển phòng từ vàng ấm sang Chill Mode hồng tím, tắt đèn rồi bật lại; chữ Hey Siri sáng trước từng lệnh.",
+      "sequenceDescription": "iPhone Duo gập dọc · 466 × 444 px · 9 giây · 60 FPS · Speed 1× · Lặp liên tục. Nghỉ 0,5–0,6 giây trước mỗi lệnh.",
+      "updated": "2026-10-23",
+      "poster": "stock/smarthue-voice-room-poster.png",
+      "fps": 60,
+      "tags": [
+        "Siri",
+        "Voice control",
+        "iPhone Duo gập dọc"
+      ],
+      "previewHeight": 690,
+      "variants": [
+        {
+          "id": "466x444",
+          "label": "466 × 444 px · iPhone Duo gập dọc",
+          "preview": "collections/smarthue-voice-room/?v=1.0.0",
+          "download": "handoff/smarthue-voice-room-v1.0.0-466x444-2026-10-23.zip",
+          "clipBytes": {
+            "0": 2921555
+          },
+          "packageBytes": 10246999,
+          "flowBytes": 2921555
+        }
+      ],
+      "clips": [
+        {
+          "id": 0,
+          "title": "Siri · Điều khiển đèn",
+          "seconds": 9,
+          "description": "iPhone Duo gập dọc. Hey Siri → Chill Mode → tắt đèn → bật lại; giữ nhịp trước mỗi câu, lặp liên tục."
+        }
+      ]
     }
   ]
 }
