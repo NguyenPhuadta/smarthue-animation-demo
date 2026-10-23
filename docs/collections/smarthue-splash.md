@@ -15,3 +15,7 @@ Tích hợp: nạp .lottie bằng player hỗ trợ Lottie image assets và nati
 Đã kiểm tra trên Skottie web: frame đầu/giữa/cuối và các beat chữ, vòm, glow. Chưa kiểm tra trên iPhone Duo thật. CanvasKit BSD-3-Clause: canvaskit-LICENSE.txt.
 
 Kho: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=smarthue-splash&variant=466x678&clip=flow
+
+## Web preview — 23/10/2026
+
+Bổ sung software Skottie fallback khi Chrome không có WebGL, cùng mã cache runtime 20261023-runtime2. Không đổi animation, ảnh, FPS, keyframe hoặc file bàn giao đã duyệt. Đã kiểm tra cả hai preview với renderer=software; chưa xác nhận trên máy người dùng đang gặp lỗi.

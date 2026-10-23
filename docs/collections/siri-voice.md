@@ -26,3 +26,7 @@ Native slots: waveTintAmount, waveTintColor, rimTintAmount, rimLeftColor, rimRig
 Preview dùng CanvasKit Skottie 0.41.1, cùng runtime với player authoring. Runtime/WASM được đóng gói đủ; WASM nhúng JavaScript để mở offline. Native Skottie đã kiểm tra frame đầu, giữa, cuối ở cả hai kích thước, nền phẳng đã trong suốt, glow giữ alpha mềm và tâm có nội dung. Preview web không xác nhận FPS hay chất lượng trên iOS thật; chưa kiểm tra trên thiết bị iPhone Duo.
 
 Thay đổi từ v1.1.0: bỏ hai lớp blur nền phía sau khối cầu ở cả hai size. Giữ chuyển động, dải sóng sáng, viền và bộ chọn màu. Gói v1.0.0 và đường dẫn file cũ vẫn được giữ lại. CanvasKit: BSD-3-Clause (canvaskit-LICENSE.txt); fflate: MIT (vendor-notices.txt).
+
+## Web preview — 23/10/2026
+
+Bổ sung software Skottie fallback khi Chrome không có WebGL, cùng mã cache runtime 20261023-runtime2. Không đổi animation, ảnh, FPS, keyframe hoặc file bàn giao đã duyệt. Đã kiểm tra cả hai preview với renderer=software; chưa xác nhận trên máy người dùng đang gặp lỗi.

@@ -1,3 +1,4 @@
+function stockSurface(ck,canvas){if(new URLSearchParams(location.search).get('renderer')==='software')return ck.MakeSWCanvasSurface(canvas);let gl;try{const probe=document.createElement('canvas');gl=probe.getContext('webgl2')||probe.getContext('webgl');if(gl){gl.getExtension('WEBGL_lose_context')?.loseContext();return ck.MakeCanvasSurface(canvas)}}catch(error){console.warn('WebGL unavailable; using software Skottie',error)}return ck.MakeSWCanvasSurface(canvas)}
 (async () => {
 'use strict';
 const $=id=>document.getElementById(id),q=new URLSearchParams(location.search),clone=x=>JSON.parse(JSON.stringify(x));
@@ -16,7 +17,7 @@ try {
  const ck=await CanvasKitInit({locateFile:()=>"data:application/wasm;base64,"+window.SIRI_CANVASKIT_WASM});
  delete window.SIRI_CANVASKIT_WASM;
  const canvas=document.createElement('canvas');canvas.style.cssText='width:100%;height:100%;display:block';canvas.setAttribute('aria-label','Siri · Sóng sáng '+nativeSize+' × '+nativeSize);$('animation').appendChild(canvas);
- function resize(){surface?.delete();const dpr=window.devicePixelRatio||1,size=Math.max(1,Math.round($('animation').getBoundingClientRect().width*dpr));canvas.width=size;canvas.height=size;surface=ck.MakeCanvasSurface(canvas);if(!surface)throw Error('Không tạo được canvas Skottie.');dirty=true}
+ function resize(){surface?.delete();const dpr=window.devicePixelRatio||1,size=Math.max(1,Math.round($('animation').getBoundingClientRect().width*dpr));canvas.width=size;canvas.height=size;surface=stockSurface(ck,canvas);if(!surface)throw Error('Không tạo được canvas Skottie.');dirty=true}
  function createAnimation(){anim?.delete();anim=ck.MakeManagedAnimation(JSON.stringify(source));if(!anim)throw Error('Không đọc được animation.');dirty=true}
  function apply(id){const value=source.slots[id].p.k;if(colorIds.includes(id))anim.setColorSlot(id,ck.Color4f(...value));else anim.setScalarSlot(id,value);dirty=true}
  createAnimation();resize();new ResizeObserver(resize).observe($('animation'));

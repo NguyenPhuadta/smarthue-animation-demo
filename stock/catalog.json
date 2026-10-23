@@ -201,13 +201,13 @@
         {
           "id": "88x88",
           "label": "88 × 88 px",
-          "preview": "collections/siri-voice/?v=1.1.1&size=88x88",
+          "preview": "collections/siri-voice/?v=20261023-runtime2&size=88x88",
           "download": "handoff/siri-voice-v1.1.1-transparent-2026-10-22.zip"
         },
         {
           "id": "200x200",
           "label": "200 × 200 px · iPhone Duo mở ngang",
-          "preview": "collections/siri-voice/?v=1.1.1&size=200x200",
+          "preview": "collections/siri-voice/?v=20261023-runtime2&size=200x200",
           "download": "handoff/siri-voice-v1.1.1-transparent-2026-10-22.zip"
         }
       ],
@@ -238,13 +238,13 @@
         {
           "id": "466x678",
           "label": "466 × 678 px",
-          "preview": "collections/smarthue-splash/?v=1.0.0&size=466x678",
+          "preview": "collections/smarthue-splash/?v=20261023-runtime2&size=466x678",
           "download": "handoff/smarthue-splash-v1.0.0-2026-10-23.zip"
         },
         {
           "id": "951x669",
           "label": "951 × 669 px · iPhone Duo mở ngang",
-          "preview": "collections/smarthue-splash/?v=1.0.0&size=951x669",
+          "preview": "collections/smarthue-splash/?v=20261023-runtime2&size=951x669",
           "download": "handoff/smarthue-splash-v1.0.0-2026-10-23.zip"
         }
       ],
