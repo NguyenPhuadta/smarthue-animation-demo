@@ -219,6 +219,43 @@
           "description": "Khối cầu và sóng sáng chuyển động, lặp toàn bộ 948 frame. Chỉnh riêng màu dải sáng và viền trái/phải."
         }
       ]
+    },
+    {
+      "id": "smarthue-splash",
+      "title": "SmartHue · Splash",
+      "description": "Chữ bay vào có chiều sâu, vòm sáng quét từ trái lên đỉnh và glow cam hồng thở nhẹ. Hai size dọc và iPhone Duo mở ngang.",
+      "sequenceDescription": "Phát một lần 10,7 giây, giữ frame cuối. Chữ xếp xong 2,5s; ánh sáng quét cùng fade in; glow thở 6s.",
+      "updated": "2026-10-23",
+      "poster": "stock/smarthue-splash-poster.png",
+      "fps": 60,
+      "tags": [
+        "Splash",
+        "Typography",
+        "iPhone Duo"
+      ],
+      "previewHeight": 820,
+      "variants": [
+        {
+          "id": "466x678",
+          "label": "466 × 678 px",
+          "preview": "collections/smarthue-splash/?v=1.0.0&size=466x678",
+          "download": "handoff/smarthue-splash-v1.0.0-2026-10-23.zip"
+        },
+        {
+          "id": "951x669",
+          "label": "951 × 669 px · iPhone Duo mở ngang",
+          "preview": "collections/smarthue-splash/?v=1.0.0&size=951x669",
+          "download": "handoff/smarthue-splash-v1.0.0-2026-10-23.zip"
+        }
+      ],
+      "clips": [
+        {
+          "id": 0,
+          "title": "Splash SmartHue",
+          "seconds": 10.7,
+          "description": "Chữ bay vào → vòm sáng quét → glow thở 6s. Phát một lần và giữ frame cuối."
+        }
+      ]
     }
   ]
 }
