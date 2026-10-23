@@ -101,3 +101,7 @@ gh run list --limit 3
 Chờ đúng lượt pages build and deployment của commit mới thành công. Mở URL công khai và xác nhận catalog/preview/download trả về HTTP 200, đúng dữ liệu mới. Push thành công chưa có nghĩa Pages đã cập nhật. Nếu bị chặn quyền, thiếu tài nguyên hoặc render khác dự kiến, báo ngay cho người dùng: phát hiện gì, ảnh hưởng, điều chưa chắc và bước kiểm tra tiếp; không âm thầm chờ lâu. Báo tiến độ tối thiểu mỗi 60 giây.
 
 Khi bàn giao, gửi link trang kho hoặc link collection + clip/variant cụ thể và link ZIP. Nêu rõ những kiểm tra đã làm, không đảm bảo FPS thiết bị chỉ từ web preview.
+
+## Dung lượng file trong kho
+
+Sau khi đổi gói bàn giao, chạy `python3 scripts/update-file-sizes.py` để cập nhật `variants[].clipBytes`, `packageBytes` và `flowBytes` nếu có file full luồng. Dung lượng đo từ file `.lottie` thực trong ZIP, theo đúng size đang chọn; không dùng dung lượng JSON giải nén. Giá trị không có file tương ứng hiển thị dấu —. KB/MB tính theo 1000 byte. Cột gói bàn giao tính toàn bộ ZIP và được ghi riêng.

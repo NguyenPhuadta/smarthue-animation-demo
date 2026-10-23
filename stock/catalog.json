@@ -19,13 +19,35 @@
           "id": "362x300",
           "label": "362 × 300 px",
           "preview": "resize-362x300/?v=gradient-v21-1-20261022",
-          "download": "handoff/smarthue-gradient-v21.1-362x300-2026-10-22.zip"
+          "download": "handoff/smarthue-gradient-v21.1-362x300-2026-10-22.zip",
+          "clipBytes": {
+            "0": 325610,
+            "1": 2862981,
+            "2": 1599640,
+            "5": 854968,
+            "3": 109721,
+            "4": 391086,
+            "7": 1298338,
+            "8": 111087
+          },
+          "packageBytes": 15254687
         },
         {
           "id": "393x326",
           "label": "393 × 326 px · gốc",
           "preview": "original-demo.html?v=gradient-v21-1-20261022",
-          "download": "handoff/smarthue-gradient-v21.1-393x326-2026-10-22.zip"
+          "download": "handoff/smarthue-gradient-v21.1-393x326-2026-10-22.zip",
+          "clipBytes": {
+            "0": 325533,
+            "1": 1196187,
+            "2": 865591,
+            "5": 510529,
+            "3": 106705,
+            "4": 370725,
+            "7": 614631,
+            "8": 97608
+          },
+          "packageBytes": 11934534
         }
       ],
       "clips": [
@@ -97,7 +119,18 @@
           "id": "362x362",
           "label": "362 × 362 px",
           "preview": "collections/bridge-connect/?v=1.3.1",
-          "download": "handoff/bridge-connect-v1.3.1-362x362-2026-10-22.zip"
+          "download": "handoff/bridge-connect-v1.3.1-362x362-2026-10-22.zip",
+          "clipBytes": {
+            "0": 102772,
+            "1": 99580,
+            "2": 107845,
+            "3": 98807,
+            "4": 107502,
+            "5": 99078,
+            "6": 99084
+          },
+          "packageBytes": 2525667,
+          "flowBytes": 407458
         }
       ],
       "clips": [
@@ -164,13 +197,23 @@
           "id": "136x136",
           "label": "136 × 136 px · iPhone Duo gập",
           "preview": "collections/liquid-halo/136x136/?v=1.2.3",
-          "download": "handoff/liquid-halo-duo-v1.2.3-2026-10-20.zip"
+          "download": "handoff/liquid-halo-duo-v1.2.3-2026-10-20.zip",
+          "clipBytes": {
+            "0": 2099085
+          },
+          "packageBytes": 8243634,
+          "flowBytes": 2099085
         },
         {
           "id": "200x200",
           "label": "200 × 200 px · iPhone Duo mở ngang",
           "preview": "collections/liquid-halo/200x200/?v=1.2.3",
-          "download": "handoff/liquid-halo-duo-v1.2.3-2026-10-20.zip"
+          "download": "handoff/liquid-halo-duo-v1.2.3-2026-10-20.zip",
+          "clipBytes": {
+            "0": 2099083
+          },
+          "packageBytes": 8243634,
+          "flowBytes": 2099083
         }
       ],
       "clips": [
@@ -202,13 +245,23 @@
           "id": "88x88",
           "label": "88 × 88 px",
           "preview": "collections/siri-voice/?v=20261023-runtime2&size=88x88",
-          "download": "handoff/siri-voice-v1.1.1-transparent-2026-10-22.zip"
+          "download": "handoff/siri-voice-v1.1.1-transparent-2026-10-22.zip",
+          "clipBytes": {
+            "0": 167689
+          },
+          "packageBytes": 5357701,
+          "flowBytes": 167689
         },
         {
           "id": "200x200",
           "label": "200 × 200 px · iPhone Duo mở ngang",
           "preview": "collections/siri-voice/?v=20261023-runtime2&size=200x200",
-          "download": "handoff/siri-voice-v1.1.1-transparent-2026-10-22.zip"
+          "download": "handoff/siri-voice-v1.1.1-transparent-2026-10-22.zip",
+          "clipBytes": {
+            "0": 167717
+          },
+          "packageBytes": 5357701,
+          "flowBytes": 167717
         }
       ],
       "clips": [
@@ -239,13 +292,23 @@
           "id": "466x678",
           "label": "466 × 678 px",
           "preview": "collections/smarthue-splash/?v=20261023-runtime2&size=466x678",
-          "download": "handoff/smarthue-splash-v1.0.0-2026-10-23.zip"
+          "download": "handoff/smarthue-splash-v1.0.0-2026-10-23.zip",
+          "clipBytes": {
+            "0": 361730
+          },
+          "packageBytes": 6525902,
+          "flowBytes": 361730
         },
         {
           "id": "951x669",
           "label": "951 × 669 px · iPhone Duo mở ngang",
           "preview": "collections/smarthue-splash/?v=20261023-runtime2&size=951x669",
-          "download": "handoff/smarthue-splash-v1.0.0-2026-10-23.zip"
+          "download": "handoff/smarthue-splash-v1.0.0-2026-10-23.zip",
+          "clipBytes": {
+            "0": 362035
+          },
+          "packageBytes": 6525902,
+          "flowBytes": 362035
         }
       ],
       "clips": [
