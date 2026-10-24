@@ -414,6 +414,53 @@
           "description": "Phòng sáng → Hey Siri, turn off → tắt đèn → Hey Siri, turn on → bật lại; lặp liên tục."
         }
       ]
+    },
+    {
+      "id": "smarthue-voice-corridor",
+      "title": "SmartHue · Siri hành lang",
+      "description": "Siri giảm sáng và tăng sáng đèn hành lang. Hai bản iPhone Duo gập dọc và mở ngang; bản ngang v2 giữ nguyên ảnh stock khi dim để đồ vật đứng yên.",
+      "sequenceDescription": "6 giây · 60 FPS · Speed 1× · Lặp liên tục. Hey Siri sáng trước lệnh; nghỉ nhẹ giữa dim và brighten.",
+      "updated": "2026-10-24",
+      "poster": "stock/smarthue-voice-corridor-poster.png",
+      "fps": 60,
+      "tags": [
+        "Siri",
+        "Hành lang",
+        "iPhone Duo"
+      ],
+      "previewHeight": 910,
+      "variants": [
+        {
+          "id": "466x444",
+          "label": "466 × 444 px · iPhone Duo gập dọc",
+          "preview": "collections/smarthue-voice-corridor/?v=1.0.0",
+          "download": "handoff/smarthue-voice-corridor-v1.0.0-duo-2026-10-24.zip",
+          "clipBytes": {
+            "0": 444776
+          },
+          "packageBytes": 6213888,
+          "flowBytes": 444776
+        },
+        {
+          "id": "951x669",
+          "label": "951 × 669 px · iPhone Duo mở ngang · v2",
+          "preview": "collections/smarthue-voice-corridor/951x669/?v=2.0.0",
+          "download": "handoff/smarthue-voice-corridor-v1.0.0-duo-2026-10-24.zip",
+          "clipBytes": {
+            "0": 473804
+          },
+          "packageBytes": 6213888,
+          "flowBytes": 473804
+        }
+      ],
+      "clips": [
+        {
+          "id": 0,
+          "title": "Siri · Đèn hành lang",
+          "seconds": 6,
+          "description": "Hey Siri → dim the corridor light → nghỉ nhẹ → brighten the corridor light → lặp."
+        }
+      ]
     }
   ]
 }
