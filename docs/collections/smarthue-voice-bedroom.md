@@ -32,3 +32,22 @@ Published as its own bedroom collection.
 
 
 Offline preview: full-app-preview/index.html (portrait), full-app-preview/951x669/index.html (landscape). Native SF Pro Bold font, PNG/JPEG images and CanvasKit runtime included. No audio. Portrait .lottie: 884,477 bytes. Landscape .lottie: 724,905 bytes. Each standalone file is under 1,000,000 bytes. ZIP includes duplicate preview data and runtime and is larger.
+
+
+# Bản dọc 473 × 669 · v1
+
+# SmartHue Siri phòng ngủ · 473 × 669
+
+60 FPS · 6 giây · 360 frames · speed 1× · loop liên tục.
+
+- File bàn giao: SmartHue-Bedroom-473x669-v1.lottie — 553,033 byte.
+- Preview: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=smarthue-voice-bedroom&variant=473x669&clip=flow
+- Figma: ruonGWPEODjg9ckwcdXVwV / 799:3152; screenshot lưu tại figma-reference.png.
+
+Dùng ảnh gốc dọc 2.png và blur dọc 1.png người dùng cung cấp. Giữ nguyên blur 231×669 tại x242,y0, phía trên toàn bộ nội dung. Ảnh bật dùng stock mới nguyên bố cục. Ảnh tắt dùng bản đã duyệt của size ngang, crop x101..574 ở độ phân giải951×669; stock bật mới khớp cùng crop với sai khác RGB trung bình1.92/255. Không gen lại nội thất.
+
+Caption native SF Pro Bold32px; dùng font nhúng của bộ phòng ngủ hiện có. Caption dịch[3,-80], tâm236,151.9. Glow từ SVG Figma, tâm236,151.5; kích thước hiển thị722.4×507.4, PNG723×508. Blur phải dùng nguyên byte file người dùng gửi. Ảnh phòng JPEG95/4:4:4 ở473×669; toàn bộ image/font nhúng trong .lottie.
+
+Giữ nguyên keyframe/easing và luồng của bộ phòng ngủ: nghỉ0.5s → Hey Siri, turn off the bedroom lights → tắt đèn → nghỉ → Hey Siri, turn on the bedroom lights → bật lại → lặp. Không audio, nền opaque.
+
+Đã render các frame mốc trong Skottie, đầu/cuối khớp; đã mở scene trong player chính thức text-to-lottie. Chưa kiểm tra thiết bị iOS thực tế.

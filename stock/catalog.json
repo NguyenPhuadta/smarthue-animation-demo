@@ -383,7 +383,7 @@
     {
       "id": "smarthue-voice-bedroom",
       "title": "SmartHue · Siri phòng ngủ",
-      "description": "Siri tắt và bật đèn phòng ngủ. Hey Siri sáng trước, lệnh sáng dần cùng blur vàng. Hai bản iPhone Duo gập dọc và mở ngang, mỗi Lottie dưới 1 MB.",
+      "description": "Siri tắt và bật đèn phòng ngủ. Hey Siri sáng trước, lệnh sáng dần cùng blur vàng. Ba size 466 × 444, 473 × 669 và 951 × 669; mỗi Lottie dưới 1 MB.",
       "sequenceDescription": "6 giây · 60 FPS · Speed 1× · Lặp liên tục. Nghỉ nhẹ trước mỗi lệnh tắt và bật đèn.",
       "updated": "2026-10-24",
       "poster": "stock/smarthue-voice-bedroom-poster.png",
@@ -399,23 +399,34 @@
           "id": "466x444",
           "label": "466 × 444 px · iPhone Duo gập dọc",
           "preview": "collections/smarthue-voice-bedroom/?v=1.0.0",
-          "download": "handoff/smarthue-voice-bedroom-v1.0.0-duo-2026-10-24.zip",
+          "download": "handoff/smarthue-voice-bedroom-v1.1.0-three-sizes-2026-10-24.zip",
           "clipBytes": {
             "0": 884477
           },
-          "packageBytes": 7602310,
+          "packageBytes": 8717625,
           "flowBytes": 884477
         },
         {
           "id": "951x669",
           "label": "951 × 669 px · iPhone Duo mở ngang",
           "preview": "collections/smarthue-voice-bedroom/951x669/?v=1.0.0",
-          "download": "handoff/smarthue-voice-bedroom-v1.0.0-duo-2026-10-24.zip",
+          "download": "handoff/smarthue-voice-bedroom-v1.1.0-three-sizes-2026-10-24.zip",
           "clipBytes": {
             "0": 724905
           },
-          "packageBytes": 7602310,
+          "packageBytes": 8717625,
           "flowBytes": 724905
+        },
+        {
+          "id": "473x669",
+          "label": "473 × 669 px · bản dọc",
+          "preview": "collections/smarthue-voice-bedroom/473x669/?v=1.0.0",
+          "download": "handoff/smarthue-voice-bedroom-v1.1.0-three-sizes-2026-10-24.zip",
+          "clipBytes": {
+            "0": 553033
+          },
+          "flowBytes": 553033,
+          "packageBytes": 8717625
         }
       ],
       "clips": [

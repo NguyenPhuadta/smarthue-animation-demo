@@ -2,10 +2,12 @@
 
 ## Đọc trước khi làm
 
+Với yêu cầu up stock thông thường, quy tắc upload-only trong `AGENTS.md` ở workspace cha được ưu tiên: coi animation và asset đã được Phú kiểm, không chạy checklist kiểm tra hay chờ CI/Pages. Chỉ thực hiện các bước cập nhật cần thiết, commit và push. Các mục kiểm tra bên dưới chỉ dùng khi Phú yêu cầu kiểm tra riêng; chỉ đọc phần hướng dẫn cần cho thay đổi hiện tại.
+
 Kho công khai: https://nguyenphuadta.github.io/smarthue-animation-demo/
 Repo: NguyenPhuadta/smarthue-animation-demo. Checkout hiện tại: deploy/smarthue-flow trong workspace hi bbi. Đây là website tĩnh dùng GitHub Pages, không cần build hay framework. Đọc AGENTS.md trong workspace và hướng dẫn riêng của bộ animation trước khi sửa.
 
-Mở preview của bộ cần sửa và xem các clip liên quan trước khi tích hợp. Nếu bộ có full luồng hoặc preview full app thì kiểm tra thêm các phần đó. Không coi ảnh chụp hoặc kiểm tra JSON là đủ để xác nhận chuyển động. Web preview không xác nhận hiệu năng trên iOS thật.
+Chỉ mở preview, xem clip hoặc kiểm tra full app khi Phú yêu cầu kiểm tra riêng. Web preview không xác nhận hiệu năng trên iOS thật.
 
 ## Phạm vi hướng dẫn
 
@@ -31,9 +33,9 @@ Không đưa các bản tối ưu thử nghiệm hoặc bản cũ chưa được
 2. Giữ file gốc đã duyệt. Không giảm keyframe, đổi FPS, thay easing hoặc nén ảnh mất chất lượng nếu chưa được yêu cầu. Tách bản mới khi đổi kích thước hoặc thử tối ưu. Ảnh, font, masks, track mattes và layer sàn phải đi cùng cảnh.
 3. Preview phải nhận các tham số: mode=sequence mở full luồng; mode=single&state=ID mở đúng clip; embed=1 ẩn phần điều hướng trùng với trang kho nhưng giữ các điều khiển phát lại/tạm dừng. Một link full luồng phải khởi động từ đầu; không lấy lựa chọn cũ từ localStorage để ghi đè link. Chế độ single phát hoặc lặp theo quy định riêng của clip; không mặc định mọi clip đều loop. Với bộ chỉ có một clip, chế độ full luồng có thể phát chính clip đó.
 4. Làm poster PNG/WebP từ chính frame đã duyệt. Không đưa screenshot có thanh trình duyệt hoặc toàn bộ công cụ editor lên làm ảnh đại diện.
-5. Đóng gói ZIP vào handoff/<slug>-<version>.zip. Bên trong gồm các .lottie, README.md mô tả tích hợp và thư mục full-app-preview chạy offline có tất cả ảnh/font/runtime cần thiết. Không kèm file JSON rời ở thư mục gốc nếu người dùng chỉ cần Lottie. JSON/JS bên trong HTML preview được phép. Chạy kiểm tra ZIP và kiểm tra .lottie có manifest cùng animation/assets hợp lệ.
+5. Đóng gói ZIP vào handoff/<slug>-<version>.zip. Bên trong gồm các .lottie, README.md mô tả tích hợp và thư mục full-app-preview chạy offline có tất cả ảnh/font/runtime cần thiết. Không kèm file JSON rời ở thư mục gốc nếu người dùng chỉ cần Lottie. JSON/JS bên trong HTML preview được phép. Chỉ kiểm tra ZIP và cấu trúc .lottie khi Phú yêu cầu kiểm tra riêng.
 6. Thêm collection vào stock/catalog.json theo schema bên dưới. Cập nhật ngày đúng ngày thực hiện. Mặc định variant đầu tiên là bản được đề xuất. Không ghi số lượng/thời lượng/FPS nếu chưa đọc từ file thật.
-7. Chạy kiểm tra, commit và publish theo mục cuối. Không ghi đè ZIP đã bàn giao nếu đó là một phiên bản khác; dùng tên và link có phiên bản để dev phân biệt.
+7. Với yêu cầu up thông thường, commit và push theo mục cuối; không chạy kiểm tra hoặc đợi CI/Pages. Không ghi đè ZIP đã bàn giao nếu đó là một phiên bản khác; dùng tên và link có phiên bản để dev phân biệt.
 
 ## Schema stock/catalog.json
 
@@ -75,7 +77,9 @@ ID collection và variant phải duy nhất; ID clip phải đúng với preview
 
 Ghi rõ tên/phiên bản, canvas, FPS và speed; bảng file/thời lượng; sơ đồ hoặc thứ tự state; điều kiện lặp/thoát; quy tắc chuyển cảnh và ngoại lệ nếu có; nền trong suốt/sàn; assets/font đã nhúng; vị trí các file HTML offline; link preview kho theo đúng variant; thay đổi so với bộ dev đang dùng; giới hạn kiểm tra thực tế. Chỉ kết luận đã kiểm tra iOS khi đã chạy đúng player trên thiết bị và có bằng chứng. LottieFiles dotlottie-ios không đồng nghĩa player web.
 
-## Kiểm tra trước khi publish
+## Kiểm tra riêng khi Phú yêu cầu
+
+Các bước dưới đây không thuộc quy trình up stock thông thường. Chạy chúng chỉ khi Phú yêu cầu kiểm tra riêng.
 
 - JSON hợp lệ, manifest và assets của tất cả .lottie đầy đủ; ZIP không lỗi.
 - File dimensions/fr/ip/op đúng bản bàn giao, thời lượng catalog khớp file.
@@ -87,7 +91,7 @@ Ghi rõ tên/phiên bản, canvas, FPS và speed; bảng file/thời lượng; s
 
 ## Xuất bản trên GitHub Pages
 
-Chạy trong checkout repo, kiểm tra diff và chỉ stage các file của công việc hiện tại:
+Với yêu cầu up thông thường, stage các file đã cập nhật, commit và push. Không chạy `gh run`, không chờ Pages/CI. Nếu Phú yêu cầu kiểm tra riêng, khi đó dùng các bước kiểm tra ở trên.
 
 ```sh
 git status --short
