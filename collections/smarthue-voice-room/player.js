@@ -5,7 +5,7 @@ function stockSurface(ck,canvas){if(new URLSearchParams(location.search).get('re
  try{
   if(q.get('mode')==='single'&&q.get('state')!=='0')throw Error('Bộ này chỉ có clip 0');
   const ck=await CanvasKitInit({locateFile:()=> 'data:application/wasm;base64,'+window.SIRI_CANVASKIT_WASM}),data=window.ROOM_DATA,doc=data.animation,renderDoc=JSON.parse(JSON.stringify(doc));
-  for(const a of renderDoc.assets)if(a.p&&data.assets[a.p]){a.p='data:image/png;base64,'+data.assets[a.p];a.u='';a.e=1}
+  for(const a of renderDoc.assets)if(a.p&&data.assets[a.p]){a.p='data:'+(a.p.endsWith('.jpg')?'image/jpeg':'image/png')+';base64,'+data.assets[a.p];a.u='';a.e=1}
   const fonts={'SFPro-Bold.ttf':Uint8Array.from(atob(data.font),c=>c.charCodeAt(0))};
   const anim=ck.MakeManagedAnimation(JSON.stringify(renderDoc),fonts);if(!anim)throw Error('Không đọc được animation');
   const canvas=$('canvas');canvas.width=doc.w;canvas.height=doc.h;canvas.style.width=doc.w+'px';

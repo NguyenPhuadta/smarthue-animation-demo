@@ -325,7 +325,7 @@
       "title": "SmartHue · Điều khiển Siri",
       "description": "Hai phiên bản iPhone Duo gập dọc (466 × 444) và mở ngang (951 × 669). Siri chuyển đèn vàng → Chill Mode hồng tím → tắt → bật lại; Hey Siri sáng trước từng lệnh.",
       "sequenceDescription": "9 giây · 60 FPS · Speed 1× · Lặp liên tục. Nghỉ 0,5–0,6 giây trước mỗi lệnh. Chọn đúng kích thước cho iPhone Duo gập dọc hoặc mở ngang.",
-      "updated": "2026-10-23",
+      "updated": "2026-10-24",
       "poster": "stock/smarthue-voice-room-poster.png",
       "fps": 60,
       "tags": [
@@ -339,24 +339,24 @@
         {
           "id": "466x444",
           "label": "466 × 444 px · iPhone Duo gập dọc",
-          "preview": "collections/smarthue-voice-room/?v=1.1.0",
-          "download": "handoff/smarthue-voice-room-v1.1.0-duo-2026-10-23.zip",
+          "preview": "collections/smarthue-voice-room/?v=1.2.0",
+          "download": "handoff/smarthue-voice-room-v1.2.0-duo-compact-2026-10-24.zip",
           "clipBytes": {
-            "0": 2921555
+            "0": 789414
           },
-          "packageBytes": 16288765,
-          "flowBytes": 2921555
+          "packageBytes": 7673136,
+          "flowBytes": 789414
         },
         {
           "id": "951x669",
           "label": "951 × 669 px · iPhone Duo mở ngang",
-          "preview": "collections/smarthue-voice-room/951x669/?v=1.1.0",
-          "download": "handoff/smarthue-voice-room-v1.1.0-duo-2026-10-23.zip",
+          "preview": "collections/smarthue-voice-room/951x669/?v=1.2.0",
+          "download": "handoff/smarthue-voice-room-v1.2.0-duo-compact-2026-10-24.zip",
           "clipBytes": {
-            "0": 3000293
+            "0": 853741
           },
-          "packageBytes": 16288765,
-          "flowBytes": 3000293
+          "packageBytes": 7673136,
+          "flowBytes": 853741
         }
       ],
       "clips": [
