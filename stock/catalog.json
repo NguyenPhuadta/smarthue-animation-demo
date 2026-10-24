@@ -461,6 +461,54 @@
           "description": "Hey Siri → dim the corridor light → nghỉ nhẹ → brighten the corridor light → lặp."
         }
       ]
+    },
+    {
+      "id": "smarthue-voice-modes",
+      "title": "SmartHue · Siri Chill / Basic Mode",
+      "description": "Siri chuyển phòng khách từ ánh vàng sang Chill Mode tím hồng rồi về Basic Mode. Hai bản iPhone Duo gập dọc và mở ngang, mỗi Lottie dưới 1 MB.",
+      "sequenceDescription": "6 giây · 60 FPS · Speed 1× · Lặp liên tục. Hey Siri sáng trước, lệnh sáng dần; nghỉ nhẹ giữa hai chế độ.",
+      "updated": "2026-10-24",
+      "poster": "stock/smarthue-voice-modes-poster.png",
+      "fps": 60,
+      "tags": [
+        "Siri",
+        "Chill Mode",
+        "Basic Mode",
+        "iPhone Duo"
+      ],
+      "previewHeight": 910,
+      "variants": [
+        {
+          "id": "466x444",
+          "label": "466 × 444 px · iPhone Duo gập dọc",
+          "preview": "collections/smarthue-voice-modes/?v=1.0.0",
+          "download": "handoff/smarthue-voice-modes-v1.0.0-duo-2026-10-24.zip",
+          "clipBytes": {
+            "0": 624027
+          },
+          "packageBytes": 6966863,
+          "flowBytes": 624027
+        },
+        {
+          "id": "951x669",
+          "label": "951 × 669 px · iPhone Duo mở ngang",
+          "preview": "collections/smarthue-voice-modes/951x669/?v=1.0.0",
+          "download": "handoff/smarthue-voice-modes-v1.0.0-duo-2026-10-24.zip",
+          "clipBytes": {
+            "0": 668057
+          },
+          "packageBytes": 6966863,
+          "flowBytes": 668057
+        }
+      ],
+      "clips": [
+        {
+          "id": 0,
+          "title": "Siri · Chill / Basic Mode",
+          "seconds": 6,
+          "description": "Hey Siri → Chill Mode tím hồng → nghỉ nhẹ → Basic Mode ánh vàng → lặp."
+        }
+      ]
     }
   ]
 }
