@@ -441,7 +441,7 @@
     {
       "id": "smarthue-voice-corridor",
       "title": "SmartHue · Siri hành lang",
-      "description": "Siri giảm sáng và tăng sáng đèn hành lang. Hai bản iPhone Duo gập dọc và mở ngang; bản ngang v2 giữ nguyên ảnh stock khi dim để đồ vật đứng yên.",
+      "description": "Siri giảm sáng và tăng sáng đèn hành lang. Ba size 466 × 444, 473 × 669 và 951 × 669; bản dọc mới và bản ngang v2 giữ nguyên ảnh stock khi dim để đồ vật đứng yên.",
       "sequenceDescription": "6 giây · 60 FPS · Speed 1× · Lặp liên tục. Hey Siri sáng trước lệnh; nghỉ nhẹ giữa dim và brighten.",
       "updated": "2026-10-24",
       "poster": "stock/smarthue-voice-corridor-poster.png",
@@ -457,23 +457,34 @@
           "id": "466x444",
           "label": "466 × 444 px · iPhone Duo gập dọc",
           "preview": "collections/smarthue-voice-corridor/?v=1.0.0",
-          "download": "handoff/smarthue-voice-corridor-v1.0.0-duo-2026-10-24.zip",
+          "download": "handoff/smarthue-voice-corridor-v1.1.0-three-sizes-2026-10-24.zip",
           "clipBytes": {
             "0": 444776
           },
-          "packageBytes": 6213888,
+          "packageBytes": 7062862,
           "flowBytes": 444776
         },
         {
           "id": "951x669",
           "label": "951 × 669 px · iPhone Duo mở ngang · v2",
           "preview": "collections/smarthue-voice-corridor/951x669/?v=2.0.0",
-          "download": "handoff/smarthue-voice-corridor-v1.0.0-duo-2026-10-24.zip",
+          "download": "handoff/smarthue-voice-corridor-v1.1.0-three-sizes-2026-10-24.zip",
           "clipBytes": {
             "0": 473804
           },
-          "packageBytes": 6213888,
+          "packageBytes": 7062862,
           "flowBytes": 473804
+        },
+        {
+          "id": "473x669",
+          "label": "473 × 669 px · bản dọc",
+          "preview": "collections/smarthue-voice-corridor/473x669/?v=1.0.0",
+          "download": "handoff/smarthue-voice-corridor-v1.1.0-three-sizes-2026-10-24.zip",
+          "clipBytes": {
+            "0": 420525
+          },
+          "flowBytes": 420525,
+          "packageBytes": 7062862
         }
       ],
       "clips": [
