@@ -228,7 +228,7 @@
     {
       "id": "siri-voice",
       "title": "Siri · Sóng sáng",
-      "description": "Khối cầu Siri nền trong suốt, bỏ quầng blur phía sau. Hai size 88 × 88 và 200 × 200 cho iPhone Duo mở ngang; chỉnh màu riêng dải sáng và hai viền.",
+      "description": "Khối cầu Siri nền trong suốt, bỏ quầng blur phía sau. 88 × 88 cho iPhone Duo gập dọc; 200 × 200 cho iPhone Duo mở ngang; chỉnh màu riêng dải sáng và hai viền.",
       "sequenceDescription": "Một clip 15,8 giây, 60 FPS, speed 1×; lặp toàn bộ. Nền trong suốt, hai kích thước 88 × 88 và 200 × 200 cùng nhịp.",
       "updated": "2026-10-22",
       "poster": "stock/siri-voice-poster.png",
@@ -243,24 +243,24 @@
       "variants": [
         {
           "id": "88x88",
-          "label": "88 × 88 px",
+          "label": "88 × 88 px · iPhone Duo gập dọc",
           "preview": "collections/siri-voice/?v=20261023-runtime2&size=88x88",
-          "download": "handoff/siri-voice-v1.1.1-transparent-2026-10-22.zip",
+          "download": "handoff/siri-voice-device-guide-2026-10-26-v1.zip",
           "clipBytes": {
             "0": 167689
           },
-          "packageBytes": 5357701,
+          "packageBytes": 5358034,
           "flowBytes": 167689
         },
         {
           "id": "200x200",
           "label": "200 × 200 px · iPhone Duo mở ngang",
           "preview": "collections/siri-voice/?v=20261023-runtime2&size=200x200",
-          "download": "handoff/siri-voice-v1.1.1-transparent-2026-10-22.zip",
+          "download": "handoff/siri-voice-device-guide-2026-10-26-v1.zip",
           "clipBytes": {
             "0": 167717
           },
-          "packageBytes": 5357701,
+          "packageBytes": 5358034,
           "flowBytes": 167717
         }
       ],
@@ -341,33 +341,33 @@
           "id": "466x444",
           "label": "466 × 444 px · iPhone Duo gập dọc",
           "preview": "collections/smarthue-voice-room/?v=1.2.0",
-          "download": "handoff/smarthue-voice-room-v1.3.0-duo-2026-10-24.zip",
+          "download": "handoff/smarthue-voice-room-device-guide-2026-10-26-v1.zip",
           "clipBytes": {
             "0": 789414
           },
-          "packageBytes": 9236512,
+          "packageBytes": 9244305,
           "flowBytes": 789414
         },
         {
           "id": "951x669",
           "label": "951 × 669 px · iPhone Duo mở ngang",
           "preview": "collections/smarthue-voice-room/951x669/?v=1.2.0",
-          "download": "handoff/smarthue-voice-room-v1.3.0-duo-2026-10-24.zip",
+          "download": "handoff/smarthue-voice-room-device-guide-2026-10-26-v1.zip",
           "clipBytes": {
             "0": 853741
           },
-          "packageBytes": 9236512,
+          "packageBytes": 9244305,
           "flowBytes": 853741
         },
         {
           "id": "473x669",
-          "label": "473 × 669 px · bản dọc",
+          "label": "473 × 669 px · iPhone Duo mở ngang · partially folded",
           "preview": "collections/smarthue-voice-room/473x669/?v=1.0.0",
-          "download": "handoff/smarthue-voice-room-v1.3.0-duo-2026-10-24.zip",
+          "download": "handoff/smarthue-voice-room-device-guide-2026-10-26-v1.zip",
           "clipBytes": {
             "0": 778972
           },
-          "packageBytes": 9236512,
+          "packageBytes": 9244305,
           "flowBytes": 778972
         }
       ],
@@ -399,34 +399,34 @@
           "id": "466x444",
           "label": "466 × 444 px · iPhone Duo gập dọc",
           "preview": "collections/smarthue-voice-bedroom/?v=1.0.0",
-          "download": "handoff/smarthue-voice-bedroom-v1.1.0-three-sizes-2026-10-24.zip",
+          "download": "handoff/smarthue-voice-bedroom-device-guide-2026-10-26-v1.zip",
           "clipBytes": {
             "0": 884477
           },
-          "packageBytes": 8717625,
+          "packageBytes": 8718468,
           "flowBytes": 884477
         },
         {
           "id": "951x669",
           "label": "951 × 669 px · iPhone Duo mở ngang",
           "preview": "collections/smarthue-voice-bedroom/951x669/?v=1.0.0",
-          "download": "handoff/smarthue-voice-bedroom-v1.1.0-three-sizes-2026-10-24.zip",
+          "download": "handoff/smarthue-voice-bedroom-device-guide-2026-10-26-v1.zip",
           "clipBytes": {
             "0": 724905
           },
-          "packageBytes": 8717625,
+          "packageBytes": 8718468,
           "flowBytes": 724905
         },
         {
           "id": "473x669",
-          "label": "473 × 669 px · bản dọc",
+          "label": "473 × 669 px · iPhone Duo mở ngang · partially folded",
           "preview": "collections/smarthue-voice-bedroom/473x669/?v=1.0.0",
-          "download": "handoff/smarthue-voice-bedroom-v1.1.0-three-sizes-2026-10-24.zip",
+          "download": "handoff/smarthue-voice-bedroom-device-guide-2026-10-26-v1.zip",
           "clipBytes": {
             "0": 553033
           },
           "flowBytes": 553033,
-          "packageBytes": 8717625
+          "packageBytes": 8718468
         }
       ],
       "clips": [
@@ -457,34 +457,34 @@
           "id": "466x444",
           "label": "466 × 444 px · iPhone Duo gập dọc",
           "preview": "collections/smarthue-voice-corridor/?v=1.0.0",
-          "download": "handoff/smarthue-voice-corridor-v1.1.0-three-sizes-2026-10-24.zip",
+          "download": "handoff/smarthue-voice-corridor-device-guide-2026-10-26-v1.zip",
           "clipBytes": {
             "0": 444776
           },
-          "packageBytes": 7062862,
+          "packageBytes": 7063658,
           "flowBytes": 444776
         },
         {
           "id": "951x669",
           "label": "951 × 669 px · iPhone Duo mở ngang · v2",
           "preview": "collections/smarthue-voice-corridor/951x669/?v=2.0.0",
-          "download": "handoff/smarthue-voice-corridor-v1.1.0-three-sizes-2026-10-24.zip",
+          "download": "handoff/smarthue-voice-corridor-device-guide-2026-10-26-v1.zip",
           "clipBytes": {
             "0": 473804
           },
-          "packageBytes": 7062862,
+          "packageBytes": 7063658,
           "flowBytes": 473804
         },
         {
           "id": "473x669",
-          "label": "473 × 669 px · bản dọc",
+          "label": "473 × 669 px · iPhone Duo mở ngang · partially folded",
           "preview": "collections/smarthue-voice-corridor/473x669/?v=1.0.0",
-          "download": "handoff/smarthue-voice-corridor-v1.1.0-three-sizes-2026-10-24.zip",
+          "download": "handoff/smarthue-voice-corridor-device-guide-2026-10-26-v1.zip",
           "clipBytes": {
             "0": 420525
           },
           "flowBytes": 420525,
-          "packageBytes": 7062862
+          "packageBytes": 7063658
         }
       ],
       "clips": [
@@ -516,22 +516,22 @@
           "id": "466x444",
           "label": "466 × 444 px · iPhone Duo gập dọc",
           "preview": "collections/smarthue-voice-modes/?v=1.0.0",
-          "download": "handoff/smarthue-voice-modes-v1.0.0-duo-2026-10-24.zip",
+          "download": "handoff/smarthue-voice-modes-device-guide-2026-10-26-v1.zip",
           "clipBytes": {
             "0": 624027
           },
-          "packageBytes": 6966863,
+          "packageBytes": 6967737,
           "flowBytes": 624027
         },
         {
           "id": "951x669",
           "label": "951 × 669 px · iPhone Duo mở ngang",
           "preview": "collections/smarthue-voice-modes/951x669/?v=1.0.0",
-          "download": "handoff/smarthue-voice-modes-v1.0.0-duo-2026-10-24.zip",
+          "download": "handoff/smarthue-voice-modes-device-guide-2026-10-26-v1.zip",
           "clipBytes": {
             "0": 668057
           },
-          "packageBytes": 6966863,
+          "packageBytes": 6967737,
           "flowBytes": 668057
         }
       ],

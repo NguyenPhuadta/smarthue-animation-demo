@@ -1,5 +1,16 @@
 # Siri · Sóng sáng trong suốt — v1.1.1
 
+## Chọn variant theo thiết bị — dành cho dev / coding agent
+
+| Variant / canvas | Thiết bị và trạng thái | File bàn giao |
+| --- | --- | --- |
+| `88x88` · 88 × 88 px | iPhone Duo **gập dọc** | `siri-voice-88x88-v1.1.1.lottie` |
+| `200x200` · 200 × 200 px | iPhone Duo **mở ngang** | `siri-voice-200x200-v1.1.1.lottie` |
+
+Kích thước là canvas animation, không phải độ phân giải màn hình. Host chọn variant từ trạng thái thiết bị/layout; khi đổi hướng hoặc gập/mở thì chọn lại variant. Giữ tỉ lệ khi scale, không stretch/crop. Dùng `.lottie` để tích hợp, không dùng HTML preview.
+
+Chưa có mapping được xác nhận cho sóng Siri ở trạng thái mở ngang partially folded. Không tự suy ra phải dùng 88 hoặc 200 từ mapping của các animation phòng; hỏi Phú nếu cần trạng thái này.
+
 Ngày 22/10/2026. Hai kích thước cùng chuyển động và cùng phase: 88 × 88 px và 200 × 200 px cho iPhone Duo mở ngang. 60 FPS, speed 1×, 948 frame (ip 0, op 948 exclusive), 15,8 giây mỗi chu kỳ. Host bật loop toàn clip.
 
 | File | Canvas | Dùng cho |

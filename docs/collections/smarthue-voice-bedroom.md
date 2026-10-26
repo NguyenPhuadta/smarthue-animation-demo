@@ -1,5 +1,27 @@
 # SmartHue bedroom — draft v1
 
+<!-- device-variant-mapping:start -->
+## Chọn variant theo thiết bị — dành cho dev / coding agent
+
+Kích thước dưới đây là canvas của animation, không phải độ phân giải màn hình hay tên model thương mại.
+
+| Variant / canvas | Thiết bị và trạng thái sử dụng | Cách chọn file |
+| --- | --- | --- |
+| `466x444` · 466 × 444 px | iPhone Duo **gập dọc** | Chọn file `.lottie` có `466x444` trong tên. |
+| `951x669` · 951 × 669 px | iPhone Duo **mở ngang** | Chọn file `.lottie` có `951x669` trong tên. |
+| `473x669` · 473 × 669 px | iPhone Duo **mở ngang, partially folded (gập một phần)** | Chọn file `.lottie` có `473x669` trong tên; không dùng bản mở ngang 951x669 thay thế. |
+
+Hướng dẫn tích hợp:
+
+- Chọn đúng collection của tính năng trước, sau đó chọn variant theo bảng. Không dùng file phòng khách cho phòng ngủ/hành lang hoặc Chill/Basic Mode.
+- Khi trạng thái gập/mở hoặc hướng màn hình đổi, host chọn lại variant tương ứng; không chỉ kéo giãn bản cũ để giả lập layout mới.
+- Giữ tỉ lệ canvas khi hiển thị; không stretch, crop hoặc tự đổi vị trí chữ/glow để lấp đầy container. Kích thước hiển thị có thể scale đồng đều theo layout app.
+- Không suy ra thiết bị chỉ từ chiều rộng/chiều cao màn hình. Host phải cung cấp trạng thái thiết bị/layout; nếu chưa có mapping, hỏi lại thay vì đoán.
+- Dùng file `.lottie` được bàn giao cho variant; HTML preview chỉ dùng để xem. Giữ FPS, speed, loop và nội dung theo hướng dẫn riêng của bộ này.
+
+Bảng này là hướng dẫn chọn thiết bị; các mô tả “bản dọc/bản ngang” trong lịch sử bên dưới không thay thế mapping trên. Việc có source local không có nghĩa variant đã có trong ZIP/release cũ; kiểm tra danh sách file của release đang tích hợp.
+<!-- device-variant-mapping:end -->
+
 Canvas: 466 × 444 px. 60fps. 360 frames / 6 seconds. Speed 1. Continuous loop.
 
 Sequence: warm room pause → Hey Siri, dim command → command brightens → turn lamp off → dark room pause → Hey Siri, dim command → command brightens → turn lamp on → warm hold.
