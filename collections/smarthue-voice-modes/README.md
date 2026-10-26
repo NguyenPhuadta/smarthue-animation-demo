@@ -1,7 +1,7 @@
-# SmartHue · Siri Chill / Basic Mode — v1.0.0
+# SmartHue · Siri Chill / Basic Mode — v1.1.0
 
 <!-- device-variant-mapping:start -->
-**Phạm vi release hiện tại:** ZIP Chill/Basic Mode trên stock có 466x444 và 951x669. Bản 473x669 đã có source local nhưng chưa được đưa vào release này; không trỏ dev tới file chưa có trong ZIP.
+**Phạm vi release hiện tại:** ZIP có đủ ba size 466x444, 951x669 và 473x669; mỗi variant có file `.lottie` riêng.
 
 ## Chọn variant theo thiết bị — dành cho dev / coding agent
 
@@ -24,13 +24,14 @@ Hướng dẫn tích hợp:
 Bảng này là hướng dẫn chọn thiết bị; các mô tả “bản dọc/bản ngang” trong lịch sử bên dưới không thay thế mapping trên. Việc có source local không có nghĩa variant đã có trong ZIP/release cũ; kiểm tra danh sách file của release đang tích hợp.
 <!-- device-variant-mapping:end -->
 
-Hai bản iPhone Duo: 466 × 444 px gập dọc và 951 × 669 px mở ngang.
+Ba bản iPhone Duo: 466 × 444 px gập dọc; 951 × 669 px mở ngang; 473 × 669 px mở ngang, partially folded.
 60 FPS · speed 1× · ip 0 / op 360 · 6 giây · lặp liên tục · không audio.
 
 | File | Dung lượng | Thời lượng |
 | --- | ---: | ---: |
 | SmartHue-Modes-466x444-v1.lottie | 624,027 bytes | 6 giây |
 | SmartHue-Modes-951x669-v1.lottie | 668,057 bytes | 6 giây |
+| SmartHue-Modes-473x669-v1.lottie | 591,508 bytes | 6 giây |
 
 Luồng: phòng vàng → nghỉ 0,5 giây → “Hey Siri, set living room to Chill Mode”
 → chuyển tím hồng → nghỉ nhẹ → “Hey Siri, set living room to Basic Mode”
@@ -64,3 +65,9 @@ từng animation vì có cả hai Lottie và runtime preview offline.
 
 Kho dọc: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=smarthue-voice-modes&variant=466x444&clip=flow
 Kho ngang: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=smarthue-voice-modes&variant=951x669&clip=flow
+
+## Bản 473 × 669 · iPhone Duo mở ngang, partially folded
+
+Giữ nguyên bản đã duyệt: 6 giây, 60 FPS, speed 1×, loop liên tục. Caption/glow ở phần trên; blur tối bên phải. Ảnh, font nhúng trong Lottie; không audio. Offline preview: `full-app-preview/473x669/index.html`.
+
+Preview: https://nguyenphuadta.github.io/smarthue-animation-demo/?collection=smarthue-voice-modes&variant=473x669&clip=flow

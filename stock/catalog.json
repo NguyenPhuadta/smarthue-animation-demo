@@ -499,7 +499,7 @@
     {
       "id": "smarthue-voice-modes",
       "title": "SmartHue · Siri Chill / Basic Mode",
-      "description": "Siri chuyển phòng khách từ ánh vàng sang Chill Mode tím hồng rồi về Basic Mode. Hai bản iPhone Duo gập dọc và mở ngang, mỗi Lottie dưới 1 MB.",
+      "description": "Siri chuyển phòng khách từ ánh vàng sang Chill Mode tím hồng rồi về Basic Mode. Ba bản iPhone Duo: gập dọc, mở ngang và mở ngang partially folded, mỗi Lottie dưới 1 MB.",
       "sequenceDescription": "6 giây · 60 FPS · Speed 1× · Lặp liên tục. Hey Siri sáng trước, lệnh sáng dần; nghỉ nhẹ giữa hai chế độ.",
       "updated": "2026-10-24",
       "poster": "stock/smarthue-voice-modes-poster.png",
@@ -516,23 +516,34 @@
           "id": "466x444",
           "label": "466 × 444 px · iPhone Duo gập dọc",
           "preview": "collections/smarthue-voice-modes/?v=1.0.0",
-          "download": "handoff/smarthue-voice-modes-device-guide-2026-10-26-v1.zip",
+          "download": "handoff/smarthue-voice-modes-v1.1.0-three-sizes-2026-10-26.zip",
           "clipBytes": {
             "0": 624027
           },
-          "packageBytes": 6967737,
+          "packageBytes": 8159576,
           "flowBytes": 624027
         },
         {
           "id": "951x669",
           "label": "951 × 669 px · iPhone Duo mở ngang",
           "preview": "collections/smarthue-voice-modes/951x669/?v=1.0.0",
-          "download": "handoff/smarthue-voice-modes-device-guide-2026-10-26-v1.zip",
+          "download": "handoff/smarthue-voice-modes-v1.1.0-three-sizes-2026-10-26.zip",
           "clipBytes": {
             "0": 668057
           },
-          "packageBytes": 6967737,
+          "packageBytes": 8159576,
           "flowBytes": 668057
+        },
+        {
+          "id": "473x669",
+          "label": "473 × 669 px · iPhone Duo mở ngang · partially folded",
+          "preview": "collections/smarthue-voice-modes/473x669/?v=1.0.0",
+          "download": "handoff/smarthue-voice-modes-v1.1.0-three-sizes-2026-10-26.zip",
+          "clipBytes": {
+            "0": 591508
+          },
+          "flowBytes": 591508,
+          "packageBytes": 8159576
         }
       ],
       "clips": [

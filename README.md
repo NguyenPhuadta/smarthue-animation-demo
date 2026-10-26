@@ -16,7 +16,7 @@ Quy tắc phát, lặp, chuyển cảnh, thời lượng và nền được mô 
 | Nhóm | iPhone Duo gập dọc | iPhone Duo mở ngang | iPhone Duo mở ngang, partially folded |
 | --- | --- | --- | --- |
 | SmartHue Siri phòng khách / phòng ngủ / hành lang | 466 × 444 | 951 × 669 | 473 × 669 |
-| SmartHue Siri Chill / Basic Mode | 466 × 444 | 951 × 669 | 473 × 669 đã có source local, chưa có trong release stock hiện tại |
+| SmartHue Siri Chill / Basic Mode | 466 × 444 | 951 × 669 | 473 × 669 |
 | Siri · Sóng sáng | 88 × 88 | 200 × 200 | Chưa xác nhận mapping; hỏi Phú |
 
 Dev / coding agent đọc README trong `collections/<collection-id>/README.md` hoặc README trong ZIP trước khi chọn file. Host chọn theo trạng thái thiết bị, giữ tỉ lệ canvas và đổi variant khi layout thay đổi. Không suy ra mapping giữa các bộ khác nhau.
