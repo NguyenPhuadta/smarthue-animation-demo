@@ -99,7 +99,8 @@
           "seconds": 4,
           "description": "Nhánh timeout nối tiếp từ trạng thái đang kết nối."
         }
-      ]
+      ],
+      "code": "01"
     },
     {
       "id": "bridge-connect",
@@ -177,7 +178,8 @@
           "description": "Vòng kết nối chuyển cam, ngắt nhịp và lắng xuống. Phát một lần, giữ frame cuối."
         }
       ],
-      "previewHeight": 650
+      "previewHeight": 650,
+      "code": "02"
     },
     {
       "id": "liquid-halo",
@@ -223,7 +225,8 @@
           "seconds": 3.5555555555555554,
           "description": "Một chu kỳ 3,56 giây ở playback speed 1.5×; host bật loop. 136 px cho iPhone Duo gập; 200 px cho mở ngang."
         }
-      ]
+      ],
+      "code": "03"
     },
     {
       "id": "siri-voice",
@@ -271,7 +274,8 @@
           "seconds": 15.8,
           "description": "Khối cầu và sóng sáng chuyển động, lặp toàn bộ 948 frame. Chỉnh riêng màu dải sáng và viền trái/phải."
         }
-      ]
+      ],
+      "code": "04"
     },
     {
       "id": "smarthue-splash",
@@ -318,7 +322,8 @@
           "seconds": 10.7,
           "description": "Chữ bay vào → vòm sáng quét → glow thở 6s. Phát một lần và giữ frame cuối."
         }
-      ]
+      ],
+      "code": "05"
     },
     {
       "id": "smarthue-voice-room",
@@ -378,7 +383,8 @@
           "seconds": 9,
           "description": "Hey Siri → Chill Mode → tắt đèn → bật lại; giữ nhịp trước mỗi câu, lặp liên tục. Có bản gập dọc và mở ngang."
         }
-      ]
+      ],
+      "code": "06"
     },
     {
       "id": "smarthue-voice-bedroom",
@@ -436,7 +442,8 @@
           "seconds": 6,
           "description": "Phòng sáng → Hey Siri, turn off → tắt đèn → Hey Siri, turn on → bật lại; lặp liên tục."
         }
-      ]
+      ],
+      "code": "07"
     },
     {
       "id": "smarthue-voice-corridor",
@@ -494,7 +501,8 @@
           "seconds": 6,
           "description": "Hey Siri → dim the corridor light → nghỉ nhẹ → brighten the corridor light → lặp."
         }
-      ]
+      ],
+      "code": "08"
     },
     {
       "id": "smarthue-voice-modes",
@@ -553,7 +561,8 @@
           "seconds": 6,
           "description": "Hey Siri → Chill Mode tím hồng → nghỉ nhẹ → Basic Mode ánh vàng → lặp."
         }
-      ]
+      ],
+      "code": "09"
     }
   ]
 }
