@@ -118,9 +118,9 @@
       "variants": [
         {
           "id": "362x362",
-          "label": "362 × 362 px",
+          "label": "362 × 362 px · Size gốc, host tự resize",
           "preview": "collections/bridge-connect/?v=1.3.1",
-          "download": "handoff/bridge-connect-v1.3.1-362x362-2026-10-22.zip",
+          "download": "handoff/bridge-connect-single-size-guide-2026-10-27-v1.zip",
           "clipBytes": {
             "0": 102772,
             "1": 99580,
@@ -130,7 +130,7 @@
             "5": 99078,
             "6": 99084
           },
-          "packageBytes": 2525667,
+          "packageBytes": 2526303,
           "flowBytes": 407458
         }
       ],
@@ -231,8 +231,8 @@
     {
       "id": "siri-voice",
       "title": "Siri · Sóng sáng",
-      "description": "Khối cầu Siri nền trong suốt, bỏ quầng blur phía sau. 88 × 88 cho iPhone Duo gập dọc; 200 × 200 cho iPhone Duo mở ngang; chỉnh màu riêng dải sáng và hai viền.",
-      "sequenceDescription": "Một clip 15,8 giây, 60 FPS, speed 1×; lặp toàn bộ. Nền trong suốt, hai kích thước 88 × 88 và 200 × 200 cùng nhịp.",
+      "description": "Khối cầu Siri nền trong suốt, chỉnh màu riêng dải sáng và hai viền. Một size gốc 88 × 88; host tự resize cho màn mở ngang.",
+      "sequenceDescription": "Một clip 15,8 giây, 60 FPS, speed 1×; lặp toàn bộ. Dùng file 88 × 88 và scale đồng đều theo layout app.",
       "updated": "2026-10-22",
       "poster": "stock/siri-voice-poster.png",
       "fps": 60,
@@ -246,25 +246,14 @@
       "variants": [
         {
           "id": "88x88",
-          "label": "88 × 88 px · iPhone Duo gập dọc",
+          "label": "88 × 88 px · Size gốc, host tự resize",
           "preview": "collections/siri-voice/?v=20261023-runtime2&size=88x88",
-          "download": "handoff/siri-voice-device-guide-2026-10-26-v1.zip",
+          "download": "handoff/siri-voice-single-size-guide-2026-10-27-v1.zip",
           "clipBytes": {
             "0": 167689
           },
-          "packageBytes": 5358034,
+          "packageBytes": 5037210,
           "flowBytes": 167689
-        },
-        {
-          "id": "200x200",
-          "label": "200 × 200 px · iPhone Duo mở ngang",
-          "preview": "collections/siri-voice/?v=20261023-runtime2&size=200x200",
-          "download": "handoff/siri-voice-device-guide-2026-10-26-v1.zip",
-          "clipBytes": {
-            "0": 167717
-          },
-          "packageBytes": 5358034,
-          "flowBytes": 167717
         }
       ],
       "clips": [
@@ -280,7 +269,7 @@
     {
       "id": "smarthue-splash",
       "title": "SmartHue · Splash",
-      "description": "Chữ bay vào có chiều sâu, vòm sáng quét từ trái lên đỉnh và glow cam hồng thở nhẹ. Hai size dọc và iPhone Duo mở ngang.",
+      "description": "Chữ bay vào có chiều sâu, vòm sáng quét và glow cam hồng thở nhẹ. Một size gốc 466 × 678; host tự resize cho màn mở ngang.",
       "sequenceDescription": "Phát một lần 10,7 giây, giữ frame cuối. Chữ xếp xong 2,5s; ánh sáng quét cùng fade in; glow thở 6s.",
       "updated": "2026-10-23",
       "poster": "stock/smarthue-splash-poster.png",
@@ -294,25 +283,14 @@
       "variants": [
         {
           "id": "466x678",
-          "label": "466 × 678 px",
+          "label": "466 × 678 px · Size gốc, host tự resize",
           "preview": "collections/smarthue-splash/?v=20261023-runtime2&size=466x678",
-          "download": "handoff/smarthue-splash-v1.0.0-2026-10-23.zip",
+          "download": "handoff/smarthue-splash-single-size-guide-2026-10-27-v1.zip",
           "clipBytes": {
             "0": 361730
           },
-          "packageBytes": 6525902,
+          "packageBytes": 5811512,
           "flowBytes": 361730
-        },
-        {
-          "id": "951x669",
-          "label": "951 × 669 px · iPhone Duo mở ngang",
-          "preview": "collections/smarthue-splash/?v=20261023-runtime2&size=951x669",
-          "download": "handoff/smarthue-splash-v1.0.0-2026-10-23.zip",
-          "clipBytes": {
-            "0": 362035
-          },
-          "packageBytes": 6525902,
-          "flowBytes": 362035
         }
       ],
       "clips": [

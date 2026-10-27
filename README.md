@@ -17,6 +17,10 @@ Quy tắc phát, lặp, chuyển cảnh, thời lượng và nền được mô 
 | --- | --- | --- | --- |
 | SmartHue Siri phòng khách / phòng ngủ / hành lang | 466 × 444 | 951 × 669 | 473 × 669 |
 | SmartHue Siri Chill / Basic Mode | 466 × 444 | 951 × 669 | 473 × 669 |
-| Siri · Sóng sáng | 88 × 88 | 200 × 200 | Chưa xác nhận mapping; hỏi Phú |
+| Siri · Sóng sáng | 88 × 88 | Dùng lại 88 × 88, host resize | Dùng lại 88 × 88, host resize |
 
 Dev / coding agent đọc README trong `collections/<collection-id>/README.md` hoặc README trong ZIP trước khi chọn file. Host chọn theo trạng thái thiết bị, giữ tỉ lệ canvas và đổi variant khi layout thay đổi. Không suy ra mapping giữa các bộ khác nhau.
+
+## Bộ 02, 04, 05 — dùng chung một size gốc
+
+Bridge (02): 362 × 362. Siri sóng sáng (04): 88 × 88. Splash (05): 466 × 678. Dev dùng cùng file gốc cho gập dọc, mở ngang và partially folded, scale đồng đều bằng host code theo container design; không tạo hay chọn asset ngang riêng. README trong từng bộ/ZIP có công thức aspect-fit và quy tắc giữ playback khi resize. Quy tắc này thay hướng dẫn nhiều size trước đây của ba bộ này.

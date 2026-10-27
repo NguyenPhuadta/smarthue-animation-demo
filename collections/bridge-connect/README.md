@@ -1,5 +1,16 @@
 # Bridge Connect — v1.3.1-362x362-2026-10-22
 
+## Quy tắc bàn giao hiện tại — bộ 02 · một size gốc
+
+**Chỉ dùng canvas 362 × 362 px (`362x362`) cho mọi trạng thái thiết bị.** Khi iPhone Duo mở ngang hoặc partially folded, dev / coding agent tiếp tục dùng chính file gốc và resize view chứa player bằng code host; không cần asset Lottie riêng cho màn ngang.
+
+- Giữ nguyên file `.lottie`, timeline, keyframe, FPS, speed và quy tắc phát của bộ này. Resize chỉ đổi kích thước hiển thị.
+- Scale đồng đều hai chiều, giữ tỉ lệ gốc. Dùng aspect-fit/contain trong container mà layout app dành cho animation; không stretch hoặc crop artwork.
+- Với container `W × H`, canvas gốc `w × h`: `scale = min(W / w, H / h)`; kích thước hiển thị `w × scale`, `h × scale`. Căn giữa trong container; khoảng trống do host layout xử lý.
+- Khi đổi hướng/gập/mở, cập nhật layout và kích thước view, giữ nguyên asset và tiến trình playback; không tự replay chỉ vì resize.
+- Container hiển thị lấy từ design/layout app, không tự suy ra bằng kích thước toàn màn hình. Nếu chưa có thông số layout, hỏi lại Phú.
+- Các bản kích thước phụ trong release/link cũ chỉ để tương thích lịch sử, **không phải file dev cần tích hợp mới**. ZIP hiện tại chỉ bàn giao một size gốc cho bộ này.
+
 Canvas **362 × 362 px**, **60 FPS**, speed **1.0**. Transparent background; no opaque floor, text or success icons. Water lines and blue underglow are authored effects. Original PNG bytes are embedded losslessly in every .lottie. No external fonts.
 
 | File | Duration | Frames |
