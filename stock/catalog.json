@@ -6,7 +6,7 @@
       "previewHeight": 820,
       "title": "SmartHue · Kết nối đèn",
       "description": "Từ hướng dẫn bật tắt đèn đến tìm kiếm, ghép nối và kết nối thành công. Có đầy đủ hai nhánh lỗi để bàn giao cho dev.",
-      "updated": "2026-10-22",
+      "updated": "2026-11-19",
       "poster": "stock/smarthue-poster.png",
       "fps": 60,
       "tags": [
@@ -17,7 +17,26 @@
       "variants": [
         {
           "id": "362x300",
-          "label": "362 × 300 px",
+          "label": "362 × 300 px · JSON tối ưu v2",
+          "preview": "ble-json-v2-362x300/?v=20261119",
+          "download": "handoff/smarthue-ble-362x300-json-v2-stock-2026-11-19.zip",
+          "clipBytes": {
+            "0": 520872,
+            "1": 5821097,
+            "2": 4148045,
+            "3": 273230,
+            "4": 1217596,
+            "5": 2316473,
+            "7": 3358852,
+            "8": 381560
+          },
+          "packageBytes": 3966985,
+          "downloadLabel": "Tải JSON tối ưu v2 + README",
+          "fileFormat": "json"
+        },
+        {
+          "id": "362x300-v21-1",
+          "label": "362 × 300 px · v21.1 trước tối ưu",
           "preview": "resize-362x300/?v=gradient-v21-1-20261022",
           "download": "handoff/smarthue-gradient-v21.1-362x300-2026-10-22.zip",
           "clipBytes": {
@@ -100,7 +119,8 @@
           "description": "Nhánh timeout nối tiếp từ trạng thái đang kết nối."
         }
       ],
-      "code": "01"
+      "code": "01",
+      "handoffLabel": "JSON tối ưu v2 + README"
     },
     {
       "id": "bridge-connect",

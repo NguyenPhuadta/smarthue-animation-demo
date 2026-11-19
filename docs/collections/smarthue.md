@@ -36,3 +36,23 @@ Không thay contract Scan Now 280ms hoặc thứ tự/chế độ lặp từng c
 ## v21.1 — sửa controller không hiện thay đổi
 
 Đưa lớp màu nền trắng xuống sau bốn nhóm gradient theo thứ tự vẽ Lottie. Trước đây lớp này che gradient: thông số và file export thay đổi nhưng preview không thể hiện đúng. Controller và file export nay cùng dùng đúng thứ tự lớp; mọi màu/opacity/độ lan được render ngay, kể cả khi pause. Không đổi motion, timing hoặc PNG alpha gốc. Cache của dữ liệu và script được đổi để nhận bản sửa.
+
+## JSON tối ưu v2 — 19/11/2026
+
+Theo yêu cầu của Phú, variant mặc định `362x300` chuyển sang bộ JSON tối ưu v2.
+Preview mới: `ble-json-v2-362x300/`; gói bàn giao có tên riêng
+`smarthue-ble-362x300-json-v2-stock-2026-11-19.zip`, chứa 8 JSON, README,
+font Inter và báo cáo. Dung lượng từng clip trong catalog tính theo JSON rời;
+nhãn tải và tooltip dung lượng phân biệt JSON với .lottie của các bản cũ.
+
+V1 loại trường kết thúc `e` trùng hoàn toàn với `s` của keyframe kế tiếp.
+V2 làm tròn riêng tọa độ Bezier và tangent đến 3 chữ số thập phân;
+sai số tối đa khoảng 0,0005 đơn vị local. Toàn bộ keyframe, timing, easing,
+transform, FPS và ảnh nhúng giữ nguyên. Raw JSON tổng cộng 18.037.725 byte.
+Không dùng thay đổi player/worker của bản thử optimization-v1.
+
+Giữ contract Scan Now, fade 280ms, thứ tự luồng và cách lặp đã chốt.
+Font `fonts/Inter.ttf` đi kèm để dev đăng ký Inter / Inter-Bold cho clip 00.
+Bản v21.1 cũ vẫn ở `resize-362x300/`, gói ZIP cũ giữ nguyên và có thể chọn
+bằng variant `362x300-v21-1`. Bản gốc 393×326 giữ nguyên.
+Phú đã yêu cầu đưa v2 lên stock; chưa có chứng nhận FPS/runtime native.
