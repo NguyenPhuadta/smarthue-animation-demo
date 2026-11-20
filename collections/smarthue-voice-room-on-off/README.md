@@ -39,3 +39,7 @@ Toàn bộ ảnh, font, JSON và manifest của cả ba variant, kèm 7 snapshot
 Storyboard: https://www.figma.com/design/ruonGWPEODjg9ckwcdXVwV/?node-id=2668-959
 
 Material library: https://www.figma.com/design/ruonGWPEODjg9ckwcdXVwV/?node-id=2670-959
+
+## 21 ảnh step đúng canvas 1:1 cho đủ ba variant Duo
+
+ZIP PNG render trực tiếp từ từng Lottie, không scale từ variant khác: https://nguyenphuadta.github.io/smarthue-animation-demo/handoff/smarthue-voice-room-duo-steps-1x-v2.0.0-2026-11-20.zip
