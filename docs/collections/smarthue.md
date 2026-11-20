@@ -65,3 +65,23 @@ Các variant BLE hiển thị cùng dung lượng **JSON chưa nén** ở cột 
 V2 dùng `clipBytes` JSON sẵn có. Nhãn cột là “JSON thô”; dung lượng ZIP
 bàn giao được ghi riêng. Trước thay đổi này, cột đã so JSON thô v2 với
 `.lottie` đã nén v21.1, gây hiểu nhầm v2 nặng hơn. Không đổi animation/gói tải.
+
+## JSON/.lottie tối ưu v3 — 20/11/2026
+
+Phú đã duyệt bản so sánh v3 và yêu cầu xuất bản. Variant `362x300` mặc định
+chuyển sang JSON v3; preview riêng ở `ble-json-v3-362x300/`. Có thêm lựa chọn
+`362x300-lottie-v3` tải cùng dữ liệu dưới dạng container nén .lottie.
+Các ZIP có tên v3-stock riêng. V2 giữ ở `362x300-json-v2`, link preview và
+các gói trước vẫn được giữ nguyên.
+
+Raw JSON toàn bộ: 8.128.667 byte. Tổng 8 .lottie: 2.270.973 byte, file lớn nhất
+445.371 byte. Cột dung lượng vẫn thống nhất JSON chưa nén giữa các variant,
+bao gồm variant tải .lottie; ZIP bàn giao hiển thị riêng.
+
+V3 giảm mẫu chỉ ở các track hình Bezier nội suy tuyến tính có đủ điều kiện;
+2.988 key hình được xét còn 1.066. Các easing tuyến tính được viết gọn với
+handle tương đương về toán học. FPS vẫn 60, thời lượng và ảnh nhúng giữ nguyên.
+Sai số tọa độ control-point đo tối đa 0,196034 đơn vị local trước transform.
+Đây là phép xấp xỉ đã được Phú chọn, không phải bản lossless.
+Không thay contract Scan Now, fade 280ms hoặc quy tắc chuyển/lặp cảnh.
+Chưa xác nhận FPS/renderer native trên thiết bị của dev.
