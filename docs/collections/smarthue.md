@@ -56,3 +56,12 @@ Font `fonts/Inter.ttf` đi kèm để dev đăng ký Inter / Inter-Bold cho clip
 Bản v21.1 cũ vẫn ở `resize-362x300/`, gói ZIP cũ giữ nguyên và có thể chọn
 bằng variant `362x300-v21-1`. Bản gốc 393×326 giữ nguyên.
 Phú đã yêu cầu đưa v2 lên stock; chưa có chứng nhận FPS/runtime native.
+
+### 20/11/2026 — thống nhất đơn vị hiển thị dung lượng
+
+Các variant BLE hiển thị cùng dung lượng **JSON chưa nén** ở cột clip.
+`rawClipBytes` lưu dung lượng JSON trong `.lottie` của các variant cũ;
+`clipBytes` cũ vẫn giữ dung lượng file `.lottie` để không đổi nghĩa metadata.
+V2 dùng `clipBytes` JSON sẵn có. Nhãn cột là “JSON thô”; dung lượng ZIP
+bàn giao được ghi riêng. Trước thay đổi này, cột đã so JSON thô v2 với
+`.lottie` đã nén v21.1, gây hiểu nhầm v2 nặng hơn. Không đổi animation/gói tải.
