@@ -357,8 +357,8 @@
     {
       "id": "smarthue-splash",
       "title": "SmartHue · Splash",
-      "description": "Chữ bay vào có chiều sâu, vòm sáng quét và glow cam hồng thở nhẹ. Một size gốc 466 × 678; host tự resize cho màn mở ngang.",
-      "sequenceDescription": "Splash gốc 10,7 giây → shimmering trên chữ đúng 8 giây (4 lượt × 2s). Tổng 18,7 giây; phát một lần, giữ frame cuối.",
+      "description": "Chữ bay vào có chiều sâu; vòm và glow fade in mềm, sau đó shimmering trên chữ đúng 8 giây. Size gốc 466 × 678; host tự resize.",
+      "sequenceDescription": "Chữ bay vào → vòm/blur fade in xong ở 4,7s → shimmering 8 giây. Tổng 12,7 giây, phát một lần và giữ hình cuối.",
       "updated": "2026-11-20",
       "poster": "stock/smarthue-splash-poster.png",
       "fps": 60,
@@ -372,21 +372,21 @@
         {
           "id": "466x678",
           "label": "466 × 678 px · Size gốc, host tự resize",
-          "preview": "collections/smarthue-splash-v1.1/?v=20261120-shimmer-v1&size=466x678",
-          "download": "handoff/smarthue-splash-466x678-shimmer-8s-v1.1.0-2026-11-20.zip",
+          "preview": "collections/smarthue-splash-v1.2/?v=20261120-fade-v2&size=466x678",
+          "download": "handoff/smarthue-splash-fade-shimmer-v1.2.0-2026-11-20.zip",
           "clipBytes": {
-            "0": 360513
+            "0": 286885
           },
-          "packageBytes": 5078710,
-          "flowBytes": 360513
+          "packageBytes": 285777,
+          "flowBytes": 286885
         }
       ],
       "clips": [
         {
           "id": 0,
           "title": "Splash SmartHue",
-          "seconds": 18.7,
-          "description": "Splash gốc 10,7 giây → shimmering trên chữ đúng 8 giây (4 lượt × 2s). Tổng 18,7 giây; phát một lần, giữ frame cuối."
+          "seconds": 12.7,
+          "description": "Chữ bay vào → vòm/blur fade in xong ở 4,7s → shimmering 8 giây. Tổng 12,7 giây, phát một lần và giữ hình cuối."
         }
       ],
       "code": "05"
