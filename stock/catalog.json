@@ -393,10 +393,10 @@
     },
     {
       "id": "smarthue-voice-room",
-      "title": "SmartHue · Điều khiển Siri",
-      "description": "Ba phiên bản iPhone Duo: 466 × 444, 473 × 669 và 951 × 669. Siri chuyển đèn vàng → Chill Mode hồng tím → tắt → bật lại; Hey Siri sáng trước từng lệnh.",
-      "sequenceDescription": "9 giây · 60 FPS · Speed 1× · Lặp liên tục. Nghỉ 0,5–0,6 giây trước mỗi lệnh. Chọn đúng kích thước cho thiết bị.",
-      "updated": "2026-10-24",
+      "title": "SmartHue · Siri bật / tắt đèn",
+      "description": "Chỉ lặp tắt đèn và bật đèn: phòng vàng → tối → vàng. Câu Hey Siri sáng trước lệnh. Ba variant theo trạng thái gập/mở iPhone Duo.",
+      "sequenceDescription": "6,6 giây · 60 FPS · Speed 1× · Loop turn off → turn on. Không có Chill Mode.",
+      "updated": "2026-11-20",
       "poster": "stock/smarthue-voice-room-poster.png",
       "fps": 60,
       "tags": [
@@ -411,43 +411,43 @@
         {
           "id": "466x444",
           "label": "466 × 444 px · iPhone Duo gập dọc",
-          "preview": "collections/smarthue-voice-room/?v=1.2.0",
-          "download": "handoff/smarthue-voice-room-device-guide-2026-10-26-v1.zip",
+          "preview": "collections/smarthue-voice-room-on-off/?v=2.0.0",
+          "download": "handoff/smarthue-voice-room-on-off-v2.0.0-2026-11-20.zip",
           "clipBytes": {
-            "0": 789414
+            "0": 559627
           },
-          "packageBytes": 9244305,
-          "flowBytes": 789414
+          "packageBytes": 1757649,
+          "flowBytes": 559627
         },
         {
           "id": "951x669",
           "label": "951 × 669 px · iPhone Duo mở ngang",
-          "preview": "collections/smarthue-voice-room/951x669/?v=1.2.0",
-          "download": "handoff/smarthue-voice-room-device-guide-2026-10-26-v1.zip",
+          "preview": "collections/smarthue-voice-room-on-off/951x669/?v=2.0.0",
+          "download": "handoff/smarthue-voice-room-on-off-v2.0.0-2026-11-20.zip",
           "clipBytes": {
-            "0": 853741
+            "0": 595934
           },
-          "packageBytes": 9244305,
-          "flowBytes": 853741
+          "packageBytes": 1757649,
+          "flowBytes": 595934
         },
         {
           "id": "473x669",
           "label": "473 × 669 px · iPhone Duo mở ngang · partially folded",
-          "preview": "collections/smarthue-voice-room/473x669/?v=1.0.0",
-          "download": "handoff/smarthue-voice-room-device-guide-2026-10-26-v1.zip",
+          "preview": "collections/smarthue-voice-room-on-off/473x669/?v=2.0.0",
+          "download": "handoff/smarthue-voice-room-on-off-v2.0.0-2026-11-20.zip",
           "clipBytes": {
-            "0": 778972
+            "0": 600250
           },
-          "packageBytes": 9244305,
-          "flowBytes": 778972
+          "packageBytes": 1757649,
+          "flowBytes": 600250
         }
       ],
       "clips": [
         {
           "id": 0,
-          "title": "Siri · Điều khiển đèn",
-          "seconds": 9,
-          "description": "Hey Siri → Chill Mode → tắt đèn → bật lại; giữ nhịp trước mỗi câu, lặp liên tục. Có bản gập dọc và mở ngang."
+          "title": "Siri · Tắt / bật đèn",
+          "seconds": 6.6,
+          "description": "Hey Siri, turn off → phòng tối → Hey Siri, turn on → phòng vàng; lặp liên tục, không có Chill Mode."
         }
       ],
       "code": "06"

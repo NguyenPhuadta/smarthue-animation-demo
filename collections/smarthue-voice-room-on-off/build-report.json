@@ -1,0 +1,35 @@
+{
+  "466x444": {
+    "file": "smarthue-voice-room-on-off-466x444-v2.0.0.lottie",
+    "bytes": 559627,
+    "frames": 396,
+    "seconds": 6.6,
+    "removedLayers": [
+      "chill caption fade",
+      "chill supplied amber-white glow",
+      "Chill Mode — registered pink purple room"
+    ]
+  },
+  "951x669": {
+    "file": "smarthue-voice-room-on-off-951x669-v2.0.0.lottie",
+    "bytes": 595934,
+    "frames": 396,
+    "seconds": 6.6,
+    "removedLayers": [
+      "chill caption fade",
+      "chill supplied amber-white glow",
+      "Chill Mode — registered pink purple room"
+    ]
+  },
+  "473x669": {
+    "file": "smarthue-voice-room-on-off-473x669-v2.0.0.lottie",
+    "bytes": 600250,
+    "frames": 396,
+    "seconds": 6.6,
+    "removedLayers": [
+      "chill caption fade",
+      "chill supplied amber-white glow",
+      "Chill Mode — registered pink purple room"
+    ]
+  }
+}
