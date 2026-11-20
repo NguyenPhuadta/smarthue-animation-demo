@@ -31,3 +31,11 @@ Trong .lottie: manifest.json animation id room; animations/room.json; images/ ch
 Đã xem preview Skottie web 466×444 ở câu tắt, câu bật và cuối vòng. Bản 951×669/473×669 dùng cùng phép cắt và kiểm tra cấu trúc; chưa xem render của hai variant đó hoặc kiểm tra native/device thật.
 
 ZIP này chỉ có 3 file .lottie + README. Preview web nằm trên stock. Asset, preview và ZIP cũ giữ nguyên để tương thích lịch sử; dùng v2.0.0 cho tính năng hiện tại.
+
+## Material tách riêng và storyboard Figma
+
+Toàn bộ ảnh, font, JSON và manifest của cả ba variant, kèm 7 snapshot minh họa: https://nguyenphuadta.github.io/smarthue-animation-demo/handoff/smarthue-voice-room-on-off-materials-v2.0.0-2026-11-20.zip
+
+Storyboard: https://www.figma.com/design/ruonGWPEODjg9ckwcdXVwV/?node-id=2668-959
+
+Material library: https://www.figma.com/design/ruonGWPEODjg9ckwcdXVwV/?node-id=2670-959

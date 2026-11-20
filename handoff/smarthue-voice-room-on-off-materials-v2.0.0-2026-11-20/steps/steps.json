@@ -1,0 +1,44 @@
+[
+  {
+    "step": 1,
+    "frame": 0,
+    "second": 0.0,
+    "file": "step-01.jpg"
+  },
+  {
+    "step": 2,
+    "frame": 96,
+    "second": 1.6,
+    "file": "step-02.jpg"
+  },
+  {
+    "step": 3,
+    "frame": 144,
+    "second": 2.4,
+    "file": "step-03.jpg"
+  },
+  {
+    "step": 4,
+    "frame": 180,
+    "second": 3.0,
+    "file": "step-04.jpg"
+  },
+  {
+    "step": 5,
+    "frame": 266,
+    "second": 4.433333333333334,
+    "file": "step-05.jpg"
+  },
+  {
+    "step": 6,
+    "frame": 350,
+    "second": 5.833333333333333,
+    "file": "step-06.jpg"
+  },
+  {
+    "step": 7,
+    "frame": 395,
+    "second": 6.583333333333333,
+    "file": "step-07.jpg"
+  }
+]

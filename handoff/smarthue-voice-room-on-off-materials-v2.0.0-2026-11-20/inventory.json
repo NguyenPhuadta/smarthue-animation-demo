@@ -1,0 +1,146 @@
+[
+  {
+    "size": "466x444",
+    "id": "room-warm",
+    "name": "room-warm-compact.jpg",
+    "width": 897,
+    "height": 855,
+    "bytes": 151240,
+    "mime": "image/jpeg"
+  },
+  {
+    "size": "466x444",
+    "id": "room-dark",
+    "name": "room-dark-compact.jpg",
+    "width": 897,
+    "height": 855,
+    "bytes": 132298,
+    "mime": "image/jpeg"
+  },
+  {
+    "size": "466x444",
+    "id": "caption-glow",
+    "name": "caption-glow-compact.png",
+    "width": 723,
+    "height": 508,
+    "bytes": 119054,
+    "mime": "image/png"
+  },
+  {
+    "size": "466x444",
+    "id": "off-halo",
+    "name": "off-halo-compact.png",
+    "width": 932,
+    "height": 888,
+    "bytes": 77795,
+    "mime": "image/png"
+  },
+  {
+    "size": "466x444",
+    "id": "on-halo",
+    "name": "on-halo-compact.png",
+    "width": 932,
+    "height": 888,
+    "bytes": 76539,
+    "mime": "image/png"
+  },
+  {
+    "size": "473x669",
+    "id": "room-warm",
+    "name": "room-warm.jpg",
+    "width": 473,
+    "height": 669,
+    "bytes": 105159,
+    "mime": "image/jpeg"
+  },
+  {
+    "size": "473x669",
+    "id": "room-dark",
+    "name": "room-dark.jpg",
+    "width": 473,
+    "height": 669,
+    "bytes": 91484,
+    "mime": "image/jpeg"
+  },
+  {
+    "size": "473x669",
+    "id": "caption-glow",
+    "name": "caption-glow-compact.png",
+    "width": 723,
+    "height": 508,
+    "bytes": 119054,
+    "mime": "image/png"
+  },
+  {
+    "size": "473x669",
+    "id": "off-halo",
+    "name": "off-halo-compact.png",
+    "width": 932,
+    "height": 888,
+    "bytes": 77795,
+    "mime": "image/png"
+  },
+  {
+    "size": "473x669",
+    "id": "on-halo",
+    "name": "on-halo-compact.png",
+    "width": 932,
+    "height": 888,
+    "bytes": 76539,
+    "mime": "image/png"
+  },
+  {
+    "size": "473x669",
+    "id": "right-blur",
+    "name": "right-blur.png",
+    "width": 231,
+    "height": 669,
+    "bytes": 125376,
+    "mime": "image/png"
+  },
+  {
+    "size": "951x669",
+    "id": "room-warm",
+    "name": "room-warm-compact.jpg",
+    "width": 951,
+    "height": 669,
+    "bytes": 178198,
+    "mime": "image/jpeg"
+  },
+  {
+    "size": "951x669",
+    "id": "room-dark",
+    "name": "room-dark-compact.jpg",
+    "width": 951,
+    "height": 669,
+    "bytes": 140679,
+    "mime": "image/jpeg"
+  },
+  {
+    "size": "951x669",
+    "id": "caption-glow",
+    "name": "caption-glow-compact.png",
+    "width": 723,
+    "height": 508,
+    "bytes": 119054,
+    "mime": "image/png"
+  },
+  {
+    "size": "951x669",
+    "id": "off-halo",
+    "name": "off-halo-compact.png",
+    "width": 932,
+    "height": 888,
+    "bytes": 77795,
+    "mime": "image/png"
+  },
+  {
+    "size": "951x669",
+    "id": "on-halo",
+    "name": "on-halo-compact.png",
+    "width": 932,
+    "height": 888,
+    "bytes": 76539,
+    "mime": "image/png"
+  }
+]
