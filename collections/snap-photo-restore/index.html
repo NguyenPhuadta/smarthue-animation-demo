@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Snap Photo · Colorize dialog</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="runtime/canvaskit.js"></script>
+  <script defer src="dialog.js"></script>
+</head>
+<body>
+  <main><button id="open" class="cta">Try Colorize Photo</button></main>
+  <dialog aria-labelledby="title" aria-describedby="subtitle">
+    <form method="dialog"><button class="close" aria-label="Close" value="close">×</button></form>
+    <div class="animation"><canvas width="480" height="368" aria-label="Four old images are restored in turn" role="img"></canvas><p id="error" role="status" hidden></p></div>
+    <div class="sparkle" aria-hidden="true"></div>
+    <h1 id="title">Try Colorize Photo</h1>
+    <p id="subtitle">Turn your photos into live memories with our AI templates</p>
+    <form method="dialog"><button class="cta" value="continue">Continue</button></form>
+  </dialog>
+</body>
+</html>

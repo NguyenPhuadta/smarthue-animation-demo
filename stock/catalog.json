@@ -629,6 +629,43 @@
         }
       ],
       "code": "09"
+    },
+    {
+      "id": "snap-photo-restore",
+      "code": "10",
+      "title": "Snap Photo · Colorize Photo",
+      "description": "Bốn card ảnh Mỹ và giấy tờ nhà đất cũ lần lượt được phục hồi, lên màu và đổi chỗ trong dialog.",
+      "sequenceDescription": "16 giây · 60 FPS · Lặp liên tục. Mỗi ảnh giữ một nhịp sau khi phục hồi rồi chuyển ra sau.",
+      "updated": "2026-11-21",
+      "poster": "stock/snap-photo-restore-poster.png",
+      "fps": 60,
+      "tags": [
+        "Snap Photo",
+        "Colorize",
+        "Card Swap"
+      ],
+      "previewHeight": 550,
+      "variants": [
+        {
+          "id": "720x720",
+          "label": "720 × 720 px · Demo dialog",
+          "preview": "collections/snap-photo-restore/?v=7",
+          "download": "handoff/snap-photo-restore-v7.zip",
+          "clipBytes": {
+            "0": 629597
+          },
+          "flowBytes": 629597,
+          "packageBytes": 4547316
+        }
+      ],
+      "clips": [
+        {
+          "id": 0,
+          "title": "Colorize Photo",
+          "seconds": 16,
+          "description": "Ảnh cũ → lên màu và rõ nét → đổi card. Bốn card, viền trắng."
+        }
+      ]
     }
   ]
 }
