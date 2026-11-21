@@ -634,8 +634,8 @@
       "id": "snap-photo-restore",
       "code": "10",
       "title": "Snap Photo · Enhance Card Swap",
-      "description": "Ảnh đen trắng vỡ nét được enhance lên sắc nét. Bốn card lần lượt đổi lớp.",
-      "sequenceDescription": "16 giây · 60 FPS · Loop. Ảnh đen trắng vỡ nét → ảnh đen trắng sắc nét.",
+      "description": "Ảnh đen trắng hơi thiếu nét, blur nhẹ được enhance rõ hơn. Bốn card đổi lớp.",
+      "sequenceDescription": "16 giây · 60 FPS · Loop. Ảnh đen trắng blur nhẹ → sắc nét.",
       "updated": "2026-11-21",
       "poster": "stock/snap-photo-restore-poster-mono.png",
       "fps": 60,
@@ -649,12 +649,12 @@
         {
           "id": "720x720",
           "label": "720 × 720 px",
-          "preview": "collections/snap-photo-restore/animation.html?v=mono-enhance4",
-          "download": "collections/snap-photo-restore/Snap-Photo-Enhance-Mono-720x720-v9.lottie",
+          "preview": "collections/snap-photo-restore/animation.html?v=soft-enhance4",
+          "download": "collections/snap-photo-restore/Snap-Photo-Enhance-Soft-720x720-v10.lottie",
           "clipBytes": {
-            "0": 417186
+            "0": 532275
           },
-          "flowBytes": 417186,
+          "flowBytes": 532275,
           "downloadLabel": "Tải .lottie",
           "directDownload": true
         }
@@ -664,7 +664,7 @@
           "id": 0,
           "title": "Enhance ảnh",
           "seconds": 16,
-          "description": "Enhance ảnh đen trắng từ vỡ nét lên rõ chi tiết, giữ tông đen trắng."
+          "description": "Ảnh đen trắng hơi mờ → enhance rõ nét."
         }
       ],
       "handoffLabel": "Lottie"
@@ -673,8 +673,8 @@
       "id": "snap-photo-portrait-fade",
       "code": "11",
       "title": "Snap Photo · Enhance dọc",
-      "description": "Ảnh đen trắng vỡ nét được enhance lên sắc nét. Ba ảnh lần lượt hiện lên rồi fade out.",
-      "sequenceDescription": "8 giây · 60 FPS · Loop. Ảnh đen trắng vỡ nét → ảnh đen trắng sắc nét.",
+      "description": "Ảnh đen trắng hơi thiếu nét, blur nhẹ được enhance rõ hơn. Ba ảnh fade lần lượt.",
+      "sequenceDescription": "8 giây · 60 FPS · Loop. Ảnh đen trắng blur nhẹ → sắc nét.",
       "updated": "2026-11-21",
       "poster": "stock/snap-photo-portrait-fade-poster-mono.png",
       "fps": 60,
@@ -688,12 +688,12 @@
         {
           "id": "159x206",
           "label": "159 × 206 px · Phủ kín khung",
-          "preview": "collections/snap-photo-portrait-fade/?v=mono-enhance4",
-          "download": "collections/snap-photo-portrait-fade/Snap-Photo-Enhance-Mono-159x206-v3.lottie",
+          "preview": "collections/snap-photo-portrait-fade/?v=soft-enhance4",
+          "download": "collections/snap-photo-portrait-fade/Snap-Photo-Enhance-Soft-159x206-v4.lottie",
           "clipBytes": {
-            "0": 169882
+            "0": 191599
           },
-          "flowBytes": 169882,
+          "flowBytes": 191599,
           "downloadLabel": "Tải .lottie",
           "directDownload": true
         }
@@ -703,7 +703,7 @@
           "id": 0,
           "title": "Enhance ảnh",
           "seconds": 8,
-          "description": "Enhance ảnh đen trắng từ vỡ nét lên rõ chi tiết, giữ tông đen trắng."
+          "description": "Ảnh đen trắng hơi mờ → enhance rõ nét."
         }
       ],
       "handoffLabel": "Lottie"

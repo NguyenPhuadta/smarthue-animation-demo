@@ -8,7 +8,7 @@ async function startPlayer() {
   const runtime = new URL('runtime/', location.href);
   const [kit, doc] = await Promise.all([
     CanvasKitInit({locateFile: file => new URL(file, runtime).href}),
-    fetch('enhance-mono-v3.json').then(response => response.json()),
+    fetch('enhance-soft-v4.json').then(response => response.json()),
   ]);
   const imageEntries = await Promise.all(doc.assets.filter(asset => asset.p).map(async asset => {
     const response = await fetch('images/' + asset.p);
