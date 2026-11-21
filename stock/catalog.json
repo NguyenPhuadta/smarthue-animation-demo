@@ -633,28 +633,28 @@
     {
       "id": "snap-photo-restore",
       "code": "10",
-      "title": "Snap Photo · Colorize Photo",
-      "description": "Bốn card ảnh Mỹ và giấy tờ nhà đất cũ lần lượt lên màu, rõ nét rồi đổi chỗ.",
-      "sequenceDescription": "16 giây · 60 FPS · Lặp liên tục. Mỗi ảnh giữ một nhịp sau khi phục hồi rồi chuyển ra sau.",
+      "title": "Snap Photo · Enhance Card Swap",
+      "description": "Ảnh màu độ phân giải rất thấp được enhance lên rõ nét. Bốn card lần lượt chuyển lớp.",
+      "sequenceDescription": "16 giây · 60 FPS · Lặp liên tục. Ảnh màu vỡ nét → ảnh sắc nét.",
       "updated": "2026-11-21",
       "poster": "stock/snap-photo-restore-poster.png",
       "fps": 60,
       "tags": [
         "Snap Photo",
-        "Colorize",
-        "Card Swap"
+        "Enhance",
+        "Before / After"
       ],
       "previewHeight": 530,
       "variants": [
         {
           "id": "720x720",
           "label": "720 × 720 px",
-          "preview": "collections/snap-photo-restore/animation.html?v=1",
-          "download": "collections/snap-photo-restore/Snap-Photo-Restore-720x720-v7.lottie",
+          "preview": "collections/snap-photo-restore/animation.html?v=enhance2",
+          "download": "collections/snap-photo-restore/Snap-Photo-Enhance-720x720-v8.lottie",
           "clipBytes": {
-            "0": 629597
+            "0": 473405
           },
-          "flowBytes": 629597,
+          "flowBytes": 473405,
           "downloadLabel": "Tải .lottie",
           "directDownload": true
         }
@@ -662,9 +662,9 @@
       "clips": [
         {
           "id": 0,
-          "title": "Colorize Photo",
+          "title": "Enhance ảnh",
           "seconds": 16,
-          "description": "Ảnh cũ → lên màu và rõ nét → đổi card. Bốn card, viền trắng."
+          "description": "Cùng một ảnh màu từ độ phân giải rất thấp lên rõ nét."
         }
       ],
       "handoffLabel": "Lottie"
@@ -672,28 +672,28 @@
     {
       "id": "snap-photo-portrait-fade",
       "code": "11",
-      "title": "Snap Photo · Colorize dọc",
-      "description": "Ba ảnh cũ lần lượt lên màu rồi mờ đi. Bản 159 × 206 phủ kín khung dọc.",
-      "sequenceDescription": "Gia đình Mỹ → em bé Mỹ → giấy tờ nhà đất Mỹ. Lặp mỗi 8 giây.",
+      "title": "Snap Photo · Enhance dọc",
+      "description": "Ảnh màu độ phân giải rất thấp được enhance lên rõ nét. Ba ảnh lần lượt hiện lên và fade out.",
+      "sequenceDescription": "8 giây · 60 FPS · Lặp liên tục. Ảnh màu vỡ nét → ảnh sắc nét.",
       "updated": "2026-11-21",
       "poster": "stock/snap-photo-portrait-fade-poster.png",
       "fps": 60,
       "tags": [
         "Snap Photo",
-        "Colorize",
-        "159 × 206"
+        "Enhance",
+        "Before / After"
       ],
       "previewHeight": 570,
       "variants": [
         {
           "id": "159x206",
           "label": "159 × 206 px · Phủ kín khung",
-          "preview": "collections/snap-photo-portrait-fade/?v=1",
-          "download": "collections/snap-photo-portrait-fade/Snap-Photo-Portrait-Fade-159x206-v1.lottie",
+          "preview": "collections/snap-photo-portrait-fade/?v=enhance2",
+          "download": "collections/snap-photo-portrait-fade/Snap-Photo-Enhance-159x206-v2.lottie",
           "clipBytes": {
-            "0": 219967
+            "0": 196233
           },
-          "flowBytes": 219967,
+          "flowBytes": 196233,
           "downloadLabel": "Tải .lottie",
           "directDownload": true
         }
@@ -701,9 +701,9 @@
       "clips": [
         {
           "id": 0,
-          "title": "Colorize dọc",
+          "title": "Enhance ảnh",
           "seconds": 8,
-          "description": "Ảnh cũ lên màu, giữ một nhịp rồi fade out trước khi ảnh kế tiếp hiện lên."
+          "description": "Cùng một ảnh màu từ độ phân giải rất thấp lên rõ nét."
         }
       ],
       "handoffLabel": "Lottie"
