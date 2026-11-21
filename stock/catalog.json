@@ -666,6 +666,43 @@
           "description": "Ảnh cũ → lên màu và rõ nét → đổi card. Bốn card, viền trắng."
         }
       ]
+    },
+    {
+      "id": "snap-photo-portrait-fade",
+      "code": "11",
+      "title": "Snap Photo · Colorize dọc",
+      "description": "Ba ảnh cũ lần lượt lên màu rồi mờ đi. Bản 159 × 206 phủ kín khung dọc.",
+      "sequenceDescription": "Gia đình Mỹ → em bé Mỹ → giấy tờ nhà đất Mỹ. Lặp mỗi 8 giây.",
+      "updated": "2026-11-21",
+      "poster": "stock/snap-photo-portrait-fade-poster.png",
+      "fps": 60,
+      "tags": [
+        "Snap Photo",
+        "Colorize",
+        "159 × 206"
+      ],
+      "previewHeight": 570,
+      "variants": [
+        {
+          "id": "159x206",
+          "label": "159 × 206 px · Phủ kín khung",
+          "preview": "collections/snap-photo-portrait-fade/?v=1",
+          "download": "handoff/snap-photo-portrait-fade-159x206-v1.zip",
+          "clipBytes": {
+            "0": 219967
+          },
+          "flowBytes": 219967,
+          "packageBytes": 3949882
+        }
+      ],
+      "clips": [
+        {
+          "id": 0,
+          "title": "Colorize dọc",
+          "seconds": 8,
+          "description": "Ảnh cũ lên màu, giữ một nhịp rồi fade out trước khi ảnh kế tiếp hiện lên."
+        }
+      ]
     }
   ]
 }
