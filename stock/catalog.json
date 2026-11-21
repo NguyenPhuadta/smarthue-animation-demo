@@ -689,12 +689,13 @@
           "id": "159x206",
           "label": "159 × 206 px · Phủ kín khung",
           "preview": "collections/snap-photo-portrait-fade/?v=1",
-          "download": "handoff/snap-photo-portrait-fade-159x206-v1.zip",
+          "download": "collections/snap-photo-portrait-fade/Snap-Photo-Portrait-Fade-159x206-v1.lottie",
           "clipBytes": {
             "0": 219967
           },
           "flowBytes": 219967,
-          "packageBytes": 3949882
+          "downloadLabel": "Tải .lottie",
+          "directDownload": true
         }
       ],
       "clips": [
@@ -704,7 +705,8 @@
           "seconds": 8,
           "description": "Ảnh cũ lên màu, giữ một nhịp rồi fade out trước khi ảnh kế tiếp hiện lên."
         }
-      ]
+      ],
+      "handoffLabel": "Lottie"
     }
   ]
 }
