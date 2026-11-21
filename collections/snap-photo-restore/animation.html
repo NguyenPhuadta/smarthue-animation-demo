@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Snap Photo · Colorize Photo</title>
+<style>
+body{margin:0;background:#161616;color:#f5f5f5;font:14px/1.4 system-ui}
+main{max-width:420px;margin:auto;padding:24px 16px;text-align:center}
+canvas{display:block;width:min(100%,400px);height:auto;background:#212121;margin:0 auto 16px}
+.controls{display:flex;justify-content:center;align-items:center;gap:8px}
+button,input{font:inherit} button{color:inherit;background:#252525;border:1px solid #525252;border-radius:6px;padding:6px 8px;cursor:pointer}
+input{width:min(26vw,125px)} a{color:#b9dfff} output{min-width:42px}
+</style>
+<main>
+  <canvas width="720" height="720" aria-label="Bốn ảnh cũ lần lượt được phục hồi"></canvas>
+  <div class="controls">
+    <button id="play" disabled>Tạm dừng</button>
+    <button id="replay" disabled>Phát lại</button>
+    <input id="seek" type="range" min="0" max="959" value="0" aria-label="Tiến trình" disabled>
+    <output id="time">0,0 s</output>
+  </div>
+  <p id="status" role="status">Đang tải animation…</p>
+  <p><a href="Snap-Photo-Restore-720x720-v7.lottie" download>Tải .lottie</a></p>
+</main>
+<script src="runtime/canvaskit.js"></script>
+<script src="animation-player.js"></script>
+</html>
