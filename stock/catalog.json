@@ -634,7 +634,7 @@
       "id": "snap-photo-restore",
       "code": "10",
       "title": "Snap Photo · Enhance Card Swap",
-      "description": "Ảnh đen trắng hơi thiếu nét, blur nhẹ được enhance rõ hơn. Bốn card đổi lớp.",
+      "description": "Ảnh đen trắng hơi mờ và nhiễu hạt nhẹ được enhance rõ nét. Bốn card đổi lớp.",
       "sequenceDescription": "16 giây · 60 FPS · Loop. Ảnh đen trắng blur nhẹ → sắc nét.",
       "updated": "2026-11-21",
       "poster": "stock/snap-photo-restore-poster-mono.png",
@@ -649,12 +649,12 @@
         {
           "id": "720x720",
           "label": "720 × 720 px",
-          "preview": "collections/snap-photo-restore/animation.html?v=soft-enhance4",
-          "download": "collections/snap-photo-restore/Snap-Photo-Enhance-Soft-720x720-v10.lottie",
+          "preview": "collections/snap-photo-restore/animation.html?v=soft-enhance6",
+          "download": "collections/snap-photo-restore/Snap-Photo-Enhance-Soft-720x720-v11.lottie",
           "clipBytes": {
-            "0": 532275
+            "0": 617594
           },
-          "flowBytes": 532275,
+          "flowBytes": 617594,
           "downloadLabel": "Tải .lottie",
           "directDownload": true
         }
@@ -673,7 +673,7 @@
       "id": "snap-photo-portrait-fade",
       "code": "11",
       "title": "Snap Photo · Enhance dọc",
-      "description": "Ảnh đen trắng hơi thiếu nét, blur nhẹ được enhance rõ hơn. Ba ảnh fade lần lượt.",
+      "description": "Ảnh đen trắng hơi mờ và nhiễu hạt nhẹ được enhance rõ nét. Ba ảnh fade lần lượt.",
       "sequenceDescription": "8 giây · 60 FPS · Loop. Ảnh đen trắng blur nhẹ → sắc nét.",
       "updated": "2026-11-21",
       "poster": "stock/snap-photo-portrait-fade-poster-mono.png",
@@ -688,12 +688,12 @@
         {
           "id": "159x206",
           "label": "159 × 206 px · Phủ kín khung",
-          "preview": "collections/snap-photo-portrait-fade/?v=soft-enhance4",
-          "download": "collections/snap-photo-portrait-fade/Snap-Photo-Enhance-Soft-159x206-v4.lottie",
+          "preview": "collections/snap-photo-portrait-fade/?v=soft-enhance6",
+          "download": "collections/snap-photo-portrait-fade/Snap-Photo-Enhance-Soft-159x206-v5.lottie",
           "clipBytes": {
-            "0": 191599
+            "0": 224815
           },
-          "flowBytes": 191599,
+          "flowBytes": 224815,
           "downloadLabel": "Tải .lottie",
           "directDownload": true
         }
