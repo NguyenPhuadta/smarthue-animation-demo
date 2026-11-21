@@ -12,7 +12,7 @@ dialog.querySelector('.close').blur();
 async function loadAnimation() {
   const [kit, documentData] = await Promise.all([
     window.CanvasKitInit({locateFile: name => 'runtime/' + name}),
-    fetch('photo-restore.json?v=mono-enhance3').then(response => {
+    fetch('enhance-mono-v3.json').then(response => {
       if (!response.ok) throw new Error('Animation could not load.');
       return response.json();
     }),

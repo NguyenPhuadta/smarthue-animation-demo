@@ -637,7 +637,7 @@
       "description": "Ảnh đen trắng vỡ nét được enhance lên sắc nét. Bốn card lần lượt đổi lớp.",
       "sequenceDescription": "16 giây · 60 FPS · Loop. Ảnh đen trắng vỡ nét → ảnh đen trắng sắc nét.",
       "updated": "2026-11-21",
-      "poster": "stock/snap-photo-restore-poster.png",
+      "poster": "stock/snap-photo-restore-poster-mono.png",
       "fps": 60,
       "tags": [
         "Snap Photo",
@@ -649,7 +649,7 @@
         {
           "id": "720x720",
           "label": "720 × 720 px",
-          "preview": "collections/snap-photo-restore/animation.html?v=mono-enhance3",
+          "preview": "collections/snap-photo-restore/animation.html?v=mono-enhance4",
           "download": "collections/snap-photo-restore/Snap-Photo-Enhance-Mono-720x720-v9.lottie",
           "clipBytes": {
             "0": 417186
@@ -676,7 +676,7 @@
       "description": "Ảnh đen trắng vỡ nét được enhance lên sắc nét. Ba ảnh lần lượt hiện lên rồi fade out.",
       "sequenceDescription": "8 giây · 60 FPS · Loop. Ảnh đen trắng vỡ nét → ảnh đen trắng sắc nét.",
       "updated": "2026-11-21",
-      "poster": "stock/snap-photo-portrait-fade-poster.png",
+      "poster": "stock/snap-photo-portrait-fade-poster-mono.png",
       "fps": 60,
       "tags": [
         "Snap Photo",
@@ -688,7 +688,7 @@
         {
           "id": "159x206",
           "label": "159 × 206 px · Phủ kín khung",
-          "preview": "collections/snap-photo-portrait-fade/?v=mono-enhance3",
+          "preview": "collections/snap-photo-portrait-fade/?v=mono-enhance4",
           "download": "collections/snap-photo-portrait-fade/Snap-Photo-Enhance-Mono-159x206-v3.lottie",
           "clipBytes": {
             "0": 169882
